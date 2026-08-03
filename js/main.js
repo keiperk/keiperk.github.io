@@ -1,5 +1,5 @@
-// Scroll-reveal for case study rows
-const rows = document.querySelectorAll('.case-row');
+// Scroll-reveal for case study rows and detail-page sections
+const rows = document.querySelectorAll('.case-row, .reveal');
 
 if ('IntersectionObserver' in window && rows.length) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -41,5 +41,53 @@ if (form) {
     } catch {
       status.textContent = "Something went wrong. Please email me directly.";
     }
+  });
+}
+
+// Lightbox — click any gallery/lead image (not ones already wrapped in
+// a link, e.g. a PDF link) to view it enlarged.
+const lightboxImages = document.querySelectorAll('.detail-gallery__item img, .detail-lead-image img');
+if (lightboxImages.length) {
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><div class="lightbox-frame"><img alt=""><p class="lightbox-caption"></p></div>';
+  document.body.appendChild(overlay);
+
+  const overlayImg = overlay.querySelector('img');
+  const overlayCaption = overlay.querySelector('.lightbox-caption');
+
+  function getCaption(img) {
+    const figure = img.closest('figure');
+    if (figure) {
+      const cap = figure.querySelector('.detail-gallery__caption');
+      return cap ? cap.textContent.trim() : '';
+    }
+    const leadImage = img.closest('.detail-lead-image');
+    if (leadImage && leadImage.parentElement) {
+      const cap = leadImage.parentElement.querySelector('.detail-gallery__caption');
+      return cap ? cap.textContent.trim() : '';
+    }
+    return '';
+  }
+
+  function openLightbox(src, alt, caption) {
+    overlayImg.src = src;
+    overlayImg.alt = alt || '';
+    overlayCaption.textContent = caption || '';
+    overlayCaption.style.display = caption ? '' : 'none';
+    overlay.classList.add('is-open');
+  }
+  function closeLightbox() {
+    overlay.classList.remove('is-open');
+  }
+
+  lightboxImages.forEach((img) => {
+    if (img.closest('a')) return;
+    img.addEventListener('click', () => openLightbox(img.src, img.alt, getCaption(img)));
+  });
+
+  overlay.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
   });
 }

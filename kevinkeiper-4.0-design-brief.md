@@ -119,6 +119,13 @@ sites).
 
 ## Open questions
 
+- [ ] **About me section on the home page** — not a separate About page
+      (that's still out of scope), but an in-page section. Would likely
+      house a stat bar (real numbers, tbd which). Floated but not
+      decided — pick back up after the 4 detail pages are done.
+- [ ] **Marquee ticker repurpose** — currently repeats project names
+      redundantly with the case study list below it. Idea: swap content
+      to "tools I use" instead, so it does a real job. Not decided.
 - [ ] Lead image for the kevinkeiper.com case study itself — not yet
       selected. Candidate: a photo Kevin took in Bangladesh.
 - [ ] Card image crop ratio and per-image crop/focal point — deferred to
