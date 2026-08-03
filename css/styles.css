@@ -190,6 +190,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
    ========================================================================== */
 .case-studies {
   padding-block: calc(var(--sp-8) - 40px) var(--sp-8);
+  scroll-margin-top: 57px;
 }
 .case-studies > .wrap > .section-label {
   display: block;
