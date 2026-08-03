@@ -12,7 +12,7 @@ opportunity, who want to understand him before they meet him.
 
 Done means:
 - 4 primary case studies complete, each with a similar structure, supported
-  by images: Opportunity Radar, Neux, kevinkeiper.com (itself), and Impact
+  by images: Opportunity Radar, NeU/X, kevinkeiper.com (itself), and Impact
   Atlas.
 - Case study detail pages for each of the 4 primary case studies, linked
   from their card.
@@ -56,8 +56,11 @@ suppressing the work's real color.
   hover/interactive states, no shadows on static elements.
 
 ### Layout
-- Card grid: image-dominant cards (large image, not a small thumbnail),
-  uniform card rhythm across all 6.
+- **Decided:** full-width alternating rows (image/text swap sides each
+  row), numbered 01–04, not a uniform card grid. Bolder type scale
+  (headline up to ~8rem), marquee ticker of project names under the
+  header. Superseded the earlier "uniform card grid" direction — kept as
+  `experiments/simple/` for reference.
 - Tags/badges: outlined pill treatment (also called "rail-tags" in other
   sessions — same concept). Exact treatment flexible — whatever
   communicates the info best, not locked to one specific style.
@@ -75,7 +78,7 @@ card already chosen:
 | Case study | Lead image | Native size | Aspect ratio |
 |---|---|---|---|
 | Opportunity Radar | opprad-01 | 1440×1247 | 1.15:1 |
-| Neux | neux-08 (thumb) / neux-09 (full) | 1440×900 | 1.6:1 |
+| NeU/X | neux-08 (thumb) / neux-09 (full) | 1440×900 | 1.6:1 |
 | kevinkeiper.com (itself) | TBD — not yet selected | — | — |
 | Impact Atlas | impact-atlas-12 | 1600×783 | 2.04:1 |
 
@@ -94,7 +97,7 @@ sites).
 - **Opportunity Radar:** Finds companies likely to be hiring before roles
   are even posted — a live dashboard ranking hiring momentum by tracking
   signal strength across news, Reddit, and LinkedIn in real time.
-- **Neux:** Neux is an AI co-pilot that turns creator goals into actionable
+- **NeU/X:** NeU/X is an AI co-pilot that turns creator goals into actionable
   plans. Self-directed capstone project — designed in Figma, built with AI
   and code.
 - **kevinkeiper.com:** This site is its own case study — designed and

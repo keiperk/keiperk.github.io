@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kevin Keiper — AI Product Designer</title>
+<meta name="description" content="Portfolio and statement of purpose — success studies and future direction.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <span class="site-header__name">Kevin Keiper</span>
+    <a href="#contact" class="site-header__cta">Get in touch</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="hero__eyebrow">Portfolio &amp; statement of purpose</p>
+      <h1 class="hero__headline">I design products with AI as a genuine collaborator, not a shortcut.</h1>
+      <p class="hero__body">A record of past success studies alongside future direction — this site grows and shifts as I do. Built to help you understand how I work before we meet.</p>
+    </div>
+  </section>
+
+  <section class="case-studies" id="work">
+    <div class="wrap">
+      <p class="section-label">Selected work</p>
+
+      <div class="card-grid">
+
+        <article class="case-card">
+          <a href="#" class="case-card__image-link" aria-label="Opportunity Radar case study">
+            <img src="assets/images/cards/opportunity-radar.png" alt="Opportunity Radar dashboard showing ranked companies by hiring signal strength" class="case-card__image" width="1200" height="1039" loading="lazy">
+          </a>
+          <div class="case-card__body">
+            <h2 class="case-card__title">Opportunity Radar</h2>
+            <p class="case-card__desc">Finds companies likely to be hiring before roles are even posted — a live dashboard ranking hiring momentum by tracking signal strength across news, Reddit, and LinkedIn in real time.</p>
+            <ul class="tag-row">
+              <li class="tag">Product Design</li>
+              <li class="tag">AI Workflow</li>
+              <li class="tag">Live Product</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <a href="#" class="case-card__image-link" aria-label="NeU/X case study">
+            <img src="assets/images/cards/neux.png" alt="NeU/X AI co-pilot interface for creator goal planning" class="case-card__image" width="1200" height="750" loading="lazy">
+          </a>
+          <div class="case-card__body">
+            <h2 class="case-card__title">NeU/X</h2>
+            <p class="case-card__desc">An AI co-pilot that turns creator goals into actionable plans. Self-directed capstone project — designed in Figma, built with AI and code.</p>
+            <ul class="tag-row">
+              <li class="tag">Capstone</li>
+              <li class="tag">AI Product</li>
+              <li class="tag">Figma → Code</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <a href="#" class="case-card__image-link" aria-label="kevinkeiper.com case study">
+            <img src="assets/images/cards/kevinkeiper-com.png" alt="A flooded field in Bangladesh at dawn, shot on film" class="case-card__image" width="1200" height="1200" loading="lazy">
+          </a>
+          <div class="case-card__body">
+            <h2 class="case-card__title">kevinkeiper.com</h2>
+            <p class="case-card__desc">This site is its own case study — designed and built using AI-assisted workflows across Figma, Claude, and Cursor, documented as it happens.</p>
+            <ul class="tag-row">
+              <li class="tag">Meta</li>
+              <li class="tag">AI Workflow</li>
+              <li class="tag">In Progress</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <a href="#" class="case-card__image-link" aria-label="Impact Atlas case study">
+            <img src="assets/images/cards/impact-atlas.png" alt="Impact Atlas interface for mapping global poverty-reduction program data" class="case-card__image" width="1200" height="587" loading="lazy">
+          </a>
+          <div class="case-card__body">
+            <h2 class="case-card__title">Impact Atlas</h2>
+            <p class="case-card__desc">Designing scalable tools for global poverty-reduction programs — mapping participant selection, field visits, and multi-level reporting across program organizers, branch managers, and regional teams.</p>
+            <ul class="tag-row">
+              <li class="tag">Systems Design</li>
+              <li class="tag">Social Impact</li>
+              <li class="tag">Enterprise</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="section-label">Get in touch</p>
+      <h2 class="contact__headline">Evaluating me for a role? Let's talk.</h2>
+
+      <form class="contact-form" id="contact-form" method="POST" action="#">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 Kevin Keiper</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
