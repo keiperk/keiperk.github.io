@@ -70,6 +70,12 @@ label with a small monochrome/outlined icon glyph in `ink` — never the
 tool's actual brand color. The glyph is a simplified pictogram, not a
 literal reproduction of the brand's logo file.
 
+**Exception — About page Tools list**: uses real favicon images
+(`assets/tool-logos/`), full brand color, 16px square. Decided
+deliberately for that specific list (a dense inventory of 15 tools) —
+doesn't apply elsewhere. Case study platform badges keep the
+monochrome-glyph rule above.
+
 ## Anti-patterns (reviewed and rejected references)
 - Colorful gradient/blob hero treatments.
 - Diagonal/angled section dividers, drop shadows, glossy effects.

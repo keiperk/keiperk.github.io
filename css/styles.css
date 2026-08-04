@@ -87,6 +87,20 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   font-weight: 700;
   letter-spacing: -0.01em;
 }
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.site-header__link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+.site-header__link:hover {
+  color: var(--ink);
+}
 .site-header__cta {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -227,7 +241,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   display: block;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: #F6F6F6;
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
@@ -256,6 +270,68 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   line-height: 1.6;
   max-width: 48ch;
   margin-bottom: var(--sp-5);
+}
+
+/* Doc quote — a real excerpt from one of the project's own .md files */
+.doc-quote {
+  max-width: var(--content-measure);
+  margin-top: var(--sp-5);
+  border-left: 2px solid var(--line-strong);
+  padding-left: var(--sp-4);
+}
+.doc-quote__file {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: var(--sp-2);
+}
+.doc-quote__text {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Example exchange — real prompt/outcome pairs, used sparingly */
+.exchange-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-5);
+  margin-top: var(--sp-6);
+  max-width: var(--content-measure);
+}
+.exchange {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--sp-4);
+}
+.exchange__prompt {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink);
+  padding-left: var(--sp-3);
+  border-left: 2px solid var(--line-strong);
+  margin-bottom: var(--sp-3);
+}
+.exchange__prompt::before {
+  content: '"';
+}
+.exchange__prompt::after {
+  content: '"';
+}
+.exchange__result {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.exchange__result strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .exchange-grid { grid-template-columns: 1fr; }
 }
 
 .tag-row {
@@ -694,6 +770,13 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   height: 14px;
   flex-shrink: 0;
   stroke: var(--ink);
+}
+.tool-badge img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 3px;
+  object-fit: contain;
 }
 
 /* Metrics */

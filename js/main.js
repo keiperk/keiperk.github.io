@@ -83,7 +83,7 @@ if (lightboxImages.length) {
 
   lightboxImages.forEach((img) => {
     if (img.closest('a')) return;
-    img.addEventListener('click', () => openLightbox(img.src, img.alt, getCaption(img)));
+    img.addEventListener('click', () => openLightbox(img.dataset.full || img.src, img.alt, getCaption(img)));
   });
 
   overlay.addEventListener('click', closeLightbox);

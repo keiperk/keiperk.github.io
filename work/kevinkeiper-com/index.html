@@ -15,7 +15,11 @@
 <header class="site-header">
   <div class="wrap site-header__inner">
     <span class="site-header__name">Kevin Keiper</span>
-    <a href="../../index.html#contact" class="site-header__cta">Get in touch</a>
+    <div class="site-header__nav">
+      <a href="../about/index.html" class="site-header__link">About</a>
+      <a href="../../assets/resume/Kevin-Keiper-Resume.pdf" class="site-header__link" target="_blank" rel="noopener">Resume</a>
+      <a href="../../index.html#contact" class="site-header__cta">Get in touch</a>
+    </div>
   </div>
 </header>
 
@@ -65,7 +69,7 @@
 
         <div>
           <div class="detail-lead-image reveal">
-            <img src="images/hero.jpg" alt="A flooded field in Bangladesh at dawn, shot on film">
+            <img src="images/site-card-hero-v2.png" alt="Screenshot of the kevinkeiper.com home page hero">
           </div>
           <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">The site's own card image, chosen mid-build — one of many small decisions made live.</p>
         </div>
@@ -85,8 +89,8 @@
           <div class="stat-tile__label">Conversation, start to (still) not finished</div>
         </div>
         <div class="stat-tile">
-          <div class="stat-tile__number is-placeholder" style="color: var(--line-strong); font-style: italic; font-size: 1.25rem;">Placeholder</div>
-          <div class="stat-tile__label">Add a metric that matters to you</div>
+          <div class="stat-tile__number">~10 hrs</div>
+          <div class="stat-tile__label">Saved with new workflow and tools</div>
         </div>
       </div>
 
@@ -120,6 +124,17 @@
           <p>Everything past that was a live conversation with Claude Code, one decision at a time, with both briefs kept updated as real decisions got made rather than treated as fixed upfront.</p>
           <p>Direction changed constantly and visibly within that structure: a simple card grid became a bold alternating-row layout, then a sticky-rail layout borrowed from a pattern on the old Webflow site, refined over dozens of small rounds of feedback.</p>
         </div>
+
+        <div class="exchange-grid">
+          <div class="exchange">
+            <p class="exchange__prompt">this site uses sections that when filled up with images make the section tall, long... user needs to remember what the section was about, lose focus as they scroll... you helped implement a left rail right rail solution that im wondering if we can implement here, wdyt</p>
+            <p class="exchange__result"><strong>Became the sticky-rail layout</strong> now used on every case study page, including this one — a section's title stays pinned while its content scrolls past.</p>
+          </div>
+          <div class="exchange">
+            <p class="exchange__prompt">for neux, "what shipped" is all wrong, please replace those wires with final nuex images</p>
+            <p class="exchange__result"><strong>Triggered a full re-check</strong> of every image on that page, catching several mismatched captions along the way — not just the one flagged.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -134,7 +149,7 @@
         </div>
         <div style="margin-top: var(--sp-6);">
           <div class="detail-lead-image reveal">
-            <img src="images/v3-old.jpg" alt="The previous kevinkeiper.com v3.0 site, a static Webflow build">
+            <img src="images/v3-old-v3.jpg" data-full="images/v3-old-v3-full.jpg" alt="The previous kevinkeiper.com v3.0 site, a static Webflow build">
           </div>
           <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">kevinkeiper.com v3.0 — the starting point this version replaces.</p>
         </div>
@@ -153,6 +168,11 @@
           <p>Rules got written down as they got discovered — image widths matching paragraph measure, when a gallery earns a masonry layout instead of a grid, when a diagram is too dense to shrink and needs a link-out to a full-size version instead.</p>
           <p>Small things got tuned by eye and direct feedback in real time — page background tint, image saturation, sticky-header offsets — not decided in the abstract.</p>
         </div>
+
+        <div class="doc-quote">
+          <span class="doc-quote__file">design-system.md</span>
+          <p class="doc-quote__text">"Rule: images keep their original/native aspect ratio. Never forced-crop to a fixed ratio. All images share the same fixed width; height is not constrained and simply hangs down however long the native ratio makes it — so cards/rows will naturally vary in height, and that's expected, not a bug to fix."</p>
+        </div>
       </div>
     </section>
 
@@ -167,7 +187,7 @@
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
-            <img src="images/v4-home.jpg" alt="kevinkeiper.com v4.0 home page">
+            <img src="images/v4-home-v3.jpg" alt="kevinkeiper.com v4.0 home page">
             <figcaption class="detail-gallery__caption">The home page, live.</figcaption>
           </figure>
           <figure class="detail-gallery__item reveal">
