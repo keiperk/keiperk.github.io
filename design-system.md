@@ -41,10 +41,10 @@ Base unit 8px — scale: `4, 8, 16, 24, 32, 48, 64, 96`.
 ## Image handling
 **Rule: images keep their original/native aspect ratio. Never forced-crop
 to a fixed ratio.** All images share the same fixed width; height is not
-constrained and simply hangs down however long the native ratio makes it —
+constrained and simply hangs down however long the native ratio makes it,
 so cards/rows will naturally vary in height, and that's expected, not a
-bug to fix. This applies site-wide — homepage cards, detail pages, any
-future page — not just the context it was first decided in.
+bug to fix. This applies site-wide (homepage cards, detail pages, any
+future page), not just the context it was first decided in.
 
 ## Documented exceptions
 - **Opportunity Radar hero image** (`work/opportunity-radar/index.html`
