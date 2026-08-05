@@ -801,8 +801,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 }
 .cert-badge img {
   width: 140px;
-  height: 90px;
-  object-fit: cover;
+  height: auto;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   transition: box-shadow 0.15s ease, transform 0.15s ease;
