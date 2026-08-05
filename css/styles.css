@@ -603,6 +603,14 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   max-width: var(--content-measure);
 }
 
+/* Multi-up galleries (2-col grid or masonry) inside a rail section must
+   stay within the paragraph's own measure too — same reasoning as the
+   single-image rule above. --4up is exempt: it intentionally runs wider
+   than the text column. */
+.rail-content .detail-gallery:not(.detail-gallery--4up) {
+  max-width: var(--content-measure);
+}
+
 /* ==========================================================================
    Sticky rail layout — left rail (title/context) stays pinned while the
    right column's content for that section scrolls past. Each .rail-row

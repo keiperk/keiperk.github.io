@@ -46,6 +46,13 @@ so cards/rows will naturally vary in height, and that's expected, not a
 bug to fix. This applies site-wide (homepage cards, detail pages, any
 future page), not just the context it was first decided in.
 
+**Rule: multi-up image groups (2-up especially) stay within the main
+text column, never jut into the right gutter.** A rail section's
+right-hand column is wider than the paragraph text above it, so a
+2-up (or masonry) gallery placed there must be capped to
+`--content-measure`, same as a single supporting image. Exception:
+explicit `--4up` galleries, which are meant to run wider.
+
 ## Documented exceptions
 - **Opportunity Radar hero image** (`work/opportunity-radar/index.html`
   lead image) — `filter: saturate(0.85)` applied inline, a deliberate
@@ -60,6 +67,12 @@ future page), not just the context it was first decided in.
   opposite direction from the NeU/X case — boosted, not reduced, since
   the diagram runs at 50% width and needed more visual presence at
   that size.
+- **EMC Insurance hero and shipped screens** (`work/emc-insurance/index.html`)
+  — `filter: brightness(0.95) saturate(0.75)` applied inline. Source
+  screenshots carried a cool blue color cast across the whole image
+  (confirmed via average channel values, not just the blue UI chrome),
+  likely inherited from the dark-navy-themed slide deck they were
+  originally exported for.
 - These are deliberate, image-by-image calls, not a rule change. Don't
   propagate a filter to a new image without asking first.
 
