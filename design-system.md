@@ -67,12 +67,15 @@ explicit `--4up` galleries, which are meant to run wider.
   opposite direction from the NeU/X case — boosted, not reduced, since
   the diagram runs at 50% width and needed more visual presence at
   that size.
-- **EMC Insurance hero and shipped screens** (`work/emc-insurance/index.html`)
-  — `filter: brightness(0.95) saturate(0.75)` applied inline. Source
-  screenshots carried a cool blue color cast across the whole image
-  (confirmed via average channel values, not just the blue UI chrome),
-  likely inherited from the dark-navy-themed slide deck they were
-  originally exported for.
+- **EMC Insurance hero and shipped screens** (`work/emc-insurance/index.html`,
+  plus the homepage card at `index.html`) — `filter: brightness(0.95)
+  saturate(0.75)` applied inline. Source screenshots carried a cool blue
+  color cast across the whole image (confirmed via average channel
+  values, not just the blue UI chrome), likely inherited from the
+  dark-navy-themed slide deck they were originally exported for. The
+  homepage card is a separate exported file from the same source, so it
+  needs the same filter applied independently — doesn't inherit it from
+  the detail page.
 - These are deliberate, image-by-image calls, not a rule change. Don't
   propagate a filter to a new image without asking first.
 
