@@ -787,6 +787,37 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   object-fit: contain;
 }
 
+/* Certificate thumbnails — clickable, open the full certificate file */
+.cert-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+.cert-badge a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  width: 140px;
+}
+.cert-badge img {
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.cert-badge a:hover img {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.cert-badge span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
 /* Metrics */
 .stat-grid {
   display: grid;
