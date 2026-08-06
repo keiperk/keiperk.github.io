@@ -5,8 +5,9 @@ that file's history if the split itself matters). Companion to
 `neux-journey-map.md`, the first map: that one is about John's experience
 *using NeU/X*; this one is about **how an independent record launch actually
 works in the real world** — the thing the app's plan content (`plan.js`) is
-supposed to be derived from, checked here instead of assumed. No visual
-artifact yet.
+supposed to be derived from, checked here instead of assumed. Visualized at:
+https://claude.ai/code/artifact/ea28985c-80e3-4a3e-a1ce-c52c5a7f62c2 (static
+snapshot — republish manually if this table changes).
 
 Scoped to record launches only for now (not YouTube/course — see open
 questions in `neux-redesign-brief.md`).
