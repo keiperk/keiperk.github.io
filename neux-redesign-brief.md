@@ -121,23 +121,41 @@ refreshed to match — these are working references, not one-off deliverables.
 Rebuild the **core screen only** — the primary working view a user sees after
 stating a goal. Not the marketing/landing page, not onboarding, not settings.
 
-## Layout: hybrid chat + plan panel
+## Layout (current, superseding the original chat-left/plan-right plan)
 
-Two-column split, matching the "chat left / structured output right" pattern:
+The original 40/60 chat-left/plan-right split (first draft of this brief) was
+built, then corrected away from — see the screen build log in
+`neux-screen-concept.md` for the sequence. Current layout:
 
-- **Left (~40%)**: chat thread. User states a goal in natural language; AI responds
-  conversationally. Standard message-bubble pattern, input box pinned to bottom.
-- **Right (~60%)**: generated plan panel. Structured, card/checklist-based breakdown
-  of the goal into concrete steps — updates live as the conversation refines the plan.
-  This is the part that should feel like a real product surface, not just a chat log.
+- **Plan panel — full width, primary.** Two coexisting views of the same 9
+  milestones: a **path strip** (connected cards, chronological, the goal
+  restyled as the destination) and a **kanban board** below it (To Do / In
+  Progress / Done, drag-and-drop). Both always visible together, not a toggle.
+- **Co-pilot — a compact fixed widget**, bottom-right, bounded height (not a
+  full-height rail). Third placement iteration; landed here after full-panel
+  and full-height-rail versions both felt wrong. Scoped Q&A only, not the
+  primary interaction — see "Co-pilot, not pilot" in `neux-screen-concept.md`.
+
+## Who is John (scope decision, 2026-08-06)
+
+First-timer to record launches specifically — matches the JTBD and persona
+as written. He is **not** a long-time NeU/X user with a history of past
+projects; that would be a different, bigger product than what's documented
+here. He **does** resume the same in-progress plan if he leaves and comes
+back — single active project, persisted locally (`utils/storage.js`), not a
+multi-project account system. If this scope ever needs to grow (multiple
+past projects, real accounts), that's a deliberate, separate decision, not
+something to slide into while building a feature.
 
 ## Tech stack
 
-**React**, bootstrapped with Vite. Realistic scope for this pass:
-- A handful of components (`ChatPanel`, `PlanPanel`, `Message`, `PlanStep`)
-- Local state simulating the conversation → plan updates; no auth, no database
-- No real backend/LLM call required for this pass — can be added later as a small
-  additional layer (one API route + a key) if a live-generation demo is wanted
+**React**, bootstrapped with Vite. Actual current components:
+`EntryScreen`, `PlanPanel`, `PlanColumn`, `PlanStep`, `PathStrip`, `PathCard`,
+`HelperRail`. Local state + `localStorage` persistence (single active
+project); no auth, no database, no live backend. No real LLM call anywhere
+— static, hand-written content, by deliberate choice (see the parent-context
+conversion discussion below on why a backend/API-key investment isn't
+justified yet without validated demand).
 
 ## Visual system
 
@@ -194,13 +212,18 @@ really was: a v1 that got corrected mid-flight once the real thinking happened.
 
 ## Open questions
 
-- [ ] NeU/X's own visual identity — start fresh, or take deliberate cues from the
-      portfolio system (mono labels, restrained palette) even though not required
-      to match it?
-- [ ] Repo name/location — sibling folder to `kevin-portfolio-html`? New GitHub repo
-      under the same account?
-- [ ] Any real plan-step content to seed with, or keep it fully placeholder?
-- [ ] Static/demo-only interactivity, or wire a real LLM call for live plan
-      generation in a later pass?
-- [ ] Does the portfolio case study page get updated now (linking to the new app)
-      or only once the app is far enough along to show?
+- [x] Repo name/location — `~/Desktop/neux`, own git repo, sibling to
+      `kevin-portfolio-html`. No GitHub remote yet (local only).
+- [x] Real plan-step content — yes, seeded and corrected against
+      `neux-record-launch-map.md` (9 real milestones, not placeholder).
+- [x] Static vs. real LLM — staying static/free deliberately (see "Parent
+      context" above) — no validated demand yet to justify backend spend.
+- [ ] NeU/X's own visual identity — still just plain/functional styling
+      (colors simplified to one accent 2026-08-06), never deliberately
+      designed. Still open.
+- [ ] Does the portfolio case study page get updated now, or only once the
+      app is further along? Still open, still deferred, not urgent per
+      Kevin (2026-08-06).
+- [ ] **New, surfaced by the conversion-gap finding**: the co-pilot's
+      failure state ("I don't have a specific answer yet") is currently a
+      dead end instead of a conversion moment. Not yet acted on.
