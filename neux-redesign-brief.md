@@ -44,6 +44,17 @@ relationship. A user who doesn't trust the service doesn't convert, full
 stop. No stakeholder disputes this framing; it's how the internet actually
 works, stated plainly instead of left implicit.
 
+**This isn't one axiom among several — it's the majority of the product.**
+Kevin's own assessment (2026-08-06): "80% or more is just this
+relationship." The salutation, persistence, honest-limits copy, draft
+artifacts, even the co-pilot widget — these aren't a features list with a
+relationship axiom bolted on; they're mostly *instances* of managing this
+one relationship. When evaluating whether something is worth building,
+the real question is whether it serves the relationship, not whether it's
+a nice feature in isolation (see the co-pilot widget's conversion-gap
+finding below for what happens when a feature is checked against this and
+comes up short).
+
 Fixed reference points for every future decision — bracket the whole project,
 outrank individual feature preferences. When a new decision comes up, check it
 against these before designing anything new.
