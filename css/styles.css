@@ -502,11 +502,16 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  background: #fff;
-  /* padding-top: 0px; */
+  background: #F6F6F6;
 }
 .detail-lead-image img {
   width: 100%;
+  height: auto;
+}
+.detail-lead-image--crop {
+  background: #fff;
+}
+.detail-lead-image--crop img {
   height: 405px;
   object-position: left 5px;
   object-fit: cover;
