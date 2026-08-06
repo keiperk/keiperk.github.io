@@ -30,6 +30,18 @@ stated, the plan panel is the "playbook" made concrete.
 
 ## Design axioms
 
+**Parent context, above all the axioms below**: NeU/X is a **conversion-based
+customer service relationship**. Like nearly everything on the internet, this
+isn't charity — it's a relationship both sides manage through the same
+instrument: John manages his record launch through it, we manage the
+relationship (retention, repeat use, eventual monetization — left
+unspecified on purpose, not yet decided) through the same interface. This
+reframes axiom 1 correctly: **trust isn't the goal, it's the mechanism** —
+you build trust because it's what makes conversion possible in a service
+relationship. A user who doesn't trust the service doesn't convert, full
+stop. No stakeholder disputes this framing; it's how the internet actually
+works, stated plainly instead of left implicit.
+
 Fixed reference points for every future decision — bracket the whole project,
 outrank individual feature preferences. When a new decision comes up, check it
 against these before designing anything new.
@@ -42,16 +54,38 @@ against these before designing anything new.
    disengaging entirely.
 2. **Be helpful, don't make him think.** Minimize cognitive load at every
    step — clear labels, no jargon, one primary action per screen. Ask for
-   things progressively, at the point they're actually needed, not upfront
-   (see the profile-fields correction: asking for name/style/audience on the
-   *entry* screen was a violation of this axiom, corrected 2026-08-06 to
-   just-in-time prompting instead).
+   things progressively, at the point they're actually needed, not upfront.
 3. **Do the work, don't just describe it.** The product's job is to produce
    something usable, not just organize/describe tasks (see "Draft artifacts"
    in the screen build log) — a to-do list that only tells him what to do is
    half the value; handing him a usable first draft is the other half.
 
 These aren't features — they're the test any new feature has to pass.
+
+## Progressive collection rules
+
+Concrete rules for axiom 2, since "ask progressively" was stated as a
+principle 2026-08-06 but not actually built that day — documented intent
+outran the code, which is exactly the mistake this whole practice exists to
+catch. Corrected 2026-08-06 (later same day) once the gap was noticed.
+
+1. **Never collect a field before something on screen needs it.** Not
+   "might be useful later" — needs it *right now*, for the thing John is
+   looking at.
+2. **Domain-specific fields wait until the domain is known.** Style/genre,
+   audience, etc. only make sense once we know what John is even trying to
+   do — they don't belong on the entry screen, before his goal is even
+   read.
+3. **Ask in the smallest unit, inline, where the value gets used** — not a
+   separate form/screen. If a draft needs his style to sound less generic,
+   the place to ask is next to that draft, not a modal or a settings page.
+4. **Once given, remember it for the rest of the session.** Never ask the
+   same thing twice.
+5. **Everything stays skippable.** Drafts degrade gracefully without the
+   extra detail (generic instead of sharp) rather than blocking on it.
+6. **Universal, goal-agnostic fields can stay upfront** if they don't
+   presuppose anything about what John's trying to do — a name is fine on
+   entry; his musical style is not.
 
 ## Working practice: the maps are upstream of the UI
 
