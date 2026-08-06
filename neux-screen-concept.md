@@ -5,39 +5,19 @@ layout or writing code. This doc is the place to argue with the idea cheaply.
 Companion to `neux-redesign-brief.md` (which currently states chat+plan as the
 layout — that line is provisional until this doc says otherwise).
 
-## Real-world process map: independent record launch
+## The two process maps
 
-Second map, distinct from the journey map below. The journey map is about
-John's experience *using NeU/X*. This one is about **how an independent
-record launch actually works in the real world** — the thing the app's plan
-content is supposed to be derived from, checked here instead of assumed.
-Scoped to record launches only for now (not YouTube/course — see
-`neux-redesign-brief.md` open questions).
+Both split out into their own standalone files (2026-08-06) — they're
+distinct assets, not sub-sections of this discovery doc:
 
-| # | Real milestone | Real lead time | What it involves | In current build (`plan.js`)? |
-|---|---|---|---|---|
-| 1 | Lock release date | ~10-12 weeks before | Pick the date everything else works backwards from | ✅ "Release timeline" |
-| 2 | Finalize artwork & metadata | ~8 weeks before | Cover art, credits, genre tags, ISRC/UPC codes — needed before distributor submission | ❌ **Gap — not represented at all** |
-| 3 | Submit to distributor | ~4-6 weeks before | DistroKid/TuneCore/etc. — later submission risks missing playlist consideration | ✅ "Distribution" |
-| 4 | Pitch Spotify for Artists / playlist curators | ~3-4 weeks before | Needs real lead time to be considered, not a same-week ask | ⚠️ Folded into "Press & playlist outreach" — bundled with #5, not distinct |
-| 5 | Press/blog/radio outreach | ~4-6 weeks before | Similar lead-time logic to playlist pitching | ⚠️ Folded into "Press & playlist outreach" — bundled with #4 |
-| 6 | Open pre-save/pre-add campaign | ~2-3 weeks before | Signals demand to streaming algorithms before release day | ⚠️ Folded into "Teaser & pre-save campaign" — bundled with #7 |
-| 7 | Teaser content ramp-up | ~2 weeks before | Social teasers, countdown, behind-the-scenes | ⚠️ Folded into "Teaser & pre-save campaign" — bundled with #6 |
-| 8 | Release day actions | Day of | Announce, ask fans to stream/save/share across platforms | ❌ **Gap — no release-day step exists** (matches the journey map's "Release day" gap) |
-| 9 | Post-release follow-up | ~1-2 weeks after | Thank fans, monitor playlist adds/streams, plan next move | ❌ **Gap — nothing after release** (matches the journey map's "Return visit" gap) |
+- **`neux-journey-map.md`** — John's experience *using NeU/X* (6 stages,
+  visualized as a published artifact)
+- **`neux-record-launch-map.md`** — how an independent record launch
+  actually works in the real world, checked against `plan.js`
 
-**What this surfaces, honestly:**
-- **3 real gaps**: artwork/metadata prep, release-day actions, and
-  post-release follow-up don't exist in the app at all. The latter two were
-  already flagged by the journey map's Release day / Return visit stages —
-  this map independently arrives at the same gap from the content side,
-  which is a good sign the gap is real, not a fluke of one analysis.
-- **2 steps are currently over-bundled**: "Press & playlist outreach" and
-  "Teaser & pre-save campaign" each secretly contain two distinct real
-  milestones with different lead times. Splitting them would make the
-  timeline more accurate, not just more granular.
-- **Not acted on yet** — this is the map now existing so a future change to
-  `plan.js` is a traceable correction, not another ad hoc addition.
+Everything below (narrative, user stories, hypothesis, business case, screen
+inventory, build log) still lives here — this doc is the working discovery
+scratchpad; the maps are the two reference assets it points to.
 
 ## The story (persona + narrative, before any UI decisions)
 
@@ -210,20 +190,10 @@ value is articulated.
 
 ## Journey map
 
-| Stage | Arrives | Working the plan | Stuck | Life happens | Release day | Return visit |
-|---|---|---|---|---|---|---|
-| **What John's doing** | Opens NeU/X for the first time with just a vague goal | Reads his generated plan, starts knocking out early steps | Hits a step he doesn't understand (e.g. distributor lead time) | His release date slips two weeks | The plan's done, record is out | Closes the tab, comes back days/weeks later |
-| **John's thoughts/feelings** | Excited but anxious — "I don't know what I don't know" | Relief — "OK, this is actually manageable" | Friction — "wait, what does this actually mean for me?" | Stress — "does my whole plan just... break now?" | Pride, maybe a little "now what?" | "Where did I leave off?" |
-| **What he needs from NeU/X** | Translate a vague goal into a real plan, fast, without judgment | A clear sense of order/urgency and visible progress | A quick, low-friction way to ask without derailing his plan | The plan to absorb the change gracefully, not force a redo | Some kind of close/wrap-up, not just... nothing | To land back on his actual plan, not a blank entry screen — no re-explaining himself |
-| **Touchpoint (maps to build plan #)** | Entry prompt (#1) → generation moment (#2) | Plan view w/ timing (#3), progress tracking (#4) | Secondary chat affordance (#5) | Plan adapts (#6) | *Not yet designed — flagged gap* | *Not yet designed — flagged gap* |
-| **Risk if this stage is ignored** | Feels like a generic form, not a co-pilot | Feels like a wall of tasks, overwhelming | He abandons the plan, goes back to guessing | Plan feels stale/wrong, he stops trusting it | Product feels like it just... trails off | Product feels amnesiac — undercuts the whole "persistent object" value prop (user story #4) |
-| **Trust-building move** (axiom 1) | Low-friction ask (no form before value) signals respect for his time; honest tone, no over-promising | Real computed dates, not vague advice, signal competence; he still drags cards himself — he's the pilot, not NeU/X | Honest "I don't have a specific answer for that yet" instead of guessing — credibility through not pretending | Plan absorbs the change without punishing him for slipping — forgiving, not judgmental | Acknowledging the milestone (not going silent) signals an ongoing relationship, not a transaction | Remembering him without re-explaining is itself proof it "knows" him |
-| **Opportunity** | First-impression hook — the "aha" of translation is the whole sale | Prove ongoing value via draft artifacts (axiom 3) — this is where a to-do list becomes something worth paying for | Depth of the answers is where loyalty is actually won or lost | Real differentiator vs. a static blog post/template — nothing else adapts | Capture a testimonial/social-proof moment, or prompt "what's next?" | Retention/habit formation — this is where a one-off tool becomes a recurring one |
-
-**6 official stages** (Return visit formalized 2026-08-06, previously an
-unfolded implication surfaced during the screen inventory exercise). Release
-day and Return visit remain flagged gaps — not designed yet, not being
-designed in this pass, but no longer invisible.
+Moved to its own file: **`neux-journey-map.md`**. 6 official stages
+(Arrives, Working the plan, Stuck, Life happens, Release day, Return visit),
+plus trust-building and opportunity rows. Referenced throughout this doc —
+"Screen inventory" below is derived from it.
 
 ## Screen inventory (derived from the journey map — the full happy path)
 
