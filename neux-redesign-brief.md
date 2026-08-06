@@ -30,6 +30,26 @@ stated, the plan panel is the "playbook" made concrete.
 
 ## Design axioms
 
+**The whole thing, in three words each (2026-08-06):**
+
+> **Always build trust. Always define success. Always be converting.**
+
+A deliberate echo of "always be closing" — reframed for a service
+relationship instead of a sales call. All three are load-bearing, not just
+the third: you can't convert without trust, and you can't know if any of
+this is working without having stated, concretely, what success means
+before building. Everything below is elaboration on these three lines, not
+separate from them.
+
+**Always define success — stated as its own rule, not just implied**: every
+feature, screen, or decision should have a concrete, checkable definition of
+success attached *before* it's built, the same way "conversion" had to be
+named concretely (not "engagement," but "John has paid, or will soon"). A
+vague sense that something "seems good" isn't success criteria. This rule
+was itself missing until Kevin named the gap (2026-08-06): "we have not
+defined what success looks like, nor have we enshrined that defining
+success should be a rule."
+
 **Parent context, above all the axioms below**: NeU/X is a **conversion-based
 customer service relationship**. Like nearly everything on the internet, this
 isn't charity — it's a relationship both sides manage through the same
