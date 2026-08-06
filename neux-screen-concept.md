@@ -234,6 +234,8 @@ it happens, not reconstructed from memory afterward.
 | Plan view (content) | Working the plan — the plan should reflect what John actually said, not be generic | Keyword-matched templates (record/YouTube/course) + fallback, so typing a different goal produces a different plan | 2026-08-06 |
 | Stuck affordance (v1, corrected) | Stuck — first attempt was per-step "Ask about this" triggers on every card | Built, then immediately corrected on Kevin's real-time feedback: repeating the trigger on every card was clutter, not help — replaced with a single persistent, slim, secondary Co-pilot rail | 2026-08-06 |
 | Timeline/urgency | Working the plan — flat list had no sense of order/urgency (business case gap) | Added real target-date input on entry screen; each step's weeksBefore computes an actual date, steps sort chronologically | 2026-08-06 |
+| Kanban board | Working the plan — a flat list didn't let John act on status himself | Added drag-and-drop (@dnd-kit): To Do / In Progress / Done columns, mapped to existing status field | 2026-08-06 |
+| Draft artifacts | Business case check ("does this actually move a needle, or just organize information?") surfaced that describing steps isn't the same as doing work — real gap, not a nice-to-have | Added static (no live AI, zero cost) hand-written draft templates for one step per goal type — pitch email, channel bio, waitlist announcement — personalized via new name/style/audience entry fields, with copy-to-clipboard | 2026-08-06 |
 | *(next)* | | | |
 
 ## Build plan (mapped to John's journey, not assumed UI patterns)
