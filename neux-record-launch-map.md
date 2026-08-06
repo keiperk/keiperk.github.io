@@ -35,8 +35,8 @@ questions in `neux-redesign-brief.md`).
   milestones with different lead times. Splitting them would make the
   timeline more accurate, not just more granular.
 
-## Status: acted on
+## Status: done
 
-As of 2026-08-06, `plan.js`'s record template is being updated to split the
-2 bundled steps and add the 3 missing ones — see the screen build log in
-`neux-screen-concept.md` for the entry once it ships.
+Shipped 2026-08-06 — `plan.js`'s record template now matches all 9
+milestones above 1:1 (was 5 steps, 2 bundled, 3 missing). See the screen
+build log in `neux-screen-concept.md`.
