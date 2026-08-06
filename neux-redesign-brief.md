@@ -51,10 +51,12 @@ defined what success looks like, nor have we enshrined that defining
 success should be a rule."
 
 **Parent context, above all the axioms below**: NeU/X is a **conversion-based
-customer service relationship**. Like nearly everything on the internet, this
-isn't charity — it's a relationship both sides manage through the same
-instrument: John manages his record launch through it, we manage the
-relationship through the same interface. **The conversion we care about is
+customer service relationship *management tool*** — like most tech, it
+doesn't *have* a relationship, it *manages* one. Like nearly everything on
+the internet, that relationship isn't charity — it's managed through the
+same instrument by both sides: John manages his record launch through it,
+we manage the relationship through the same interface. **The conversion we
+care about is
 concrete: John has paid, or will soon.** Retention, repeat use, etc. matter
 only insofar as they lead there — they're leading indicators, not the
 conversion itself. This reframes axiom 1 correctly: **trust isn't the goal,
