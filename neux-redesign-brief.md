@@ -53,6 +53,17 @@ against these before designing anything new.
 
 These aren't features — they're the test any new feature has to pass.
 
+## Working practice: the journey map is upstream of the UI
+
+The journey map (`neux-screen-concept.md`, visualized at the artifact linked
+in the screen build log) is the master reference — not a document written
+*about* the product after the fact. The order is always: **map the process →
+identify the milestones → derive the UX from that**, never the reverse.
+Screens, steps, and plan content should be traceable back to a row in the
+journey map or a real-world milestone in John's actual goal, not invented ad
+hoc while building. When the map changes, the artifact gets refreshed to
+match — it's a working reference, not a one-off deliverable.
+
 ## Scope of this pass
 
 Rebuild the **core screen only** — the primary working view a user sees after
