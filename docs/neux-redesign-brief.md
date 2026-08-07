@@ -351,6 +351,20 @@ presenting the redesigned screen without this process context would undersell
 the actual work and misrepresent it as a first-shot design rather than what it
 really was: a v1 that got corrected mid-flight once the real thinking happened.
 
+**Discoveries worth surfacing in the case study (running list, add as found):**
+- **The goal-state method doesn't fit every milestone the same way.** Applied
+  cleanly to 9 of 10 milestones (flat conditions: required + optional-richness
+  properties). "Launch email campaign" broke that pattern — its honest goal
+  state ("the mailing list was meaningfully engaged across the campaign")
+  doesn't decompose into flat conditions, it decomposes into a *sequence of
+  named sub-items* (announcement/pre-save-reminder/launch-day/thank-you
+  emails, each with its own drafted/scheduled/sent/results lifecycle) — the
+  sub-task pattern tabled earlier for cost reasons, not the flat pattern
+  used everywhere else. Shipped the flat version anyway as a deliberate,
+  named tradeoff (2026-08-07): "this is more proof of concept than polished
+  app" — the gap is documented, not hidden. Worth the case study showing
+  *why* one milestone needed a different shape, not just that it exists.
+
 ## Open questions
 
 - [x] Repo name/location — `~/Desktop/neux`, own git repo, sibling to
