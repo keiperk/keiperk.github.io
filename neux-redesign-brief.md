@@ -367,6 +367,16 @@ really was: a v1 that got corrected mid-flight once the real thinking happened.
       (phase 1, current); wire real AI into one narrow, cheap place —
       likely the Co-pilot widget — once there's both validated demand and
       budget (phase 2, later, not now — "I have like no money now").
+      **Phase 2's actual spec, sharpened 2026-08-07**: it isn't a vague
+      "add AI here" — it's automating the goal-state method itself. Right
+      now the 9-milestone recipe table (above) was derived by hand, once,
+      for 3 hardcoded goal templates. A real implementation feeds the
+      user's actual goal text to an LLM, has it run the same 3-step
+      method (goal state → conditions → properties/types), and renders
+      the same checklist components dynamically from that output —
+      instead of only ever supporting record/YouTube/course. Kevin's
+      insight: the manual derivation done in this session *is* the
+      algorithm, not a stand-in for one still to be invented.
 - [ ] NeU/X's own visual identity — still just plain/functional styling
       (colors simplified to one accent 2026-08-06), never deliberately
       designed. Still open.
