@@ -128,6 +128,27 @@ error (a deliberate choice at the time, reasoned as "the app still works,
 it just won't persist") — that directly violates rule 1 above now that the
 rule exists. Needs revisiting once building resumes.
 
+## Wayfinding builds trust
+
+Third trust pillar alongside error handling and (honest) testimonials —
+named 2026-08-06, though partly already built without being named as this.
+John should always know: where am I, what's next, how do I get back, how
+far along is the whole journey. Getting lost is its own kind of trust
+failure, quieter than an error but just as real.
+
+**Already-built instances of this, now recognized as wayfinding rather than
+separate features**: the "You are here" badge, step numbering ("Step X of
+9"), the path strip's chronological connected-card layout, the kanban
+board's column-as-status grouping, the progress counter ("X / 9 done").
+These weren't planned together under one name — worth checking future
+screens against wayfinding explicitly rather than rediscovering the need
+each time.
+
+**Open, not yet resolved**: testimonials — Kevin confirmed they help, but
+real ones don't exist yet (no real users). Format still undecided: skip for
+now, clearly-marked placeholder/illustrative, or real quotes gathered later
+once shown to actual people. Not building until this is settled.
+
 ## Progressive collection rules
 
 Concrete rules for axiom 2, since "ask progressively" was stated as a
