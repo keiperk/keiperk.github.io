@@ -37,11 +37,11 @@ portfolio-images-processed/  Full-resolution source image library
 Each case study page uses a shared "sticky rail" layout (left-column
 section title stays pinned while its content scrolls past). Image sizing,
 gallery, and layout rules for that pattern are documented in
-`detail-pages-brief.md`.
+`docs/detail-pages-brief.md`.
 
 ## Design system
 
-`design-system.md` is the source of truth for colors, type, spacing, and
+`docs/design-system.md` is the source of truth for colors, type, spacing, and
 component patterns, including a running log of deliberate exceptions to
 those rules. Check it before making a visual change that looks like it
 might contradict an existing pattern.
