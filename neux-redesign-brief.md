@@ -97,6 +97,37 @@ against these before designing anything new.
 
 These aren't features — they're the test any new feature has to pass.
 
+## Error handling & recovery rules
+
+**Errors are relationship moments too — often more trust-defining than when
+things go right** (Kevin, 2026-08-06: "what builds trust is error handling
+and correction"). Anyone can seem trustworthy when nothing goes wrong; how
+the service behaves when something *does* go wrong is a truer test of axiom
+1 than the happy path is. Concrete rules:
+
+1. **Never fail silently.** If something goes wrong — storage, a bad state,
+   anything — John should be told plainly, not left to discover it later
+   (e.g. finding his plan gone with no explanation). A silent failure is a
+   worse trust violation than a visible one, because it looks like
+   dishonesty in hindsight even if the intent was just to avoid bothering him.
+2. **Explain in plain language.** No stack traces, no error codes, no
+   jargon. Say what happened and what it means for him, the same
+   plain-language standard as everything else in the product.
+3. **Always offer a path forward.** A retry, a fallback, or at minimum
+   acknowledgment of what to do next — never just a dead stop.
+4. **Never blame John**, even when the cause is something he did (bad
+   input, etc.) — correct helpfully, the way a good co-pilot corrects a
+   pilot, not the way an error dialog scolds a user.
+5. **Preserve what can be preserved.** If something breaks, protecting his
+   existing progress/data is the priority — don't let a secondary failure
+   compound into losing his actual work.
+
+**Known gap, not yet fixed (flagged, not acted on per the current hold)**:
+`utils/storage.js`'s save/load functions currently fail *silently* on
+error (a deliberate choice at the time, reasoned as "the app still works,
+it just won't persist") — that directly violates rule 1 above now that the
+rule exists. Needs revisiting once building resumes.
+
 ## Progressive collection rules
 
 Concrete rules for axiom 2, since "ask progressively" was stated as a
