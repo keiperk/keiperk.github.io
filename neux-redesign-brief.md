@@ -97,6 +97,73 @@ against these before designing anything new.
 
 These aren't features — they're the test any new feature has to pass.
 
+## Milestone content: the goal-state method
+
+Canonicalized 2026-08-07, applied to milestone #2 (artwork/metadata)
+retroactively and to #3/#4 (distribution/press) going forward. This is
+how every milestone's real content — properties, conditions, groupings,
+CTAs — gets derived, instead of being designed ad hoc per milestone.
+NeU/X is, at bottom, a **goal achievement wizard**: this method is how
+it decides what any given step of that wizard actually needs to ask for
+and check.
+
+1. **Goal state first.** What does "done" concretely mean for this
+   milestone, in real-world terms? ("The distributor has accepted the
+   release for processing," not "the form is filled out.")
+2. **Conditions.** Decompose the goal state into the facts that must all
+   be true for it to be reached. Mark which are required vs. optional
+   richness (e.g. artwork's `producedBy`/`mixedBy`/`masteredBy` don't
+   gate completion; `writtenBy`/`performedBy` do).
+3. **Property values, then types.** What data confirms each condition —
+   and only after that, what kind of input it needs (text/boolean/
+   file/date/choice).
+
+Groupings (e.g. artwork's "Metadata" vs. "Artwork" sections), CTAs
+(e.g. the Canva link, tied to the cover-art condition being hard to
+satisfy alone), and purely informational content (e.g. the ISRC/UPC
+note — informs John, gates nothing) all fall out of this decomposition.
+They are not separate design decisions per milestone. See
+`neux-record-launch-map.md` for the real-world source material this
+gets derived from — the method organizes that content, it doesn't
+invent it. Full general form of this rule lives in
+`~/.claude/CLAUDE.md` under "Always define success," since it isn't
+NeU/X-specific.
+
+**Style follows category, not milestone.** Once content is decomposed
+this way, styling is a lookup by *kind of thing*, not a per-milestone
+decision: every required boolean condition looks the same everywhere
+(`.milestone-checklist__row`), every data property the same
+(`__section`), every assistive CTA the same (`__cta`), every purely
+informational note the same (`__note`). A new milestone's checklist
+should mostly be *composing* these existing category styles, not
+inventing new ones — see `ArtworkChecklist.jsx` (established the
+`.artwork-checklist__*` version first) and `DistributionChecklist.jsx`/
+`PressChecklist.jsx` (first to use the generalized `.milestone-
+checklist__*` classes instead of re-deriving them).
+
+**The full recipe, working backward from the top-level goal.** John's
+goal state ("I successfully launched my record") decomposes into these
+9 milestone-level goal states, each with its own condition/type/
+property recipe. R = required (gates completion), O = optional
+richness (doesn't gate).
+
+| # | Milestone | Goal state | Conditions (type) | Properties |
+|---|---|---|---|---|
+| 1 | Lock release date | A date is committed that everything else schedules against | Date is set (R, auto-satisfied at entry) | `releaseDate` (date) — collected on the entry screen, no milestone UI needed |
+| 2 | Finalize artwork & metadata | Distributor's requirements are met | Cover art ready (R, boolean); credits filled (R, compound-boolean); genre set (R, text-presence) | `hasCoverArt` (bool) + `coverArtPreview` (file, O); `credits.writtenBy`/`credits.performedBy` (text, R) + `producedBy`/`mixedBy`/`masteredBy` (text, O); `genre` (text) |
+| 3 | Submit to distributor | Release submitted and accepted for processing | Distributor chosen (R, choice); submission done (R, boolean) | `distributorName` (select); `submissionConfirmed` (bool) |
+| 4 | Press & blog outreach | Press/blogs have been pitched | At least one pitch sent (R, boolean) | `pitchesSent` (bool); `outletsPitched` (number, O) |
+| 5 | Pitch playlist curators | Track submitted for playlist consideration | Spotify for Artists submitted (R, boolean) | `spotifyForArtistsSubmitted` (bool); `independentCuratorsPitched` (bool, O) |
+| 6 | Open pre-save campaign | Pre-save is live and shareable | Link exists and is live (R, text-presence) | `presaveUrl` (text/url) |
+| 7 | Teaser content ramp-up | Teaser content has actually been published | At least one teaser posted (R, boolean) | `teaserPostsPublished` (bool); `countdownStarted` (bool, O) |
+| 8 | Release day actions | Release is live and actively announced | Confirmed live (R, boolean); announced everywhere (R, boolean) | `releaseConfirmedLive` (bool); `announcedEverywhere` (bool) |
+| 9 | Post-release follow-up | The loop is closed on this release | Fans thanked (R, boolean); performance reviewed (R, boolean) | `fansThanked` (bool); `performanceReviewed` (bool); `nextStepsNoted` (text, O) |
+
+Implemented in `plan.js` (the 9 steps) and one checklist component per
+row (`ArtworkChecklist.jsx` through `FollowUpChecklist.jsx`), registered
+in `StepDetail.jsx`'s `MILESTONE_EXTRAS` map. Milestone 1 has no
+component — its recipe is satisfied before the plan even generates.
+
 ## Error handling & recovery rules
 
 **Errors are relationship moments too — often more trust-defining than when
