@@ -292,6 +292,14 @@ really was: a v1 that got corrected mid-flight once the real thinking happened.
       `neux-record-launch-map.md` (9 real milestones, not placeholder).
 - [x] Static vs. real LLM — staying static/free deliberately (see "Parent
       context" above) — no validated demand yet to justify backend spend.
+      **Honest self-check (2026-08-06)**: as of this date, literally nothing
+      in NeU/X is real AI — plan "generation" is a lookup table, drafts are
+      string templates, the Co-pilot widget is keyword matching. This is a
+      UX mockup of an AI co-pilot, not an AI co-pilot, by deliberate choice.
+      **Sequencing, confirmed by Kevin**: prove the UX free/static now
+      (phase 1, current); wire real AI into one narrow, cheap place —
+      likely the Co-pilot widget — once there's both validated demand and
+      budget (phase 2, later, not now — "I have like no money now").
 - [ ] NeU/X's own visual identity — still just plain/functional styling
       (colors simplified to one accent 2026-08-06), never deliberately
       designed. Still open.
