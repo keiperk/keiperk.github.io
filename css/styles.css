@@ -182,13 +182,13 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 }
 .hero__meta {
   display: flex;
-  gap: var(--sp-8);
+  gap: var(--sp-9);
   flex-wrap: wrap;
   border-top: 1px solid var(--line);
   padding-top: var(--sp-5);
 }
 .hero__meta-item {
-  max-width: 32ch;
+  max-width: 43ch;
 }
 .hero__meta-item .section-label {
   display: block;
