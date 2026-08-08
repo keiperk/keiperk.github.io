@@ -73,7 +73,7 @@ NeU/X's own three working rules, checked against every new feature:
 ## Milestone content: the goal-state method — NeU/X's application
 
 Full method (goal state → conditions → properties/types, plus its scope
-boundary) lives in `docs/professional-docs/philosophy.md` — this
+boundary) lives in `docs/professional-docs/transaction-space.md` — this
 section is NeU/X's own applied output, not a restatement. NeU/X is, at
 bottom, a **goal achievement wizard**: the method is how it decides what
 any given step actually needs to ask for and check. Applied to milestone
