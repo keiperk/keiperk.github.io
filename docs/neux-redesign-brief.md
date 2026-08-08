@@ -19,11 +19,22 @@ capstone project. Original tagline: "designed in Figma and built with AI and cod
 
 ## Job to be done
 
-As a bedroom music producer, I want to turn "I'm releasing my debut record" into
-a concrete, sequenced plan — pre-save campaign, release timeline, distribution,
-press/playlist outreach, content cadence — without already knowing the music
-industry playbook, so I can launch my record with a real strategy instead of
-guessing.
+As a bedroom music producer, my real goal is to **sell my debut record — not
+just release it** (corrected 2026-08-07; John isn't giving it away for free).
+Turning that into a concrete, sequenced plan means starting with the
+release-readiness milestones that make selling possible at all — pre-save
+campaign, release timeline, distribution, press/playlist outreach, content
+cadence — without already knowing the music industry playbook, so I can
+launch my record with a real strategy instead of guessing.
+
+**Scope note**: NeU/X's current 10 milestones take John through
+release-readiness — getting the record actually sellable and released — not
+the full sales outcome itself. What "sold" would really require (sustained
+promotion past launch week, sales/streaming numbers tracked against a real
+target, a reinvestment decision, royalties collected) isn't built and isn't
+scoped yet. That's a real, known gap, not an oversight — see the "Milestone
+content: the goal-state method" section below for the backtrack from "sell"
+that surfaced it.
 
 This is the anchor for the whole core screen: the chat is where the goal gets
 stated, the plan panel is the "playbook" made concrete.
@@ -364,6 +375,21 @@ really was: a v1 that got corrected mid-flight once the real thinking happened.
   named tradeoff (2026-08-07): "this is more proof of concept than polished
   app" — the gap is documented, not hidden. Worth the case study showing
   *why* one milestone needed a different shape, not just that it exists.
+- **The top-level goal state itself was wrong, not just a milestone's.**
+  Applying the same method one level up — to the JTBD, not a milestone —
+  surfaced that "I'm releasing my debut record" was never the real goal
+  state; John's actual goal is to *sell* it (corrected 2026-08-07: "John
+  isn't giving it away for free"). Backtracking from "sold" instead of
+  "released" surfaces conditions the current 10 milestones don't cover at
+  all: sales/streaming tracked against a real target, sustained promotion
+  past launch week (most releases decay fast without it), a reinvestment
+  decision (spend more based on early signal or not), royalties actually
+  collected (arrives on a lag, isn't real-time). NeU/X's current scope is
+  really "get the record sellable and released" — a sub-goal of the real
+  goal, not the whole thing. Named and scoped as a known gap (2026-08-07),
+  not built. Good case-study material: even the top-level framing needed
+  the same discipline as any individual milestone, and almost shipped
+  wrong.
 
 ## Open questions
 
