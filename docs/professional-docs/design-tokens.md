@@ -1,54 +1,60 @@
 # Design tokens — base defaults (the "plain ice cream," visual side)
 
-A sensible, generic starting point — not any one project's actual visual
-identity. A specific project either uses these as-is or deliberately
-overrides them in its own design-system doc (e.g. kevinkeiper.com's own
-`docs/design-system.md`, which is that project's flavor, not this base).
+Not invented — extracted from what's actually demonstrated, repeatedly,
+across real shipped work (`docs/design-system.md`, kevinkeiper.com). This
+is Kevin's real natural default, not a generic placeholder. A specific
+project either uses these as-is or deliberately overrides them in its own
+design-system doc — override on purpose, not by drifting.
 
 ## Type
 
-- **Body**: system font stack (`system-ui, -apple-system, "Segoe UI",
-  Roboto, sans-serif`) — no webfont dependency by default, fast, native
-  feel. Override deliberately per project if a display face is called for.
-- **Mono** (for numerals, code, technical labels): `ui-monospace, "SF
-  Mono", Menlo, Consolas, monospace`.
-- **Base size**: 15px body text, 1.5 line-height.
-- **Scale**: stay on a small, consistent set of sizes rather than
-  freehand — roughly 11-12px (labels/captions) / 13-14px (secondary
-  text) / 15-16px (body) / 20px+ (headings), scaling up from there per
-  heading level.
+- **Two-role pairing, not one font doing everything**: a clean sans for
+  headlines/body, monospace for labels/tags/metadata/utility text. The
+  monospace isn't decorative — it's the signal for "this is data/meta,"
+  not prose.
+- Default sans: something in the General Sans/Söhne register — humanist,
+  clean, not a display face. Default mono: something in the Space
+  Mono/system-mono register.
 
 ## Color
 
-Neutral, not themed by default — a specific project's flavor is where a
-real accent/personality gets chosen:
+**Grayscale by default, color only as a deliberate, sparing choice per
+project** — not the other way around. The real pattern: strictly
+black/white/grayscale UI chrome (nav, backgrounds, buttons, badges), with
+photography/screenshots staying full, unaltered color — cohesion comes
+from the surrounding system's consistency, not from filtering images to
+match a palette.
 
-- `--text`: `#333`
-- `--text-muted`: `#767676`
-- `--text-h` (headings): `#111`
-- `--bg`: `#fdfdfd`
-- `--panel-bg`: `#fff`
-- `--border`: `#e2e2e2`
-- `--accent`: pick deliberately per project — don't default to a generic
-  blue/purple without considering the subject. `#3a6df0` was NeU/X's
-  choice, not a universal default.
-- `--accent-bg`: a light tint of the accent, for badges/selected states.
-- `--done`/success color: pick a real green, not a generic Bootstrap one.
+- `ink` (primary text): near-black, not pure `#000`
+- `paper` (background): white or near-white
+- `muted` (secondary text): mid-gray
+- `line` / `line-strong` (borders): two step-values of light gray, not
+  one flat border color everywhere
 
-## Spacing & radius
+A project that wants a real accent color (NeU/X's blue, for example) is
+deliberately breaking from this default, not following it — that's fine,
+but it should be a conscious call, not an unconsidered default the way a
+generic blue/purple accent usually is.
 
-- **Radius**: 6-10px for cards/inputs/buttons — soft, not sharp, not
-  pill-shaped by default (pill shapes reserved for tags/badges
-  specifically, not general containers).
-- **Spacing**: use layout (flex/grid `gap`) over per-element margins —
-  avoids collapsing/doubling margin bugs.
-- **Borders over shadows** for most UI chrome (panels, selected states) —
-  a shadow is heavier, reserve it for genuinely floating elements
-  (tooltips, popovers), not persistent UI.
+## Shape & depth
+
+- **Corner radii: minimal, 2-4px.** Not sharp (0px), not the generic
+  "safe" 8px everyone reaches for by default. Small, considered, slightly
+  softened — not soft.
+- **Elevation: flat by default.** No shadows on static elements; a subtle
+  shadow only on hover/interactive states. Borders do the separating
+  work, not shadows.
+
+## Spacing
+
+Base unit **8px** — scale: `4, 8, 16, 24, 32, 48, 64, 96`. Use layout
+(flex/grid `gap`) over per-element margins.
 
 ## What this deliberately doesn't cover
 
-Illustration/photography style, a project's actual accent color and its
-emotional register, iconography, motion/animation choices, dark-mode
-specifics. Those are flavor, decided per project, not base defaults —
-see that project's own design-system doc.
+Illustration/photography treatment, a project's actual accent color and
+emotional register, iconography, motion, dark-mode specifics, and any
+project-specific rules (image-cropping behavior, documented one-off
+exceptions, tool-badge conventions) — those are flavor, decided and
+recorded per project in that project's own design-system doc, not base
+defaults.
