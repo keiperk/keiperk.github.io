@@ -39,106 +39,53 @@ that surfaced it.
 This is the anchor for the whole core screen: the chat is where the goal gets
 stated, the plan panel is the "playbook" made concrete.
 
-## Design axioms
+## Design axioms — NeU/X's application
 
-**The whole thing, in three words each (2026-08-06):**
+Full axioms (the three-word triad, the customer-service-relationship
+framing, trust-as-mechanism) live in
+`~/Desktop/professional-docs/philosophy.md` — this section is only
+NeU/X's own instance of them, not a restatement.
 
-> **Always build trust. Always define success. Always be converting.**
+**NeU/X's conversion event, named concretely**: John has paid (for Pro),
+or will soon. Retention/engagement matter only as leading indicators
+toward that.
 
-A deliberate echo of "always be closing" — reframed for a service
-relationship instead of a sales call. All three are load-bearing, not just
-the third: you can't convert without trust, and you can't know if any of
-this is working without having stated, concretely, what success means
-before building. Everything below is elaboration on these three lines, not
-separate from them.
-
-**Always define success — stated as its own rule, not just implied**: every
-feature, screen, or decision should have a concrete, checkable definition of
-success attached *before* it's built, the same way "conversion" had to be
-named concretely (not "engagement," but "John has paid, or will soon"). A
-vague sense that something "seems good" isn't success criteria. This rule
-was itself missing until Kevin named the gap (2026-08-06): "we have not
-defined what success looks like, nor have we enshrined that defining
-success should be a rule."
-
-**Parent context, above all the axioms below**: NeU/X is a **conversion-based
-customer service relationship *management tool*** — like most tech, it
-doesn't *have* a relationship, it *manages* one. Like nearly everything on
-the internet, that relationship isn't charity — it's managed through the
-same instrument by both sides: John manages his record launch through it,
-we manage the relationship through the same interface. **The conversion we
-care about is
-concrete: John has paid, or will soon.** Retention, repeat use, etc. matter
-only insofar as they lead there — they're leading indicators, not the
-conversion itself. This reframes axiom 1 correctly: **trust isn't the goal,
-it's the mechanism** —
-you build trust because it's what makes conversion possible in a service
-relationship. A user who doesn't trust the service doesn't convert, full
-stop. No stakeholder disputes this framing; it's how the internet actually
-works, stated plainly instead of left implicit.
-
-**This isn't one axiom among several — it's the majority of the product.**
-Kevin's own assessment (2026-08-06): "80% or more is just this
-relationship." The salutation, persistence, honest-limits copy, draft
-artifacts, even the co-pilot widget — these aren't a features list with a
+**Kevin's own assessment (2026-08-06): "80% or more is just this
+relationship."** The salutation, persistence, honest-limits copy, draft
+artifacts, the co-pilot widget — these aren't a features list with a
 relationship axiom bolted on; they're mostly *instances* of managing this
-one relationship. When evaluating whether something is worth building,
-the real question is whether it serves the relationship, not whether it's
-a nice feature in isolation (see the co-pilot widget's conversion-gap
-finding below for what happens when a feature is checked against this and
-comes up short).
+one relationship.
 
-Fixed reference points for every future decision — bracket the whole project,
-outrank individual feature preferences. When a new decision comes up, check it
-against these before designing anything new.
+NeU/X's own three working rules, checked against every new feature:
 
 1. **Build trust, always.** John is a first-timer with real anxiety about
    screwing this up (see persona in `neux-screen-concept.md`) — every
-   interaction either earns trust or spends it. Be honest about limits rather
-   than fake confidence (e.g. the Co-pilot rail says "I don't have a specific
-   answer for that yet" instead of guessing). One bad guess risks him
-   disengaging entirely.
+   interaction either earns trust or spends it. Be honest about limits
+   rather than fake confidence (e.g. the Co-pilot rail says "I don't have
+   a specific answer for that yet" instead of guessing).
 2. **Be helpful, don't make him think.** Minimize cognitive load at every
-   step — clear labels, no jargon, one primary action per screen. Ask for
-   things progressively, at the point they're actually needed, not upfront.
-3. **Do the work, don't just describe it.** The product's job is to produce
-   something usable, not just organize/describe tasks (see "Draft artifacts"
-   in the screen build log) — a to-do list that only tells him what to do is
-   half the value; handing him a usable first draft is the other half.
+   step — clear labels, no jargon, one primary action per screen.
+3. **Do the work, don't just describe it.** The product's job is to
+   produce something usable, not just organize/describe tasks — a to-do
+   list that only tells him what to do is half the value; handing him a
+   usable first draft is the other half.
 
-These aren't features — they're the test any new feature has to pass.
+## Milestone content: the goal-state method — NeU/X's application
 
-## Milestone content: the goal-state method
+Full method (goal state → conditions → properties/types, plus its scope
+boundary) lives in `~/Desktop/professional-docs/philosophy.md` — this
+section is NeU/X's own applied output, not a restatement. NeU/X is, at
+bottom, a **goal achievement wizard**: the method is how it decides what
+any given step actually needs to ask for and check. Applied to milestone
+#2 (artwork/metadata) first, 2026-08-07, then every milestone after.
 
-Canonicalized 2026-08-07, applied to milestone #2 (artwork/metadata)
-retroactively and to #3/#4 (distribution/press) going forward. This is
-how every milestone's real content — properties, conditions, groupings,
-CTAs — gets derived, instead of being designed ad hoc per milestone.
-NeU/X is, at bottom, a **goal achievement wizard**: this method is how
-it decides what any given step of that wizard actually needs to ask for
-and check.
-
-1. **Goal state first.** What does "done" concretely mean for this
-   milestone, in real-world terms? ("The distributor has accepted the
-   release for processing," not "the form is filled out.")
-2. **Conditions.** Decompose the goal state into the facts that must all
-   be true for it to be reached. Mark which are required vs. optional
-   richness (e.g. artwork's `producedBy`/`mixedBy`/`masteredBy` don't
-   gate completion; `writtenBy`/`performedBy` do).
-3. **Property values, then types.** What data confirms each condition —
-   and only after that, what kind of input it needs (text/boolean/
-   file/date/choice).
-
-Groupings (e.g. artwork's "Metadata" vs. "Artwork" sections), CTAs
-(e.g. the Canva link, tied to the cover-art condition being hard to
-satisfy alone), and purely informational content (e.g. the ISRC/UPC
-note — informs John, gates nothing) all fall out of this decomposition.
-They are not separate design decisions per milestone. See
-`neux-record-launch-map.md` for the real-world source material this
-gets derived from — the method organizes that content, it doesn't
-invent it. Full general form of this rule lives in
-`~/.claude/CLAUDE.md` under "Always define success," since it isn't
-NeU/X-specific.
+Groupings (e.g. artwork's "Metadata" vs. "Artwork" sections), CTAs (e.g.
+the Canva link, tied to the cover-art condition being hard to satisfy
+alone), and purely informational content (e.g. the ISRC/UPC note —
+informs John, gates nothing) all fall out of the decomposition, not
+designed separately per milestone. See `neux-record-launch-map.md` for
+the real-world source material this gets derived from — the method
+organizes that content, it doesn't invent it.
 
 **Style follows category, not milestone.** Once content is decomposed
 this way, styling is a lookup by *kind of thing*, not a per-milestone
