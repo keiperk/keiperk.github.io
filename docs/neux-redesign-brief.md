@@ -175,82 +175,39 @@ row (`ArtworkChecklist.jsx` through `FollowUpChecklist.jsx`), registered
 in `StepDetail.jsx`'s `MILESTONE_EXTRAS` map. Milestone 1 has no
 component — its recipe is satisfied before the plan even generates.
 
-## Error handling & recovery rules
+## Error handling, progressive collection & wayfinding
 
-**Errors are relationship moments too — often more trust-defining than when
-things go right** (Kevin, 2026-08-06: "what builds trust is error handling
-and correction"). Anyone can seem trustworthy when nothing goes wrong; how
-the service behaves when something *does* go wrong is a truer test of axiom
-1 than the happy path is. Concrete rules:
+These were discovered here (2026-08-06) but turned out to be genuinely
+cross-project — moved to `~/.claude/CLAUDE.md` (2026-08-07) once that was
+clear, same as the goal-state method. Full rules live there now; what
+stays here is NeU/X's own application of them.
 
-1. **Never fail silently.** If something goes wrong — storage, a bad state,
-   anything — John should be told plainly, not left to discover it later
-   (e.g. finding his plan gone with no explanation). A silent failure is a
-   worse trust violation than a visible one, because it looks like
-   dishonesty in hindsight even if the intent was just to avoid bothering him.
-2. **Explain in plain language.** No stack traces, no error codes, no
-   jargon. Say what happened and what it means for him, the same
-   plain-language standard as everything else in the product.
-3. **Always offer a path forward.** A retry, a fallback, or at minimum
-   acknowledgment of what to do next — never just a dead stop.
-4. **Never blame John**, even when the cause is something he did (bad
-   input, etc.) — correct helpfully, the way a good co-pilot corrects a
-   pilot, not the way an error dialog scolds a user.
-5. **Preserve what can be preserved.** If something breaks, protecting his
-   existing progress/data is the priority — don't let a secondary failure
-   compound into losing his actual work.
+**Error handling — known gap, not yet fixed** (flagged, not acted on per
+the current hold): `utils/storage.js`'s save/load functions currently fail
+*silently* on error (a deliberate choice at the time, reasoned as "the app
+still works, it just won't persist") — directly violates the "never fail
+silently" rule. Needs revisiting once building resumes.
 
-**Known gap, not yet fixed (flagged, not acted on per the current hold)**:
-`utils/storage.js`'s save/load functions currently fail *silently* on
-error (a deliberate choice at the time, reasoned as "the app still works,
-it just won't persist") — that directly violates rule 1 above now that the
-rule exists. Needs revisiting once building resumes.
+**Wayfinding — already-built instances**, recognized as wayfinding rather
+than separate features once the principle was named: the "You are here"
+badge, step numbering ("Step X of 10"), the path strip's chronological
+connected-card layout, the kanban board's column-as-status grouping, the
+progress counter ("X / 10 done"). These weren't planned together under one
+name — worth checking future screens against wayfinding explicitly rather
+than rediscovering the need each time.
 
-## Wayfinding builds trust
+**Wayfinding — open, not yet resolved**: testimonials, a fourth trust
+pillar alongside error handling and wayfinding. Kevin confirmed they help,
+but real ones don't exist yet (no real users). Format still undecided:
+skip for now, clearly-marked placeholder/illustrative, or real quotes
+gathered later once shown to actual people. Not building until settled.
 
-Third trust pillar alongside error handling and (honest) testimonials —
-named 2026-08-06, though partly already built without being named as this.
-John should always know: where am I, what's next, how do I get back, how
-far along is the whole journey. Getting lost is its own kind of trust
-failure, quieter than an error but just as real.
-
-**Already-built instances of this, now recognized as wayfinding rather than
-separate features**: the "You are here" badge, step numbering ("Step X of
-9"), the path strip's chronological connected-card layout, the kanban
-board's column-as-status grouping, the progress counter ("X / 9 done").
-These weren't planned together under one name — worth checking future
-screens against wayfinding explicitly rather than rediscovering the need
-each time.
-
-**Open, not yet resolved**: testimonials — Kevin confirmed they help, but
-real ones don't exist yet (no real users). Format still undecided: skip for
-now, clearly-marked placeholder/illustrative, or real quotes gathered later
-once shown to actual people. Not building until this is settled.
-
-## Progressive collection rules
-
-Concrete rules for axiom 2, since "ask progressively" was stated as a
-principle 2026-08-06 but not actually built that day — documented intent
-outran the code, which is exactly the mistake this whole practice exists to
-catch. Corrected 2026-08-06 (later same day) once the gap was noticed.
-
-1. **Never collect a field before something on screen needs it.** Not
-   "might be useful later" — needs it *right now*, for the thing John is
-   looking at.
-2. **Domain-specific fields wait until the domain is known.** Style/genre,
-   audience, etc. only make sense once we know what John is even trying to
-   do — they don't belong on the entry screen, before his goal is even
-   read.
-3. **Ask in the smallest unit, inline, where the value gets used** — not a
-   separate form/screen. If a draft needs his style to sound less generic,
-   the place to ask is next to that draft, not a modal or a settings page.
-4. **Once given, remember it for the rest of the session.** Never ask the
-   same thing twice.
-5. **Everything stays skippable.** Drafts degrade gracefully without the
-   extra detail (generic instead of sharp) rather than blocking on it.
-6. **Universal, goal-agnostic fields can stay upfront** if they don't
-   presuppose anything about what John's trying to do — a name is fine on
-   entry; his musical style is not.
+**Progressive collection — NeU/X's own correction story**: "ask
+progressively" was stated as a principle 2026-08-06 but not actually built
+that day — documented intent outran the code, which is exactly the
+failure mode the rule exists to catch. Corrected the same day once the
+gap was noticed (style/audience fields moved off the entry screen, into
+inline "sharpen this draft" fields at point of use).
 
 ## Working practice: the maps are upstream of the UI
 
