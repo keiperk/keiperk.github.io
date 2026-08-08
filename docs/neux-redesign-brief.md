@@ -100,27 +100,31 @@ inventing new ones — see `ArtworkChecklist.jsx` (established the
 checklist__*` classes instead of re-deriving them).
 
 **The full recipe, working backward from the top-level goal.** John's
-goal state ("I successfully launched my record") decomposes into these
-9 milestone-level goal states, each with its own condition/type/
-property recipe. R = required (gates completion), O = optional
-richness (doesn't gate).
+goal state ("I successfully sold my record" — see JTBD correction above)
+decomposes into these 10 milestone-level goal states, each with its own
+condition/type/property recipe. R = required (gates completion), O =
+optional richness (doesn't gate). Updated 2026-08-07 to match what's
+actually implemented, after several conditions were enriched or
+corrected past their original first-pass version.
 
 | # | Milestone | Goal state | Conditions (type) | Properties |
 |---|---|---|---|---|
 | 1 | Lock release date | A date is committed that everything else schedules against | Date is set (R, auto-satisfied at entry) | `releaseDate` (date) — collected on the entry screen, no milestone UI needed |
 | 2 | Finalize artwork & metadata | Distributor's requirements are met | Cover art ready (R, boolean); credits filled (R, compound-boolean); genre set (R, text-presence) | `hasCoverArt` (bool) + `coverArtPreview` (file, O); `credits.writtenBy`/`credits.performedBy` (text, R) + `producedBy`/`mixedBy`/`masteredBy` (text, O); `genre` (text) |
-| 3 | Submit to distributor | Release submitted and accepted for processing | Distributor chosen (R, choice); submission done (R, boolean) | `distributorName` (select); `submissionConfirmed` (bool) |
-| 4 | Press & blog outreach | Press/blogs have been pitched | At least one pitch sent (R, boolean) | `pitchesSent` (bool); `outletsPitched` (number, O) |
-| 5 | Pitch playlist curators | Track submitted for playlist consideration | Spotify for Artists submitted (R, boolean) | `spotifyForArtistsSubmitted` (bool); `independentCuratorsPitched` (bool, O) |
-| 6 | Open pre-save campaign | Pre-save is live and shareable | Link exists and is live (R, text-presence) | `presaveUrl` (text/url) |
-| 7 | Teaser content ramp-up | Teaser content has actually been published | At least one teaser posted (R, boolean) | `teaserPostsPublished` (bool); `countdownStarted` (bool, O) |
-| 8 | Release day actions | Release is live and actively announced | Confirmed live (R, boolean); announced everywhere (R, boolean) | `releaseConfirmedLive` (bool); `announcedEverywhere` (bool) |
-| 9 | Post-release follow-up | The loop is closed on this release | Fans thanked (R, boolean); performance reviewed (R, boolean) | `fansThanked` (bool); `performanceReviewed` (bool); `nextStepsNoted` (text, O) |
+| 3 | Submit to distributor | Release submitted and accepted for processing | Distributor chosen (R, choice); submission done (R, boolean) | `distributorName` (select); `submissionConfirmed` (bool); `confirmationNumber` (text, O) |
+| 4 | Press, blog & radio outreach | Press/blog/radio contacts have been pitched | At least one press/blog pitch sent (R, boolean) | `pitchesSent` (bool); `outletsPitched` (number, O); `radioPitched` (bool, O — radio added 2026-08-07, was missing from the original pass) |
+| 5 | Pitch playlist curators | Track submitted for playlist consideration | Spotify for Artists submitted (R, boolean) | `spotifyForArtistsSubmitted` (bool); `playlistsTargeted` (text, O); `independentCuratorsPitched` (number, O) |
+| 6 | Open pre-save campaign | Pre-save is live and shareable, per platform | Spotify pre-save live (R, boolean); Apple Music pre-add live (R, boolean) | `presaveUrl` (text/url, umbrella link); `spotifyPresave` (bool); `appleMusicPresave` (bool) |
+| 7 | Teaser content ramp-up | Teaser content has actually been published | At least one teaser posted (R, count-presence) | `teaserPostsPublished` (number); `postedInstagram`/`postedTikTok` (bool, O); `countdownStarted` (bool, O) |
+| 8 | Launch email campaign | The mailing list has been emailed around the release | Launch announcement email sent (R, boolean) | `launchEmailSent` (bool); `reminderEmailSent` (bool, O); `listSize` (number, O) — added 2026-08-07, a real gap even within record-launch scope; kept flat/simple deliberately, not the fuller sub-task decomposition the original Figma concept implied (tabled, see "Discoveries" below) |
+| 9 | Release day actions | Release is live and actively announced, per platform | Confirmed live (R, boolean); announced on at least one platform (R, boolean) | `releaseConfirmedLive` (bool); `announcedInstagram`/`announcedTikTok`/`announcedTwitter`/`announcedEmail` (bool each) — was one vague `announcedEverywhere` boolean originally, split into named platforms matching the milestone's own description |
+| 10 | Post-release follow-up | The loop is closed on this release | Fans thanked (R, boolean); streams checked AND playlist adds checked (R, compound-boolean) | `fansThanked` (bool); `streamsChecked`/`playlistAddsChecked` (bool each — was one generic `performanceReviewed` boolean, split to match the source doc's "monitor playlist adds AND streams"); `streamsSoFar` (number, O); `nextStepsNoted` (text, O) |
 
-Implemented in `plan.js` (the 9 steps) and one checklist component per
-row (`ArtworkChecklist.jsx` through `FollowUpChecklist.jsx`), registered
-in `StepDetail.jsx`'s `MILESTONE_EXTRAS` map. Milestone 1 has no
-component — its recipe is satisfied before the plan even generates.
+Implemented in `plan.js` (10 steps) and one checklist component per row
+(`ArtworkChecklist.jsx` through `FollowUpChecklist.jsx` plus
+`EmailCampaignChecklist.jsx`), registered in `StepDetail.jsx`'s
+`MILESTONE_EXTRAS` map. Milestone 1 has no component — its recipe is
+satisfied before the plan even generates.
 
 ## Error handling, progressive collection & wayfinding
 
@@ -180,10 +184,11 @@ stating a goal. Not the marketing/landing page, not onboarding, not settings.
 ## Layout (current, superseding the original chat-left/plan-right plan)
 
 The original 40/60 chat-left/plan-right split (first draft of this brief) was
-built, then corrected away from — see the screen build log in
-`neux-screen-concept.md` for the sequence. Current layout:
+built, then corrected: chat was meant to be secondary ("co-pilot, not
+pilot" — see `neux-screen-concept.md`), but a 40/60 split made it read as
+equal-weight with the plan. Current layout:
 
-- **Plan panel — full width, primary.** Two coexisting views of the same 9
+- **Plan panel — full width, primary.** Two coexisting views of the same 10
   milestones: a **path strip** (connected cards, chronological, the goal
   restyled as the destination) and a **kanban board** below it (To Do / In
   Progress / Done, drag-and-drop). Both always visible together, not a toggle.
@@ -298,7 +303,12 @@ really was: a v1 that got corrected mid-flight once the real thinking happened.
 ## Open questions
 
 - [x] Repo name/location — `~/Desktop/neux`, own git repo, sibling to
-      `kevin-portfolio-html`. No GitHub remote yet (local only).
+      `kevin-portfolio-html`. GitHub remote: `github.com/keiperk/neux`
+      (created 2026-08-07). Live build served from
+      `kevin-portfolio-html/work/neux/app/`, not GitHub Pages on the
+      `neux` repo itself — see that repo's own README for why (a
+      `keiperk.github.io` project page account-wide-redirects to
+      `kevinkeiper.com`, a dead end for a second app).
 - [x] Real plan-step content — yes, seeded and corrected against
       `neux-record-launch-map.md` (9 real milestones, not placeholder).
 - [x] Static vs. real LLM — staying static/free deliberately (see "Parent
