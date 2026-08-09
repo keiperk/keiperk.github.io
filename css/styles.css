@@ -106,7 +106,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   font-size: 13px;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
-  padding: var(--sp-1) var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 .site-header__cta:hover {
@@ -861,6 +861,12 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   align-items: center;
   flex-wrap: wrap;
   gap: var(--sp-4);
+}
+/* Top-of-page instance only — snugs up under the header's divider line
+   (64px -> 24px top padding), bottom padding unchanged. The bottom
+   instance (before the footer) keeps the full padding-block. */
+.detail-nav--top {
+  padding-top: var(--sp-4);
 }
 .detail-nav a {
   font-family: var(--font-mono);
