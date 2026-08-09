@@ -146,16 +146,22 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   width: max-content;
   animation: marquee 28s linear infinite;
 }
-.hero__marquee-track span {
+.hero__marquee-track a {
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+  text-decoration: none;
   padding-inline: var(--sp-4);
   white-space: nowrap;
+  transition: color 0.15s ease;
 }
-.hero__marquee-track span::after {
+.hero__marquee-track a:hover,
+.hero__marquee-track a:focus-visible {
+  color: var(--ink);
+}
+.hero__marquee-track a::after {
   content: '/';
   margin-left: var(--sp-4);
   color: var(--line-strong);
