@@ -302,7 +302,8 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 /* Example exchange — real prompt/outcome pairs, used sparingly */
 .exchange-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  align-items: start;
   gap: var(--sp-5);
   margin-top: var(--sp-6);
   max-width: var(--content-measure);
