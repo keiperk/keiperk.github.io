@@ -109,3 +109,21 @@ if (oppRadarCount) {
     })
     .catch(() => oppRadarCount.remove());
 }
+
+// Same live count, styled as a stat-tile number (case study hero)
+const oppRadarStatNumber = document.getElementById('opp-radar-stat-number');
+if (oppRadarStatNumber) {
+  const csvUrl = oppRadarStatNumber.dataset.csvUrl;
+  const statTile = oppRadarStatNumber.closest('.stat-tile');
+  fetch(csvUrl)
+    .then((res) => res.text())
+    .then((text) => {
+      const n = parseInt(text.trim(), 10);
+      if (!isNaN(n)) {
+        oppRadarStatNumber.textContent = n.toLocaleString();
+      } else if (statTile) {
+        statTile.remove();
+      }
+    })
+    .catch(() => { if (statTile) statTile.remove(); });
+}
