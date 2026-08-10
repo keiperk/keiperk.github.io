@@ -45,16 +45,20 @@ if (form) {
 }
 
 // Lightbox — click any gallery/lead image (not ones already wrapped in
-// a link, e.g. a PDF link) to view it enlarged.
+// a link, e.g. a PDF link) to view it enlarged. Images sharing a gallery
+// group are stepped through together with prev/next, instead of each
+// image opening in isolation.
 const lightboxImages = document.querySelectorAll('.detail-gallery__item img, .detail-lead-image img');
 if (lightboxImages.length) {
   const overlay = document.createElement('div');
   overlay.className = 'lightbox-overlay';
-  overlay.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><div class="lightbox-frame"><img alt=""><p class="lightbox-caption"></p></div>';
+  overlay.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><button class="lightbox-prev" aria-label="Previous image">&larr;</button><button class="lightbox-next" aria-label="Next image">&rarr;</button><div class="lightbox-frame"><img alt=""><p class="lightbox-caption"></p></div>';
   document.body.appendChild(overlay);
 
   const overlayImg = overlay.querySelector('img');
   const overlayCaption = overlay.querySelector('.lightbox-caption');
+  const prevBtn = overlay.querySelector('.lightbox-prev');
+  const nextBtn = overlay.querySelector('.lightbox-next');
 
   function getCaption(img) {
     const figure = img.closest('figure');
@@ -70,11 +74,43 @@ if (lightboxImages.length) {
     return '';
   }
 
-  function openLightbox(src, alt, caption) {
-    overlayImg.src = src;
-    overlayImg.alt = alt || '';
-    overlayCaption.textContent = caption || '';
+  // Each image's "group" is the other lightbox-able images sharing its
+  // nearest .detail-gallery/.detail-gallery--masonry ancestor. Images not
+  // inside a gallery (e.g. a lone lead image) get a group of one.
+  const groups = [];
+  const groupOf = new Map();
+  lightboxImages.forEach((img) => {
+    if (img.closest('a')) return;
+    const gallery = img.closest('.detail-gallery, .detail-gallery--masonry, .detail-lead-image');
+    let group = gallery ? groupOf.get(gallery) : null;
+    if (!group) {
+      group = [];
+      groups.push(group);
+      if (gallery) groupOf.set(gallery, group);
+    }
+    group.push(img);
+  });
+
+  let currentGroup = [];
+  let currentIndex = 0;
+
+  function show(index) {
+    currentIndex = (index + currentGroup.length) % currentGroup.length;
+    const img = currentGroup[currentIndex];
+    overlayImg.src = img.dataset.full || img.src;
+    overlayImg.alt = img.alt || '';
+    const caption = getCaption(img);
+    overlayCaption.textContent = caption;
     overlayCaption.style.display = caption ? '' : 'none';
+    const multi = currentGroup.length > 1;
+    prevBtn.style.display = multi ? '' : 'none';
+    nextBtn.style.display = multi ? '' : 'none';
+  }
+
+  function openLightbox(img) {
+    const gallery = img.closest('.detail-gallery, .detail-gallery--masonry, .detail-lead-image');
+    currentGroup = (gallery && groupOf.get(gallery)) || [img];
+    show(currentGroup.indexOf(img));
     overlay.classList.add('is-open');
   }
   function closeLightbox() {
@@ -83,12 +119,18 @@ if (lightboxImages.length) {
 
   lightboxImages.forEach((img) => {
     if (img.closest('a')) return;
-    img.addEventListener('click', () => openLightbox(img.dataset.full || img.src, img.alt, getCaption(img)));
+    img.addEventListener('click', () => openLightbox(img));
   });
 
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); show(currentIndex - 1); });
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); show(currentIndex + 1); });
+  overlay.querySelector('.lightbox-frame').addEventListener('click', (e) => e.stopPropagation());
   overlay.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') show(currentIndex - 1);
+    if (e.key === 'ArrowRight') show(currentIndex + 1);
   });
 }
 
