@@ -91,3 +91,21 @@ if (lightboxImages.length) {
     if (e.key === 'Escape') closeLightbox();
   });
 }
+
+// Opportunity Radar: live contact count, pulled from a published
+// Google Sheet (a count-only cell, no contact data exposed)
+const oppRadarCount = document.getElementById('opp-radar-count');
+if (oppRadarCount) {
+  const csvUrl = oppRadarCount.dataset.csvUrl;
+  fetch(csvUrl)
+    .then((res) => res.text())
+    .then((text) => {
+      const n = parseInt(text.trim(), 10);
+      if (!isNaN(n)) {
+        oppRadarCount.textContent = `${n.toLocaleString()} contacts surfaced`;
+      } else {
+        oppRadarCount.remove();
+      }
+    })
+    .catch(() => oppRadarCount.remove());
+}
