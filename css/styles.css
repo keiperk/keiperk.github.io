@@ -313,6 +313,38 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   color: var(--ink);
 }
 
+/* Trade-offs / Frictions group — a labeled cluster of one or more honest
+   callouts under a single eyebrow. Two item types, used as the material
+   actually warrants (never fabricate a source):
+   .tradeoff-group__item wraps a .doc-quote when a real file literally
+   says it; .tradeoff-group__item--plain is stated commentary when it's
+   true but was never written down anywhere, so it gets no file citation.
+   First item sits close under the label; later items get normal
+   paragraph spacing between them. */
+.tradeoff-group {
+  max-width: var(--content-measure);
+  margin-top: var(--sp-6);
+}
+.tradeoff-group .section-label {
+  display: block;
+}
+.tradeoff-group__item {
+  margin-top: var(--sp-3);
+}
+.tradeoff-group__item + .tradeoff-group__item {
+  margin-top: var(--sp-4);
+}
+.tradeoff-group__item .doc-quote {
+  margin-top: 0;
+}
+.tradeoff-group__item--plain {
+  border-left: 2px solid var(--line-strong);
+  padding-left: var(--sp-4);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
 /* Example exchange — real prompt/outcome pairs, used sparingly */
 .exchange-grid {
   display: grid;

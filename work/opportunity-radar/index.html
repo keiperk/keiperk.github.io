@@ -196,10 +196,11 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">05</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>What shipped</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>What got shipped / cut</h2>
       </aside>
       <div class="rail-content">
-        <div class="detail-section__body">
+        <span class="section-label">Shipped</span>
+        <div class="detail-section__body" style="margin-top: var(--sp-2);">
           <p>A leaderboard ranked by weighted opportunity index, a company inspector panel with momentum trends and suggested contacts, and a per-company detail view breaking down exactly how each score was calculated, so the ranking is legible, not a black box.</p>
         </div>
         <div class="detail-gallery">
@@ -211,6 +212,16 @@
             <img src="images/opprad-05-v2.jpg" alt="Company detail view with momentum trend, rank trend, and signal radar chart">
             <figcaption class="detail-gallery__caption">Momentum trend, rank trend, and a signal radar chart for a single company.</figcaption>
           </figure>
+        </div>
+
+        <div class="tradeoff-group">
+          <span class="section-label">Trade-offs</span>
+          <div class="tradeoff-group__item">
+            <p class="tradeoff-group__item--plain">No Crunchbase API access &mdash; a real gap. Funding-round and headcount data had to come from weaker, indirect signals (news mentions, exec-hire activity) instead of the real thing, which caps how sharp the momentum score can actually get. Would be the first upgrade with real budget.</p>
+          </div>
+          <div class="tradeoff-group__item">
+            <p class="tradeoff-group__item--plain">No verified email finder either &mdash; contacts surface as LinkedIn profiles, not confirmed email addresses. Real, actionable leads either way, but it's a manual step from "here's the person" to "here's how to actually reach them" that a paid enrichment API would close.</p>
+          </div>
         </div>
 
       </div>
@@ -225,7 +236,7 @@
         <div class="detail-section__body">
           <p>Live and in use: it's surfaced real companies with rising hiring momentum and the people at each one worth reaching out to directly.</p>
           <p>Just as valuable was what building it taught me: three days deep in Claude Code, VS Code, and GitHub, going from an idea to a working, hosted product using tools I'd only touched at the edges before.</p>
-          <p>The live dashboard itself surfaces real suggested contacts at each tracked company, so it isn't posted publicly. <a href="mailto:kevin@kevinkeiper.com" class="link-muted-blue">Get in touch</a> for a walkthrough.</p>
+          <p>The live dashboard itself surfaces real suggested contacts at each tracked company, so it isn't posted publicly. <a href="mailto:kevin@kevinkeiper.com" class="link-muted-blue"><strong>Get in touch</strong></a> for a walkthrough.</p>
         </div>
         <ul class="tag-row" style="margin-top: var(--sp-5);">
           <li class="tag">Product Design</li>
