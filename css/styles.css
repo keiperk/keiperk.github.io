@@ -314,13 +314,11 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 /* Trade-offs / Frictions group — a labeled cluster of one or more honest
-   callouts under a single eyebrow. Two item types, used as the material
-   actually warrants (never fabricate a source):
-   .tradeoff-group__item wraps a .doc-quote when a real file literally
-   says it; .tradeoff-group__item--plain is stated commentary when it's
-   true but was never written down anywhere, so it gets no file citation.
-   First item sits close under the label; later items get normal
-   paragraph spacing between them. */
+   callouts under a single eyebrow, reusing the same .doc-quote look used
+   elsewhere (kevinkeiper.com case study) rather than a second visual
+   language. Cited items keep .doc-quote__file; uncited-but-true ones
+   (never fabricate a source) just omit it — same box either way, so the
+   only variable is whether a citation exists, not how it looks. */
 .tradeoff-group {
   max-width: var(--content-measure);
   margin-top: var(--sp-6);
@@ -328,21 +326,11 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 .tradeoff-group .section-label {
   display: block;
 }
-.tradeoff-group__item {
-  margin-top: var(--sp-3);
+.tradeoff-group .doc-quote:first-of-type {
+  margin-top: var(--sp-2);
 }
-.tradeoff-group__item + .tradeoff-group__item {
+.tradeoff-group .doc-quote + .doc-quote {
   margin-top: var(--sp-4);
-}
-.tradeoff-group__item .doc-quote {
-  margin-top: 0;
-}
-.tradeoff-group__item--plain {
-  border-left: 2px solid var(--line-strong);
-  padding-left: var(--sp-4);
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--ink);
 }
 
 /* Example exchange — real prompt/outcome pairs, used sparingly */
