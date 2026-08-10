@@ -1,5 +1,5 @@
 // Scroll-reveal for case study rows and detail-page sections
-const rows = document.querySelectorAll('.case-row, .reveal');
+const rows = document.querySelectorAll('.case-row, .rail-content, .reveal');
 
 if ('IntersectionObserver' in window && rows.length) {
   const revealObserver = new IntersectionObserver((entries, observer) => {
