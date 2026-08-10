@@ -314,22 +314,25 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 /* Trade-offs / Frictions group — a labeled cluster of one or more honest
-   callouts under a single eyebrow, reusing the same .doc-quote look used
-   elsewhere (kevinkeiper.com case study) rather than a second visual
-   language. Cited items keep .doc-quote__file; uncited-but-true ones
-   (never fabricate a source) just omit it — same box either way, so the
-   only variable is whether a citation exists, not how it looks. */
+   callouts under a single eyebrow. Left border like .doc-quote, but
+   normal body-copy styling (not the mono quote treatment) since this is
+   stated commentary, not a literal excerpt from a file. */
 .tradeoff-group {
   max-width: var(--content-measure);
   margin-top: var(--sp-6);
 }
 .tradeoff-group .section-label {
   display: block;
+  margin-bottom: var(--sp-2);
 }
-.tradeoff-group .doc-quote:first-of-type {
-  margin-top: var(--sp-2);
+.tradeoff-group__item {
+  border-left: 2px solid var(--line-strong);
+  padding-left: var(--sp-4);
+  font-size: 1.0625rem;
+  color: var(--muted);
+  line-height: 1.65;
 }
-.tradeoff-group .doc-quote + .doc-quote {
+.tradeoff-group__item + .tradeoff-group__item {
   margin-top: var(--sp-4);
 }
 
