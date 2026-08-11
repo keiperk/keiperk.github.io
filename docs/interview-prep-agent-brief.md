@@ -89,3 +89,54 @@ gets a v2.
   defaults left untouched), not from a separate mockup phase — the
   screenshots of the actual coded result are the "pixels" that matter,
   same as NeU/X's "What Shipped" section already does.
+
+## Second agent: Job Triage (added 2026-08-10)
+
+Given companies (e.g. what Opportunity Radar surfaced), finds their real
+current postings via search, then judges each against Kevin's own stated
+fit criteria. Complements the pipeline: **Opportunity Radar discovers →
+Job Triage judges → Interview Prep gets you ready.** Explicitly does not
+duplicate Opportunity Radar's discovery work — company-level signal stays
+Opportunity Radar's job; this agent starts from a company name and finds
+that company's actual open roles.
+
+Two skills, not three: `postingDiscovery.js` (search, real per-company
+cost — the priciest skill in either agent) + `postingParser.js`
+(extraction, free) feed into `fitJudgment.js` (the one genuinely agentic
+piece — a real verdict, not a keyword match). Hard-capped at 5 companies
+per run (`MAX_COMPANIES_PER_RUN` in server.js) — a structural guardrail,
+not just a prompt instruction, same pattern as the interviewer-research
+gate.
+
+Lives in the same application as Interview Prep (tab-switched, `App.jsx`)
+— one application, two agents, five total skills between them, not two
+disconnected projects. Built same night as Interview Prep; confirmed
+partially working (discovery found real Splice postings with real
+URLs/salary/descriptions) but never completed a full run without hitting
+the API credit ceiling — real end-to-end verification still pending.
+
+## Portfolio placement & hosting plan (decided 2026-08-10, not yet executed)
+
+Both agents get their own standalone case study — not folded into
+Opportunity Radar or NeU/X, since it's neither automation (Opportunity
+Radar) nor a UI/UX product concept (NeU/X). It's specifically a
+demonstration of agents + skills as their own thing. Candidate names:
+"Job Search Agents," "Signal & Fit," "Prep & Triage."
+
+**Deploy to Vercel, genuinely live and public** — not a recording, a real
+"Try it live" link, same posture as NeU/X's live app. Concretely:
+1. Create a GitHub repo for `interview-prep` (doesn't have one yet — local
+   commits only as of 2026-08-10)
+2. Reshape `server.js`'s two routes into Vercel's serverless function
+   format (small rewrite — the skills themselves don't change)
+3. Add `ANTHROPIC_API_KEY` as a Vercel secret (through their dashboard,
+   never pasted through chat)
+4. Connect the repo to Vercel — after that, `git push` auto-deploys
+
+**Explicitly decided: no rate limit for v1.** A real, named exposure —
+without one, a stranger finding the link could run it repeatedly and
+spend real API credit, not just occasional visitors. Kevin's informed
+call, 2026-08-10: comfortable with that risk for now, can add a limit
+later if it ever becomes a real problem. Documented here so it reads as
+a deliberate trade-off, not an oversight, same posture as every other
+named cut in this project.
