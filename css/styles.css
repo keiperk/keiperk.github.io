@@ -54,6 +54,8 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 .link-muted-blue { color: #5B7A9D; text-decoration: none; }
 .link-muted-blue:hover { color: #46617D; }
+.link-n8n { color: #B33A2E; text-decoration: none; }
+.link-n8n:hover { color: #8C2C22; }
 ul { list-style: none; margin: 0; padding: 0; }
 h1, h2, h3, p, figure { margin: 0; }
 h1, h2, h3 { text-wrap: balance; }
