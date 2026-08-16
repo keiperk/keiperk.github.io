@@ -140,3 +140,161 @@ call, 2026-08-10: comfortable with that risk for now, can add a limit
 later if it ever becomes a real problem. Documented here so it reads as
 a deliberate trade-off, not an oversight, same posture as every other
 named cut in this project.
+
+## Renaming, 2026-08-15
+
+Working names, not yet applied to code — the pattern is a single word
+per stage, describing the output, not the mechanism:
+
+- **Triage → Fit.** More accurate than "Triage" — the tool's entire
+  output is a fit verdict (Apply/Skip/Maybe against stated criteria),
+  so the name should say that directly. `fitJudgment.js` already used
+  "fit" internally before the product name caught up to it.
+- **Negotiation Prep → Close.** Deliberate callback to Kevin's own
+  cross-project working philosophy (`philosophy.md`): "Always build
+  trust. Always define success. Always be converting" — itself a
+  riff on "always be closing." Naming the funnel's last stage "Close"
+  ties the whole suite back to that framework by name, not just in
+  spirit.
+- Interview Prep keeps its name — plain and accurate already.
+
+Full funnel, renamed: **Fit → Interview Prep → Close** (Opportunity
+Radar remains upstream of all three, not part of the rename).
+
+## Real bugs found and fixed via live testing, 2026-08-14/15
+
+Not found by inspection — found by testing the tool against an
+independent outside source and refusing to accept a clean-looking
+result at face value.
+
+**The test**: cross-referenced Opportunity Radar's tracked companies
+against a real, independent job-lead service Kevin already uses
+(J&J), to see if Opportunity Radar's signal-based discovery was
+finding anything real. First pass: zero overlap. Rather than treat
+that as either "proof it's broken" or "proof it's fine" on its own,
+traced it down before concluding anything — the discipline that
+actually mattered here, not the specific bugs found.
+
+**What was actually wrong, diagnosed live inside the n8n flow:**
+1. **Discovery was searching the wrong thing** — a single, static
+   query ("startup raises Series A funding round") had nothing to do
+   with hiring signal, explaining both the lack of variety run-to-run
+   and the mismatch with a job-lead service. Retargeted to real
+   hiring-adjacent language, and made date-aware so it doesn't keep
+   re-polling an identical result set.
+2. **Extraction was pulling in non-companies** — government agencies,
+   news-aggregator sites, and companies that only shared a keyword
+   with an unrelated article (a game studio mentioned near the word
+   "designer") were being extracted as if they were real hiring
+   startups. Fixed with explicit negative examples and a "when
+   uncertain, extract nothing" instruction — precision over recall.
+3. **6 of 8 signal-source enrichment branches were silently
+   deactivated** — Reddit, LinkedIn, GitHub, HN, exec-hires, funding,
+   and patents were all switched off, discovered live, cause unknown
+   (not something Kevin did knowingly). Re-enabled; a full run
+   afterward succeeded with real, distinct per-source signal values
+   across all 8 sources, not placeholder numbers.
+
+**The proof, not just the fix**: an independent real API call
+confirmed a company the retuned discovery flagged (Runway) actually
+had two live, current product-design postings — the tool doing its
+actual job, verified end to end, not assumed from a clean-looking UI.
+
+**Known, unresolved**: a "company URL" field attached to each
+discovered company is sometimes wrong (e.g. a real AI startup named
+"Attribute" got attached to a NIST government cybersecurity page).
+Root cause not found — several likely nodes were checked and ruled
+out directly, not guessed at, but the actual source wasn't located.
+Low-stakes: Fit's own company research resolves the correct company
+by name regardless, so nothing downstream has actually been misled by
+it. Named and parked, not hidden.
+
+## Fit vs. Interview Prep — which one is actually agentic
+
+Real distinction, surfaced by testing both against one plain
+criterion: does it make a judgment that could reasonably go a
+different way from the identical input, depending on how the input is
+weighed? If not, no amount of AI use makes it an agent — it's a
+pipeline, however many model calls it makes.
+
+- **Fit's `fitJudgment` clears the bar.** Given a posting's facts,
+  company research, and Kevin's own stated criteria, there's no
+  formula that converts those into one right verdict — a great
+  culture fit might outweigh mediocre comp, or not, depending on the
+  person. Genuinely agentic.
+- **Interview Prep's three skills don't.** `companyResearch`,
+  `interviewerResearch`, and `roleFit` all search and synthesize —
+  real, useful LLM work, but none of them produce a judgment call;
+  they organize what was found. No verdict, no branching, nothing a
+  differently-weighted read would change. An accurate, honest label
+  for it is "an LLM-powered research pipeline," not "an agent" — and
+  that's not a demotion, the research itself is still real and
+  useful, just a different category of thing than Fit and Close are.
+
+Same test applied to Close's `negotiationStrategy` below — it clears
+the bar the same way `fitJudgment` does.
+
+## Third leg: Close (added 2026-08-15, scoped but not yet built)
+
+Completes the funnel Opportunity Radar → Fit → Interview Prep was
+always missing an ending for: once a real offer exists, help Kevin
+figure out how hard to push, on what, and how to actually say it.
+
+**Real evidence this is a legitimate need, not an assumed one** — the
+same bar Opportunity Radar had to clear with its own LinkedIn
+screenshot, checked before any goal-state work, not after:
+- 54–64% of candidates don't negotiate at all, consistent across
+  independent CareerBuilder, ZipRecruiter, and Glassdoor/Fishbowl
+  surveys.
+- 84% of Gen Z workers (18–24) accept the first offer outright.
+- The stated reasons are specific, not vague: 53% don't feel
+  comfortable asking, 48% fear the offer gets pulled, 38% don't want
+  to seem greedy — a confidence/framing gap, not primarily a
+  knowledge gap about market rate. This directly shapes the design:
+  the skill that turns a decided strategy into real words to say
+  (`scriptDraft`) is load-bearing, not an afterthought.
+
+**Goal-state table**, derived via `transaction-space.md`'s method
+before any code, 2026-08-15:
+
+| # | item | goal state | conditions (type) | properties |
+|---|---|---|---|---|
+| 1 | Offer captured | Real offer terms exist as structured data, not a vague memory | Base comp stated (R) · equity/bonus stated (R, unconfirmed if absent) · start date/decision deadline stated (R) · other terms (O) | raw offer text pasted in |
+| 2 | Market context established | Real, current comp data exists for this role/level/location | A real range found via search, tied to role/level/location (R) · source is real and citable (R) | role, level, location, company |
+| 3 | Leverage assessed | The candidate's actual negotiating position is named plainly | Competing offers, if any (O — absence is informative) · current comp (O) · how much they want this offer specifically (R) | competing offers, current comp, stated preference strength |
+| 4 | Ask determined | A specific, real counter exists, grounded in evidence | Grounded in market data vs. offer (R) · grounded in leverage (R) · doesn't overreach past the evidence (R) | offer (1), market data (2), leverage (3) |
+| 5 | Delivery drafted | Real language exists to say or send | Traceable to the determined ask, not generic filler (R) | the determined ask (4) |
+
+**Skill decomposition** — same shape as Fit, one real judgment call
+among several fact-lookup/extraction skills: `offerParser` (extraction)
++ `marketResearch` (search) → `negotiationStrategy` (**the agentic
+piece** — no formula converts offer + market data + leverage into one
+right ask) → `scriptDraft` (grounded synthesis, not a fresh judgment).
+
+**Not yet built.** Scoped and evidence-backed, same posture as the
+original negotiation-prep deferral in July — a named, reasoned cut,
+not a hidden gap.
+
+## Fourth leg, parked: application tailoring (named 2026-08-15)
+
+Given Kevin's actual body of past work (a finite, real portfolio) and
+what a specific posting emphasizes, decide which projects to lead
+with and how to frame them for *that* application. Different job than
+Fit (which judges whether to apply) — this is about how to present
+once the decision is already made. Passes the same agentic test:
+two reasonable people would defensibly lead with different projects
+from the identical portfolio for the identical posting. Not scoped
+further than this; named so it isn't lost, not committed to.
+
+## Separately considered and not chosen for this suite: a DJ/chef-shaped agent
+
+A different category of demonstration project, floated 2026-08-15 —
+given a finite, real inventory (a record collection, a pantry) and
+situational context (room, crowd, time / occasion, dietary limits),
+pick one option with no objectively right answer, only taste. Passes
+the agentic test cleanly, arguably more cleanly than anything in this
+suite since there's no external ground truth to ever check against.
+Kept separate from the job-search suite rather than folded in — a
+different domain, not a natural extension of Opportunity Radar → Fit
+→ Interview Prep → Close. Real candidate for a future project on its
+own, not decided.
