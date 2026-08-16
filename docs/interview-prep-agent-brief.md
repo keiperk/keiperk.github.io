@@ -286,6 +286,74 @@ two reasonable people would defensibly lead with different projects
 from the identical portfolio for the identical posting. Not scoped
 further than this; named so it isn't lost, not committed to.
 
+## Opportunity Radar home page redesign, 2026-08-16 — cut list + rationale
+
+Triggered by a real contradiction Kevin caught himself: Fit checking for
+actual job postings contradicts Opportunity Radar's own founding premise
+(surfacing companies *before* a posting exists — see the original case
+study). If Fit needs a real posting to judge, and OppRad only exists to
+find companies before postings are visible, the two were quietly working
+against each other. Rather than patch around it, descoped Fit itself and
+redesigned the home page around the narrower, more honest scope.
+
+**Goal-state re-check, done before any pixels moved**: is the home
+page's job "get Priya an interview" or "surface a person worth reaching
+out to"? Answer: the latter. Same test already applied to Interview
+Prep's own goal state — "getting a job"/"getting an interview" is a
+decision that sits outside the tool's control (the hiring side makes
+that call), so it can't be the thing the page is judged on. What OppRad
+can actually own: did it surface a real, worthwhile person to contact,
+backed by real signal. Confirmed goal state: **a person worth reaching
+out to, evidenced by real hard and soft signal — not an interview, not
+a job.**
+
+**What got cut, and why:**
+- **Job-posting discovery/verification dropped from Fit entirely.**
+  Fit no longer searches for or judges real postings — it judges company
+  + contact-level fit against Kevin's stated criteria. Removes the
+  contradiction above at the root, not around the edges.
+- **4 columns → 2.** The old layout (ranked list / build-shortlist /
+  fit-results / inspector) encoded a 3-step pipeline (target → run →
+  results) that no longer exists once Fit stopped being a multi-step
+  posting-verification flow. Kept only the two things that genuinely
+  need permanent screen space at all times: the ranked list (always
+  being scanned) and the detail pane for whichever company is selected
+  (always relevant once clicked). Criteria/shortlist/Fit-button controls
+  didn't earn a column of their own — they're used once per session,
+  not continuously — so they became a compact toolbar pinned above the
+  list instead of a third column.
+- **Fit verdicts move from a dedicated results column to inline row
+  badges + the detail pane.** Once Fit runs, each row shows its verdict
+  directly; the full reasoning/postings write-up (now company+contact
+  level, not posting level) shows in the detail pane for whichever
+  company is currently selected — consistent with the master-detail
+  pattern instead of a separate pipeline stage.
+- **Contacts fold into the detail pane** rather than sitting in a
+  separate always-visible "Suggested Contact" block competing with 3
+  other columns for width — the detail pane now has roughly 2x the
+  width it had before, freeing room to give contact info real
+  prominence instead of being squeezed under a momentum chart.
+
+**Real UX problem caught and solved before building, not after**: a
+long ranked list scrolled independently from a fixed-position detail
+pane risks disorientation — click a row near the bottom of a long
+scroll, and a naively-built detail pane would show content that doesn't
+visually "arrive" in sync with where the eye is. Fixed by keeping the
+existing `.col-sticky-inner` sticky-positioning pattern (already used
+elsewhere in this codebase) on the detail pane, and keeping list scroll
+contained to its own box rather than the whole page — the detail pane
+never moves, so there's no separate "scroll back up to see the
+reaction" step.
+
+**Not yet built** (as of this entry): the descoped `fitJudgment`
+backend change (dropping `postingDiscovery`/`postingParser`, adding a
+new `contactResearch` skill), persistent multi-profile fit-criteria
+storage (capped at 3 profiles, real "+ New Fit Profile" affordance),
+and the actual 2-column HTML/CSS/JS implementation — layout decided and
+documented here first, code follows on a dedicated branch
+(`redesign/2-col-fit-descope`), old 4-column version untouched in `main`
+git history for direct comparison/rollback.
+
 ## Separately considered and not chosen for this suite: a DJ/chef-shaped agent
 
 A different category of demonstration project, floated 2026-08-15 —
