@@ -46,8 +46,14 @@ draw on), that's a structural disqualification, not a preference.
 **3. Would two competent people reasonably disagree, given identical
 input?**
 If yes — same facts, same context, defensibly different outputs — that's
-the clearest single tell. If everyone with the same input converges on
-the same answer, it's extraction or synthesis, not judgment.
+the clearest single tell. The disagreement has to be an **informed
+opinion**: reasoned and defensible from the real evidence, not an
+arbitrary preference. ("Pick any color" produces disagreement too, but
+there's no reasoning chain behind either answer — that's randomness, not
+judgment, and doesn't clear this bar.) If everyone with the same input
+converges on the same answer, it's extraction or synthesis, not
+judgment. If nobody's answer is actually grounded in the input at all,
+it's noise, not judgment either.
 
 ## The three buckets
 
