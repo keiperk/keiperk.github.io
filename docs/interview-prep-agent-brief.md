@@ -354,6 +354,64 @@ documented here first, code follows on a dedicated branch
 (`redesign/2-col-fit-descope`), old 4-column version untouched in `main`
 git history for direct comparison/rollback.
 
+## Where the redesign actually landed, 2026-08-18 — from toolbar to drawer
+
+The 2-column layout above was built and verified live over two more
+sessions (2026-08-17/18), including a real end-to-end test once API
+credits were restored — confirmed a real Fit run lands a verdict badge
+on the row and full reasoning in the right rail, exactly as designed.
+Several real bugs were caught and fixed along the way, not just
+features added:
+
+- **A silent-failure gap**: a Fit run that completed with zero real
+  postings found showed nothing at all — looked exactly like the
+  button silently did nothing. Fixed with an explicit plain-language
+  message.
+- **An error-swallowing bug**: the backend sent both a generic `error`
+  label and a real `detail` explaining why a call failed; the frontend
+  only read `error`, so every failure showed a label with no actual
+  explanation. Real bug, not a UX nitpick — caught live when a genuine
+  API credit exhaustion showed as "Fit check failed: Triage failed"
+  with no way to know why.
+- **A visual-drift bug**: shortlist slots were styled by hand to
+  *approximate* the look of a real company row, and drifted out of
+  sync in practice. Fixed at the root — extracted the row markup into
+  one shared function used by both the ranked list and the shortlist,
+  so they're literally the same element, not two things kept in sync
+  by hand.
+- **A real cost finding**: Fit-checking a company costs ~$1 in real API
+  spend, confirmed live (and a real near-miss — the account briefly
+  went negative from concurrent in-flight requests during testing).
+  Cap lowered 5 → 3 companies per run in response, and the real dollar
+  figure now appears directly in the UI rather than a vague "billed
+  API calls" warning.
+
+**The last structural change**: the picker/config surface (criteria,
+shortlist, Auto-fill, the run button) moved a second time — from a
+toolbar permanently pinned above the list to a **summoned drawer**,
+triggered by a floating "⚡ Check Fit" button. Reasoning, derived live
+rather than assumed: OppRad's own core job (raw, ranked signal) is
+already proven and self-contained; Fit is a bolt-on capability, and
+every place tried for its mechanics (a dedicated column, a pinned
+toolbar) ended up asking the base layout to also double as a "batch
+fit-check manager." The drawer resolves that by not asking the base
+layout to hold Fit's chrome at all — closed by default, summoned on
+demand, full width/height when open so a long Prep expansion has real
+room to flow instead of being squeezed into a narrow permanent column.
+Sketched greybox-first (`layout-greybox.html`, Variant E — including a
+real mismatch caught before building: the drawer's internal column
+ratio didn't match the base layout's, making it look like the whole
+page reflowed rather than a drawer calmly appearing on top) before
+being built for real. Results display (row badges, right-rail Fit
+panel) was left untouched — only the picking mechanism moved.
+
+**Current state, honestly**: the 2-column base layout, the Fit drawer,
+and the row-badge/right-rail results are all built and verified live.
+The backend `fitJudgment` change (dropping posting-verification
+entirely, adding `contactResearch`) and persistent multi-profile
+criteria storage remain the two real, named gaps — scoped, not hidden,
+next up if this gets picked back up.
+
 ## Separately considered and not chosen for this suite: a DJ/chef-shaped agent
 
 A different category of demonstration project, floated 2026-08-15 —
