@@ -171,6 +171,7 @@
           <p>No design tool, no mockups. This one started as an idea and went straight to a working pipeline.</p>
           <p>An n8n workflow pulls and normalizes signals from eight sources, writes the results to Google Sheets.</p>
           <p>An AI coding agent turned that data model directly into the interface: leaderboard, company detail views, and the scoring breakdown all generated from the real schema, not a static comp.</p>
+          <p>That's what shipped after three days: a four-column dashboard finding companies, then verifying their actual open roles. Three weeks later, it stopped doing the second half of that on purpose &mdash; more on why, below.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
@@ -225,6 +226,76 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">06</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M18 4v4h4"/></svg>Fit, Prep, Close &mdash; the agent layer</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>Three weeks after the original build shipped, three more pieces got added on top: Fit (a judgment agent &mdash; is this company worth pursuing), Interview Prep (real, grounded prep once you're actually talking to someone), and Close (scoped but not built, negotiation prep once an offer exists).</p>
+          <p>Partway through, a real contradiction surfaced: Fit had started verifying actual job postings before judging a company &mdash; which quietly worked against Opportunity Radar's own founding premise of surfacing companies <em>before</em> a posting exists. Rather than patch around it, Fit got descoped back to company-and-contact-level judgment only, and the home page got rebuilt around that narrower, more honest scope.</p>
+          <p>Today: two columns, not four. A ranked list and a company's real detail &mdash; signal, contacts, and a fit verdict when you've asked for one &mdash; no job postings involved anywhere in it.</p>
+        </div>
+
+        <div class="detail-gallery">
+          <figure class="detail-gallery__item reveal">
+            <img src="images/Opportunity-Radar-Dashboard-with-job-search.png" alt="Old four-column dashboard: ranked list, Build Your Shortlist, Verified Openings, Company Inspector">
+            <figcaption class="detail-gallery__caption">Before: four columns, built around verifying real job postings.</figcaption>
+          </figure>
+          <figure class="detail-gallery__item reveal">
+            <img src="images/Opportunity-Radar-Dashboard-2col.png" alt="New two-column dashboard: ranked list with criteria toolbar, and a full company detail pane">
+            <figcaption class="detail-gallery__caption">After: two columns, once Fit stopped verifying postings and the pipeline layout no longer applied.</figcaption>
+          </figure>
+        </div>
+
+        <div class="tradeoff-group">
+          <span class="section-label">Shipped</span>
+          <div class="tradeoff-group__item">Home page redesigned from four columns to two &mdash; a ranked list with a compact criteria/shortlist toolbar on the left, a full company-detail pane on the right. The old four-column layout had encoded a job-posting pipeline (target &rarr; run &rarr; results) that no longer existed once Fit's scope changed.</div>
+          <div class="tradeoff-group__item">Fit verdicts now surface inline: a colored badge right on the company row, full reasoning in the detail pane &mdash; no separate results screen to go find them in.</div>
+          <div class="tradeoff-group__item">Suggested Contacts and the scoring breakdown reorganized for the wider detail pane, with contacts given real top billing instead of sitting under a chart.</div>
+          <div class="tradeoff-group__item">Two real bugs caught and fixed the same session they were found: a "Prep for this interview" link that got silently orphaned mid-refactor, and a run that failed with zero explanation on screen &mdash; both traced to real causes and fixed, not just patched around.</div>
+        </div>
+
+        <div class="tradeoff-group">
+          <span class="section-label">Cut / not yet built</span>
+          <div class="tradeoff-group__item">Job-posting discovery and verification, removed from Fit's scope entirely &mdash; it now judges company and contact fit, not whether a specific listing exists.</div>
+          <div class="tradeoff-group__item">Persistent, named fit-criteria profiles (so a real "who am I fitting against" concept can be saved and switched between) &mdash; designed, not built.</div>
+          <div class="tradeoff-group__item">Close, the negotiation-prep agent &mdash; scoped with real evidence (survey data on how often people don't negotiate) before any code, then deferred a second time in favor of finishing this redesign first.</div>
+        </div>
+
+        <div class="tradeoff-group">
+          <span class="section-label">Open, honestly</span>
+          <div class="tradeoff-group__item">The redesign is built and wired correctly but unverified end-to-end as of this writing &mdash; a real live test (run n8n, refresh the dashboard, run Fit against real output) was blocked by API credit exhaustion mid-session, a real cost of iterating on live, billed agent calls rather than a mocked demo.</div>
+        </div>
+
+        <div class="detail-section__body">
+          <p>Next session: the end-to-end test ran clean, and it surfaced a real structural bug &mdash; the picker/config surface (criteria, shortlist, Auto-fill, the run button) had moved into a summoned drawer modal one session prior. Live use of that modal was the actual verdict: adding companies to a shortlist one at a time meant popping in and out of a modal repeatedly, worse friction than the thing it replaced. Cut, not patched &mdash; back to an always-visible surface, but rebuilt around what the modal had gotten right (a real criteria field, a real run button) rather than reverting to the toolbar that came before it.</p>
+          <p>What replaced it: Fit runs in situ, one company at a time, right in the detail pane already open for whichever company is selected &mdash; no separate picker, no shortlist to manage. A second, later realization sharpened this further: Priya doesn't need a Fit verdict to want interview prep &mdash; a referral or cold apply can land an interview with no Fit check ever run. Prep was pulled out from under Fit's result (where it had been nested, gated behind a verdict that wasn't actually a precondition) and rebuilt as Fit's peer: one card, two independent children, either reachable regardless of the other's state.</p>
+        </div>
+
+        <div class="detail-gallery">
+          <figure class="detail-gallery__item reveal">
+            <img src="images/Opportunity-Radar-Dashboard-modal-success.png" alt="Shortlist modal: a 'Build Your Fit-Check Shortlist' drawer with criteria field, Auto-fill, and up to three empty slots to fill one at a time">
+            <figcaption class="detail-gallery__caption">Tried: a modal for batch-checking up to three companies at once.</figcaption>
+          </figure>
+          <figure class="detail-gallery__item reveal">
+            <img src="images/Opportunity-Radar-Dashboard-fit-message-full-page-04.png" alt="In-situ Fit result: criteria field and Check Fit button live in the detail pane, verdict and per-criterion checklist rendered inline below">
+            <figcaption class="detail-gallery__caption">Cut it: Fit runs in situ instead, one company at a time, no modal to manage.</figcaption>
+          </figure>
+        </div>
+
+        <div class="tradeoff-group">
+          <span class="section-label">Shipped, this pass</span>
+          <div class="tradeoff-group__item">The shortlist modal cut entirely &mdash; not deleted from the codebase (same convention as the earlier posting-verification code), just unwired from the primary flow. Check Fit and a new Start Prep control live directly in the detail pane instead.</div>
+          <div class="tradeoff-group__item">Fit's verdict changed shape: instead of one reasoning paragraph, the model now judges each stated criterion separately (pass / fail / unconfirmed), rendered as a real checklist &mdash; derived with the goal-state method rather than guessed at, since a checklist is the part someone in Priya's position actually reads; the reasoning/company/contact grounding collapses under a one-click disclosure instead of competing for attention.</div>
+          <div class="tradeoff-group__item">Prep un-gated from Fit and rebuilt as a peer widget, "Fit &amp; Prep," two columns side by side, one card &mdash; a real, probable path (already having an interview through a referral, no Fit check ever run) that the earlier nesting had foreclosed on without meaning to.</div>
+          <div class="tradeoff-group__item">A real, extracted design-system color (a blue-grey, pulled from the actual Figma Foundations file rather than approximated) applied to both CTAs; layout, spacing, and alignment passes across both the dashboard and the company-detail page, including two genuinely unstyled elements found along the way (the Signal Radar compare dropdowns and their legend, both shipped with zero CSS).</div>
+          <div class="tradeoff-group__item">Two real, separate root-cause bugs traced and fixed rather than patched: a stale backend process serving pre-descope logic since the previous restart, and a discovery search with no time-scoping, so re-running it just re-found the same companies instead of surfacing new ones.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">07</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
       </aside>
       <div class="rail-content">
