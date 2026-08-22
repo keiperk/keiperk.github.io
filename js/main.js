@@ -9,7 +9,7 @@ if ('IntersectionObserver' in window && rows.length) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
   rows.forEach(row => revealObserver.observe(row));
 } else {
