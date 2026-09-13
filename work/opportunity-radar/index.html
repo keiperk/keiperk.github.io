@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add('js');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Opportunity Radar, Kevin Keiper</title>
@@ -115,19 +116,20 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">01</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>The idea</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Origin &mdash; and v1.0</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Job seekers see roles only after they're posted, after every other applicant has too.</p>
-          <p>LinkedIn shows "over 100 people clicked apply" before you've even opened the posting.</p>
-          <p>Built for my own job search, to reach the right person before the applicant queue forms.</p>
+          <p>Started in a coffee shop, mid job search. The idea: hiring leaves a trail &mdash; news, community chatter, funding, exec hires &mdash; and if enough of those signals line up, you can infer a job opportunity exists before it's ever posted.</p>
+          <p>I was already in a discovery headspace: three certificate courses running in parallel, deep in product-discovery thinking. One instructor, John Whalen, mentioned n8n in passing. I dove in.</p>
+          <p>v1.0 was two days of vibe-coding the JS node configuration in ChatGPT &mdash; a lot of back-and-forth, a lot of fighting to keep scope in check. What came out the other side only populated a Google Sheet with company names. No interface, no polish.</p>
+          <p>It was enough. A favorable reply on LinkedIn was the real validation &mdash; the research was already sitting in plain sight, not something a formal study needed to prove.</p>
         </div>
         <div style="margin-top: var(--sp-6);">
           <div class="detail-lead-image reveal">
             <img src="images/linkedin-signal.jpg" alt="LinkedIn job posting showing over 100 people clicked apply, reposted 5 hours ago">
           </div>
-          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">The problem, live on LinkedIn: over 100 applicants before most people even see it.</p>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">The friction that started it: over 100 applicants before most people even see the posting.</p>
         </div>
       </div>
     </section>
@@ -135,12 +137,23 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">02</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>The approach</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>v2.0 &mdash; and where the name came from</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Hiring momentum leaves a trail across public signals: news, community activity, funding, exec hires.</p>
-          <p>That trail can be tracked and scored automatically, well before a role is ever posted.</p>
+          <p>The favorable reply meant it was worth revisiting. v2.0 added more signal sources and rebuilt the pipeline simpler than the original.</p>
+          <p>This time I wanted a real interface, and I'd just started working with Claude instead of ChatGPT. I exported the n8n workflow's JSON and handed it to Claude to derive the project's actual function and goals &mdash; then asked it to sketch a first UI pass in Figma, through an MCP connection I'd set up earlier but hadn't used much yet.</p>
+          <p>One of Claude's early suggestions was a radar-style view of the ranked opportunities. It stuck. That's where the name came from.</p>
+        </div>
+        <div class="detail-gallery">
+          <figure class="detail-gallery__item reveal">
+            <img src="images/opprad-01.jpg" alt="Early Figma pass: a radar-style polar chart plotting ranked companies by signal strength">
+            <figcaption class="detail-gallery__caption">The early Figma pass &mdash; this radar chart is where the name "Opportunity Radar" came from.</figcaption>
+          </figure>
+          <figure class="detail-gallery__item reveal">
+            <img src="images/opprad-02.jpg" alt="Early Figma company detail page: signal breakdown, momentum trend, and suggested contact">
+            <figcaption class="detail-gallery__caption">Its companion detail page, from the same early Figma pass.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -148,25 +161,11 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">03</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Design research</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>Figma, then straight into the DOM</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>No formal study. The research was already sitting in plain sight.</p>
-          <p>That signal alone was enough to validate the problem before any code was written.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="rail-row">
-      <aside class="rail-item">
-        <span class="section-label rail-item__index">04</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>Design execution</h2>
-      </aside>
-      <div class="rail-content">
-        <div class="detail-section__body">
-          <p>No design tool, no mockups. This one started as an idea and went straight to a working pipeline.</p>
-          <p>An n8n workflow pulls and normalizes signals from eight sources, writes the results to Google Sheets.</p>
+          <p>A short stretch of iterating in Figma made it obvious the DOM itself was the faster loop &mdash; no translation step between design and working code. Figma got abandoned from there on, except for one deliberate detour: once the HTML and CSS had matured enough to have real patterns worth naming, I went back and derived a style guide from what already existed, rather than designing one in advance.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
@@ -175,7 +174,7 @@
           </figure>
           <figure class="detail-gallery__item reveal">
             <img src="images/opprad-08-v2.jpg" alt="Code editor with an AI coding agent building the dashboard interface">
-            <figcaption class="detail-gallery__caption">Interface built directly against the live data schema, with an AI agent as co-pilot.</figcaption>
+            <figcaption class="detail-gallery__caption">Interface built directly in the DOM, against the live data schema, with an AI agent as co-pilot.</figcaption>
           </figure>
           <figure class="detail-gallery__item reveal">
             <img src="images/opprad-03-v2.jpg" alt="Google Sheets raw contact and company data pulled by the pipeline">
@@ -191,12 +190,40 @@
 
     <section class="rail-row">
       <aside class="rail-item">
+        <span class="section-label rail-item__index">04</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Grounding documents, retrofitted</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>I kept seeing references to project <code>.md</code> documents &mdash; briefs, philosophy docs, style guides &mdash; treated as essential scaffolding by people further along than me. I didn't know what most of them actually were. I took a short class on it, then made a deliberate effort to write a handful of grounding documents for this project as it was being built, not before.</p>
+          <p>That's backwards from how it's supposed to work &mdash; you're meant to draw the blueprints before you start building, not while the building's already standing. But that's the honest order this one happened in, and doing it at all mid-build beats not doing it.</p>
+          <p>The genuinely frustrating part: realizing, halfway down some rabbit hole, that a grounding doc written earlier would have kept me out of it. Not a tooling problem &mdash; my own gap in knowing which guardrails a project like this needs before it needs them.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row" id="agent-question">
+      <aside class="rail-item">
         <span class="section-label rail-item__index">05</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M18 4v4h4"/></svg>Is this even an agent?</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>Partway through, I wasn't sure whether Opportunity Radar was an agent or not &mdash; and realized I didn't have a rigorous way to answer that. So I derived one: three tests. Could you write the rule down? Is a simpler tool structurally capable of this at all? Would two competent people reasonably disagree, given identical input?</p>
+          <p>Run against Opportunity Radar itself, the answer was no on all three &mdash; a real, useful pipeline, but every step resolves the same way from the same input. No genuine judgment call anywhere in it.</p>
+          <p>That's also where Fit, Prep, and Close came from. I'd been trying to bake a "is this worth pursuing / how do I prep / what do I ask for" layer directly into Opportunity Radar. Once the three tests existed, it was obvious why that kept feeling bolted-on: those three pieces are real judgment calls, agentic by the same test Opportunity Radar itself fails. They split off into their own project because they're a genuinely different kind of thing, not a feature of this one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">06</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>What got shipped / cut</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>A leaderboard ranked by weighted opportunity index, a company inspector panel with momentum trends and suggested contacts, and a per-company detail view breaking down exactly how each score was calculated, so the ranking is legible, not a black box.</p>
+          <p>A leaderboard ranked by weighted opportunity index, a company inspector panel with momentum trends and suggested contacts, and a per-company detail view breaking down exactly how each score was calculated, so the ranking is legible, not a black box. Fit, Prep, and Close &mdash; the three judgment-agent pieces from the previous section &mdash; run in situ, one company at a time, right in that same detail pane.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
@@ -205,7 +232,11 @@
           </figure>
           <figure class="detail-gallery__item reveal">
             <img src="images/Opportunity-Radar-Dashboard-detailpage.png" alt="Company detail view with momentum trend, rank trend, and signal radar chart">
-            <figcaption class="detail-gallery__caption">Shipped: ssMomentum trend, rank trend, and a signal radar chart for a single company.</figcaption>
+            <figcaption class="detail-gallery__caption">Shipped: momentum trend, rank trend, and a signal radar chart for a single company.</figcaption>
+          </figure>
+          <figure class="detail-gallery__item reveal">
+            <img src="images/Attribute-—-Company-Detail-full.png" alt="Fit verdict on the full company-detail page: checked criteria list with a mix of matches, warnings, and misses">
+            <figcaption class="detail-gallery__caption">The Fit verdict, on the full company-detail page &mdash; a per-criterion checklist, not one black-box score.</figcaption>
           </figure>
         </div>
 
@@ -213,6 +244,7 @@
           <span class="section-label">Trade-offs</span>
           <div class="tradeoff-group__item">No Crunchbase API access, so funding-round and headcount data comes from weaker, indirect signals (news mentions, exec-hire activity) instead of the real thing &mdash; the first upgrade I'd make with real budget.</div>
           <div class="tradeoff-group__item">No verified email finder either &mdash; contacts surface as LinkedIn profiles, not confirmed email addresses, leaving a manual step from "here's the person" to actually reaching them.</div>
+          <div class="tradeoff-group__item">Job-posting discovery and verification, removed from Fit's scope entirely once it split off &mdash; it now judges company and contact fit, not whether a specific listing exists.</div>
         </div>
 
         <div class="detail-gallery">
@@ -231,41 +263,13 @@
 
     <section class="rail-row">
       <aside class="rail-item">
-        <span class="section-label rail-item__index">06</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M18 4v4h4"/></svg>Fit, Prep, Close &mdash; the agent layer</h2>
-      </aside>
-      <div class="rail-content">
-        <div class="detail-section__body">
-          <p>Three weeks after the original build shipped, three more pieces got added:<br><br>Fit (a judgment agent &mdash; is this company worth pursuing)<br><br>Interview Prep (real, grounded prep once you're actually talking to someone)<br><br>Close (scoped but not built, negotiation prep once an offer exists).</p>
-          <p>Today: two columns, not four. A ranked list and a company's real detail &mdash; signal, contacts, and a fit verdict when you've asked for one &mdash; no job postings involved anywhere in it.</p>
-        </div>
-
-        <div class="detail-gallery">
-          <figure class="detail-gallery__item reveal">
-            <img src="images/Opportunity-Radar-Dashboard-wholeshebang.png" alt="Fit, Prep, and Close running in situ in the detail pane: verdict and per-criterion checklist, company and interviewer research, and a negotiation-prep session started" style="filter: saturate(0.85);">
-            <figcaption class="detail-gallery__caption">Fit, Prep, and Close all run in situ, one company at a time, right in the detail pane.</figcaption>
-          </figure>
-          <figure class="detail-gallery__item reveal">
-            <img src="images/Attribute-—-Company-Detail-full.png" alt="Fit verdict on the full company-detail page: checked criteria list with a mix of matches, warnings, and misses">
-            <figcaption class="detail-gallery__caption">Same Fit verdict, on the full company-detail page.</figcaption>
-          </figure>
-        </div>
-
-        <div class="tradeoff-group">
-          <span class="section-label">Cut / not yet built</span>
-          <div class="tradeoff-group__item">Job-posting discovery and verification, removed from Fit's scope entirely &mdash; it now judges company and contact fit, not whether a specific listing exists.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="rail-row">
-      <aside class="rail-item">
         <span class="section-label rail-item__index">07</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
           <p>Live and in use: it's surfaced real companies with rising hiring momentum and the people at each one worth reaching out to directly.</p>
+          <p>The real value here isn't just a personal job-search tool. It's the instinct underneath it: find the real signal inside a messy problem, build the smallest system that reliably surfaces it, and stay honest about what it can and can't yet prove. That's the same instinct a business needs from its product design, whatever the actual problem turns out to be.</p>
           <p>The live dashboard itself surfaces real suggested contacts at each tracked company, so it isn't posted publicly. <a href="mailto:kevin@kevinkeiper.com" class="link-muted-blue"><strong>Get in touch</strong></a> for a walkthrough.</p>
         </div>
         <ul class="tag-row" style="margin-top: var(--sp-5);">

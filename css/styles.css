@@ -130,25 +130,26 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 .hero {
   padding-top: var(--sp-8);
 }
+.hero__stats-divider {
+  padding-top: var(--sp-7);
+  padding-bottom: var(--sp-2);
+}
+/* .case-studies' own top padding (56px) plus this bottom padding (8px)
+   equals this element's own top padding (64px) — so the gap above the
+   stat row (hero text to tile borders) and below it (tile labels to
+   "Selected work" eyebrow) come out visually equal, per Kevin's ask. */
+.hero__stats-divider .stat-grid {
+  margin-top: 0;
+}
 .hero > .wrap {
   position: relative;
-  padding-bottom: var(--sp-8);
-}
-.hero > .wrap::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: var(--sp-4);
-  right: var(--sp-4);
-  height: 0;
-  border-top: 1px solid var(--line);
+  padding-bottom: 0;
 }
 .hero__marquee {
   overflow: hidden;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding-block: var(--sp-3);
-  margin-bottom: var(--sp-8);
 }
 .hero__marquee-track {
   display: flex;
@@ -184,16 +185,21 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero__headline {
-  font-size: clamp(3rem, 9vw, 8rem);
+  font-size: clamp(2.25rem, 6.5vw, 5.5rem);
   font-weight: var(--weight-bold);
   letter-spacing: -0.03em;
-  line-height: 0.95;
+  line-height: 1.1;
   margin-bottom: var(--sp-6);
-  max-width: 20ch;
 }
 .hero__headline em {
   font-style: normal;
   color: var(--muted);
+}
+.hero__subhead {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  color: var(--muted);
+  max-width: 42ch;
+  margin-bottom: var(--sp-7);
 }
 .hero__meta {
   display: flex;
@@ -218,7 +224,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
    Case studies — full-width alternating rows, numbered, asymmetric
    ========================================================================== */
 .case-studies {
-  padding-block: calc(var(--sp-8) - 40px) var(--sp-8);
+  padding-block: calc(var(--sp-8) - 40px + 50px) var(--sp-8);
   scroll-margin-top: 57px;
 }
 .case-studies > .wrap > .section-label {
@@ -233,24 +239,29 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   align-items: center;
   padding-block: var(--sp-8);
   border-top: 1px solid var(--line);
-  opacity: 0;
-  transform: translateY(32px);
   transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
 }
-.case-row.is-visible { opacity: 1; transform: translateY(0); }
+/* Scroll-reveal is a progressive enhancement, gated behind html.js (set
+   synchronously in <head>). No JS / blocked JS / a script error before
+   this ever runs = content just renders visible, never stuck at opacity:0. */
+html.js .case-row { opacity: 0; transform: translateY(32px); }
+html.js .case-row.is-visible { opacity: 1; transform: translateY(0); }
 
 /* .rail-content, not .rail-row, gets the fade: .rail-row is the sticky
    .rail-item's positioning ancestor, and a transform there (even at
    translateY(0)) creates a containing block that silently breaks sticky. */
 .rail-content,
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
 }
-.rail-content.is-visible,
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-.case-row:first-of-type { border-top: none; }
+html.js .rail-content,
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+html.js .rail-content.is-visible,
+html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+.case-row:first-of-type { border-top: none; padding-top: var(--sp-3); }
 .case-row:last-child { border-bottom: 1px solid var(--line); }
 .case-row--reverse { grid-template-columns: 1.1fr 0.9fr; }
 .case-row--reverse .case-row__media { order: 2; }
@@ -421,6 +432,45 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   max-width: 16ch;
 }
 
+.contact-links {
+  max-width: 480px;
+}
+.contact-links__email {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  text-decoration: none;
+}
+.contact-links__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.contact-links__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-6);
+  list-style: none;
+  margin-top: var(--sp-5);
+  padding: 0;
+}
+.contact-links__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.contact-links__social a:hover,
+.contact-links__social a:focus-visible {
+  color: var(--ink);
+}
+
 .contact-form {
   max-width: 480px;
 }
@@ -521,6 +571,20 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   max-width: 60ch;
   margin-bottom: var(--sp-6);
 }
+.detail-hero__role {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: var(--sp-4);
+}
+/* [data-role-title]'s canonical text is lowercase (built for mid-sentence
+   use elsewhere on the site) — capitalize just the first letter here
+   since this usage stands alone as a title, not embedded in a sentence.
+   Leaves "AI-Native" internal caps untouched, unlike text-transform. */
+.detail-hero__role::first-letter {
+  text-transform: uppercase;
+}
 .detail-hero__meta {
   display: flex;
   flex-wrap: wrap;
@@ -575,11 +639,10 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 .detail-section {
   padding-block: var(--sp-8);
   border-bottom: 1px solid var(--line);
-  opacity: 0;
-  transform: translateY(24px);
   transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
 }
-.detail-section.is-visible { opacity: 1; transform: translateY(0); }
+html.js .detail-section { opacity: 0; transform: translateY(24px); }
+html.js .detail-section.is-visible { opacity: 1; transform: translateY(0); }
 .detail-section:last-of-type { border-bottom: none; }
 
 .detail-section__title {
@@ -986,6 +1049,6 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   .site-header__nav { width: 100%; justify-content: flex-end; gap: var(--sp-4); }
 }
 @media (max-width: 420px) {
-  .hero__headline { font-size: clamp(2.25rem, 11vw, 8rem); overflow-wrap: break-word; }
+  .hero__headline { overflow-wrap: break-word; }
   .detail-hero__title { overflow-wrap: break-word; }
 }

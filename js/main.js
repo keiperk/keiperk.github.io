@@ -1,19 +1,56 @@
-// Scroll-reveal for case study rows and detail-page sections
-const rows = document.querySelectorAll('.case-row, .rail-content, .reveal');
+// Single source of truth for Kevin's professional title/positioning —
+// changed 3 times in one week (Senior AI Product Designer -> AI-Enabled
+// -> AI-Native), each time requiring a manual find/replace across every
+// page. Any element with [data-role-title] gets this text automatically;
+// change it here once instead of hunting down every instance. Doesn't
+// cover <title>/<meta> tags (those need to be static HTML for SEO/link
+// previews, not JS-populated) or the resume PDF (a separate binary file,
+// can't be tokenized) — those still need a manual edit when this changes.
+const ROLE_TITLE = 'senior AI-native product designer';
+// "a"/"an" depends on the title's first sound — computed here so a future
+// title change (e.g. to something vowel-led) can't leave a stray "a" or
+// "an" stranded in front of it somewhere.
+const ROLE_ARTICLE = /^[aeiou]/i.test(ROLE_TITLE) ? 'an' : 'a';
+document.querySelectorAll('[data-role-title]').forEach((el) => {
+  el.textContent = ROLE_TITLE;
+});
+document.querySelectorAll('[data-role-article]').forEach((el) => {
+  el.textContent = ROLE_ARTICLE;
+});
 
-if ('IntersectionObserver' in window && rows.length) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+// Scroll-reveal for case study rows and detail-page sections. The fade
+// only applies at all under html.js (see <head>), so a no-JS visitor
+// already sees full content. This still guards the JS-enabled case: any
+// error here, or the observer just never firing, would otherwise leave
+// html.js content stuck at opacity:0 forever.
+try {
+  const rows = document.querySelectorAll('.case-row, .rail-content, .reveal, .detail-section');
 
-  rows.forEach(row => revealObserver.observe(row));
-} else {
-  rows.forEach(row => row.classList.add('is-visible'));
+  if ('IntersectionObserver' in window && rows.length) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+
+    rows.forEach(row => revealObserver.observe(row));
+  } else {
+    rows.forEach(row => row.classList.add('is-visible'));
+  }
+
+  // Safety net: if anything above silently fails to reveal a row (e.g.
+  // it never scrolls into view within a reasonable time on a very tall
+  // page), force it visible rather than leave it permanently hidden.
+  window.setTimeout(() => {
+    document.querySelectorAll('.case-row, .rail-content, .reveal, .detail-section')
+      .forEach(row => row.classList.add('is-visible'));
+  }, 4000);
+} catch (err) {
+  document.querySelectorAll('.case-row, .rail-content, .reveal, .detail-section')
+    .forEach(row => row.classList.add('is-visible'));
 }
 
 // Contact form
