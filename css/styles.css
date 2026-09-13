@@ -187,7 +187,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
 .hero__headline {
   font-size: clamp(2.25rem, 6.5vw, 5.5rem);
   font-weight: var(--weight-bold);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.015em;
   line-height: 1.1;
   margin-bottom: var(--sp-6);
 }
