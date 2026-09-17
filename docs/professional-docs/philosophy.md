@@ -60,6 +60,16 @@ the thing itself. For a real product, conversion usually means: the person
 has paid, or will soon. Say that plainly for each project rather than
 leaving it implicit.
 
+**A tool's own conversion event is separate from evidence it gathers about
+someone else's.** When a product's job is to inform or evaluate something
+outside itself, don't collapse the two: Opportunity Radar's conversion is
+"real outreach sent," not "the person gets hired"; a PMF-checking agent's
+conversion is "the person reaches a real go/no-go decision," not "the
+thing they're evaluating succeeds." Name which layer you're actually
+converting on — the tool's own delivered outcome — not the downstream
+outcome it can only ever produce evidence toward. (Surfaced building the
+PMF agent brief, 2026-08-22.)
+
 **Most of the actual design work is this relationship, not a features list.**
 When evaluating whether something is worth building, the real question is
 whether it serves the relationship (welcomes the person back by name,

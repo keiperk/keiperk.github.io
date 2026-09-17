@@ -36,7 +36,7 @@
 
       <div class="detail-hero-row">
         <div class="detail-hero-text">
-          <span class="section-label detail-hero__eyebrow">Case study · 01 / 05</span>
+          <span class="section-label detail-hero__eyebrow">Case study · 01 / 06</span>
           <h1 class="detail-hero__title">Opportunity Radar</h1>
           <p class="detail-hero__desc">An <a href="https://n8n.io" target="_blank" rel="noopener" class="link-n8n">n8n</a> flow which finds companies likely to be hiring before roles are even posted: a live dashboard ranking hiring momentum by tracking signal strength across news, Reddit, LinkedIn, GitHub, Hacker News, funding, and exec hires in real time.</p>
 
@@ -120,10 +120,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Started in a coffee shop, mid job search. The idea: hiring leaves a trail &mdash; news, community chatter, funding, exec hires &mdash; and if enough of those signals line up, you can infer a job opportunity exists before it's ever posted.</p>
-          <p>I was already in a discovery headspace: three certificate courses running in parallel, deep in product-discovery thinking. One instructor, John Whalen, mentioned n8n in passing. I dove in.</p>
-          <p>v1.0 was two days of vibe-coding the JS node configuration in ChatGPT &mdash; a lot of back-and-forth, a lot of fighting to keep scope in check. What came out the other side only populated a Google Sheet with company names. No interface, no polish.</p>
-          <p>It was enough. A favorable reply on LinkedIn was the real validation &mdash; the research was already sitting in plain sight, not something a formal study needed to prove.</p>
+          <p>Started in a coffee shop, mid job search: the idea that hiring leaves a trail, and enough signals lining up means a job exists before it's posted.</p>
+          <p>v1.0 was two days of vibe-coding in ChatGPT, sparked by an instructor's passing mention of n8n &mdash; what came out only populated a spreadsheet with company names, no interface.</p>
+          <p>A favorable reply on LinkedIn was the real validation.</p>
         </div>
         <div style="margin-top: var(--sp-6);">
           <div class="detail-lead-image reveal">
@@ -131,29 +130,25 @@
           </div>
           <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">The friction that started it: over 100 applicants before most people even see the posting.</p>
         </div>
+        <div style="margin-top: var(--sp-6);">
+          <div class="detail-lead-image reveal">
+            <img src="images/opprad-07-v3.jpg" alt="n8n workflow canvas showing signal collection, normalization, and aggregation nodes">
+          </div>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">Built in the coffee shop: eight signal sources merged, deduped, and scored per company.</p>
+        </div>
       </div>
     </section>
 
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">02</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>v2.0 &mdash; and where the name came from</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>v2.0 &mdash; the pivot to Claude</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>The favorable reply meant it was worth revisiting. v2.0 added more signal sources and rebuilt the pipeline simpler than the original.</p>
-          <p>This time I wanted a real interface, and I'd just started working with Claude instead of ChatGPT. I exported the n8n workflow's JSON and handed it to Claude to derive the project's actual function and goals &mdash; then asked it to sketch a first UI pass in Figma, through an MCP connection I'd set up earlier but hadn't used much yet.</p>
-          <p>One of Claude's early suggestions was a radar-style view of the ranked opportunities. It stuck. That's where the name came from.</p>
-        </div>
-        <div class="detail-gallery">
-          <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-01.jpg" alt="Early Figma pass: a radar-style polar chart plotting ranked companies by signal strength">
-            <figcaption class="detail-gallery__caption">The early Figma pass &mdash; this radar chart is where the name "Opportunity Radar" came from.</figcaption>
-          </figure>
-          <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-02.jpg" alt="Early Figma company detail page: signal breakdown, momentum trend, and suggested contact">
-            <figcaption class="detail-gallery__caption">Its companion detail page, from the same early Figma pass.</figcaption>
-          </figure>
+          <p>The favorable reply meant it was worth revisiting &mdash; v2.0 added more signal sources and rebuilt the pipeline simpler.</p>
+          <p>I'd just started working with Claude instead of ChatGPT, and exported the n8n workflow's JSON for it to derive the project's actual function and goals.</p>
+          <p>It then sketched a first UI pass in Figma, through an MCP connection I'd set up earlier.</p>
         </div>
       </div>
     </section>
@@ -165,17 +160,29 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>A short stretch of iterating in Figma made it obvious the DOM itself was the faster loop &mdash; no translation step between design and working code. Figma got abandoned from there on, except for one deliberate detour: once the HTML and CSS had matured enough to have real patterns worth naming, I went back and derived a style guide from what already existed, rather than designing one in advance.</p>
+          <p>One of Claude's early suggestions was a radar-style view of the ranked opportunities &mdash; that's where the name came from.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-07-v3.jpg" alt="n8n workflow canvas showing signal collection, normalization, and aggregation nodes">
-            <figcaption class="detail-gallery__caption">The n8n workflow: eight signal sources merged, deduped, and scored per company, per run.</figcaption>
+            <img src="images/opprad-01.jpg" alt="Early Figma pass: a radar-style polar chart plotting ranked companies by signal strength">
+            <figcaption class="detail-gallery__caption">The early Figma pass &mdash; this radar chart is where the name "Opportunity Radar" came from.</figcaption>
           </figure>
           <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-08-v2.jpg" alt="Code editor with an AI coding agent building the dashboard interface">
-            <figcaption class="detail-gallery__caption">Interface built directly in the DOM, against the live data schema, with an AI agent as co-pilot.</figcaption>
+            <img src="images/opprad-02.jpg" alt="Early Figma company detail page: signal breakdown, momentum trend, and suggested contact">
+            <figcaption class="detail-gallery__caption">Its companion detail page, from the same early Figma pass.</figcaption>
           </figure>
+        </div>
+        <div class="detail-section__body" style="margin-top: var(--sp-6);">
+          <p>A short stretch in Figma made clear the DOM itself was the faster loop, so Figma got abandoned from there on.</p>
+          <p>One exception: once the CSS had matured, I derived a style guide from what already existed.</p>
+        </div>
+        <div style="margin-top: var(--sp-6);">
+          <div class="detail-lead-image reveal">
+            <img src="images/opprad-08-v2.jpg" alt="Code editor with an AI coding agent building the dashboard interface">
+          </div>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">Interface built directly in the DOM, against the live data schema, with an AI agent as co-pilot.</p>
+        </div>
+        <div class="detail-gallery" style="margin-top: var(--sp-6);">
           <figure class="detail-gallery__item reveal">
             <img src="images/opprad-03-v2.jpg" alt="Google Sheets raw contact and company data pulled by the pipeline">
             <figcaption class="detail-gallery__caption">Raw pipeline output: companies, contacts, and signal snippets before scoring.</figcaption>
@@ -195,9 +202,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>I kept seeing references to project <code>.md</code> documents &mdash; briefs, philosophy docs, style guides &mdash; treated as essential scaffolding by people further along than me. I didn't know what most of them actually were. I took a short class on it, then made a deliberate effort to write a handful of grounding documents for this project as it was being built, not before.</p>
-          <p>That's backwards from how it's supposed to work &mdash; you're meant to draw the blueprints before you start building, not while the building's already standing. But that's the honest order this one happened in, and doing it at all mid-build beats not doing it.</p>
-          <p>The genuinely frustrating part: realizing, halfway down some rabbit hole, that a grounding doc written earlier would have kept me out of it. Not a tooling problem &mdash; my own gap in knowing which guardrails a project like this needs before it needs them.</p>
+          <p>I kept seeing project <code>.md</code> documents treated as essential scaffolding by people further along than me &mdash; I didn't know what most of them actually were, so I took a short class and wrote a handful mid-build, not before.</p>
+          <p>The genuinely frustrating part: realizing, halfway down a rabbit hole, that a grounding doc written earlier would have kept me out of it.</p>
+          <p>Not a tooling problem &mdash; my own gap in knowing which guardrails a project like this needs before it needs them.</p>
         </div>
       </div>
     </section>
@@ -209,9 +216,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Partway through, I wasn't sure whether Opportunity Radar was an agent or not &mdash; and realized I didn't have a rigorous way to answer that. So I derived one: three tests. Could you write the rule down? Is a simpler tool structurally capable of this at all? Would two competent people reasonably disagree, given identical input?</p>
-          <p>Run against Opportunity Radar itself, the answer was no on all three &mdash; a real, useful pipeline, but every step resolves the same way from the same input. No genuine judgment call anywhere in it.</p>
-          <p>That's also where Fit, Prep, and Close came from. I'd been trying to bake a "is this worth pursuing / how do I prep / what do I ask for" layer directly into Opportunity Radar. Once the three tests existed, it was obvious why that kept feeling bolted-on: those three pieces are real judgment calls, agentic by the same test Opportunity Radar itself fails. They split off into their own project because they're a genuinely different kind of thing, not a feature of this one.</p>
+          <p>Partway through, I wasn't sure if Opportunity Radar was an agent, so I derived three tests: could you write the rule down, is a simpler tool capable, would two competent people disagree given identical input.</p>
+          <p>Run against itself, the answer was no on all three &mdash; a real, useful pipeline, no genuine judgment call anywhere in it.</p>
+          <p>That's also where Fit, Prep, and Close came from &mdash; the judgment calls I'd been trying to bake into this project, split off once it was clear they were a genuinely different kind of thing.</p>
         </div>
       </div>
     </section>
@@ -223,21 +230,24 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>A leaderboard ranked by weighted opportunity index, a company inspector panel with momentum trends and suggested contacts, and a per-company detail view breaking down exactly how each score was calculated, so the ranking is legible, not a black box. Fit, Prep, and Close &mdash; the three judgment-agent pieces from the previous section &mdash; run in situ, one company at a time, right in that same detail pane.</p>
+          <p>A ranked leaderboard, a company inspector with momentum trends and contacts, and a per-company breakdown of how each score was calculated &mdash; the ranking is legible, not a black box.</p>
+          <p>Fit, Prep, and Close run in situ, one company at a time, right in that same detail pane.</p>
         </div>
-        <div class="detail-gallery">
+        <div class="detail-gallery" style="align-items: start;">
           <figure class="detail-gallery__item reveal">
             <img src="images/Opportunity-Radar-Dashboard-wholeshebang.png" alt="Opportunity Radar detail pane showing a real Fit verdict, company and interviewer research, and the start of a Close negotiation-prep session" style="filter: saturate(0.85);">
             <figcaption class="detail-gallery__caption">Shipped: ranked signal strength, with a selected company's Fit verdict and detail alongside it.</figcaption>
           </figure>
-          <figure class="detail-gallery__item reveal">
-            <img src="images/Opportunity-Radar-Dashboard-detailpage.png" alt="Company detail view with momentum trend, rank trend, and signal radar chart">
-            <figcaption class="detail-gallery__caption">Shipped: momentum trend, rank trend, and a signal radar chart for a single company.</figcaption>
-          </figure>
-          <figure class="detail-gallery__item reveal">
-            <img src="images/Attribute-—-Company-Detail-full.png" alt="Fit verdict on the full company-detail page: checked criteria list with a mix of matches, warnings, and misses">
-            <figcaption class="detail-gallery__caption">The Fit verdict, on the full company-detail page &mdash; a per-criterion checklist, not one black-box score.</figcaption>
-          </figure>
+          <div style="display: flex; flex-direction: column; gap: var(--sp-5);">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/Opportunity-Radar-Dashboard-detailpage.png" alt="Company detail view with momentum trend, rank trend, and signal radar chart">
+              <figcaption class="detail-gallery__caption">Shipped: momentum trend, rank trend, and a signal radar chart for a single company.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/Attribute-—-Company-Detail-full.png" alt="Fit verdict on the full company-detail page: checked criteria list with a mix of matches, warnings, and misses">
+              <figcaption class="detail-gallery__caption">The Fit verdict, on the full company-detail page &mdash; a per-criterion checklist, not one black-box score.</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="tradeoff-group">
@@ -268,9 +278,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Live and in use: it's surfaced real companies with rising hiring momentum and the people at each one worth reaching out to directly.</p>
-          <p>The real value here isn't just a personal job-search tool. It's the instinct underneath it: find the real signal inside a messy problem, build the smallest system that reliably surfaces it, and stay honest about what it can and can't yet prove. That's the same instinct a business needs from its product design, whatever the actual problem turns out to be.</p>
-          <p>The live dashboard itself surfaces real suggested contacts at each tracked company, so it isn't posted publicly. <a href="mailto:kevin@kevinkeiper.com" class="link-muted-blue"><strong>Get in touch</strong></a> for a walkthrough.</p>
+          <p>Live and in use: it's surfaced real companies with rising hiring momentum and the people worth reaching out to.</p>
+          <p>The real value isn't just a personal job-search tool &mdash; it's the instinct underneath: find the real signal, build the smallest system that surfaces it, stay honest about what it can't yet prove.</p>
+          <p>The dashboard surfaces real contacts per company, so it isn't posted publicly &mdash; <a href="mailto:kevin@kevinkeiper.com" class="link-muted-blue"><strong>get in touch</strong></a> for a walkthrough.</p>
         </div>
         <ul class="tag-row" style="margin-top: var(--sp-5);">
           <li class="tag">Product Design</li>

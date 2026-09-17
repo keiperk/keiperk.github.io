@@ -727,6 +727,14 @@ html.js .detail-section.is-visible { opacity: 1; transform: translateY(0); }
 .rail-content > div > .detail-lead-image {
   max-width: var(--content-measure);
 }
+/* Real gap found live, 2026-09-14: the rule above caps the image itself,
+   but its caption (a sibling <p>, not a child of .detail-lead-image) was
+   never capped the same way — invisible with short captions, but a
+   longer one stretches to the wider uncapped container and visibly
+   bleeds past the now-narrower image above it. */
+.rail-content > div > .detail-lead-image + .detail-gallery__caption {
+  max-width: var(--content-measure);
+}
 
 /* Multi-up galleries (2-col grid or masonry) inside a rail section must
    stay within the paragraph's own measure too — same reasoning as the

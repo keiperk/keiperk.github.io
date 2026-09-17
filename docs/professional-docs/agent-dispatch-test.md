@@ -106,6 +106,16 @@ does *not* have this specific shape — it has no bounded personal
 inventory to select from, it's a single judgment call on one input, not
 a selection among many.
 
+## "No" is a legitimate verdict
+
+Once something clears bucket 3, don't quietly redefine success as "the
+agent found a reason to say yes." A genuine judgment call has to be able
+to land on "don't build this" / "skip" / "no fit" as often as it lands on
+approval — an agent that only ever finds reasons to proceed isn't doing
+honest judgment, it's a pipeline wearing a verdict costume. Design the
+prompt and the UI to make "no" as first-class an outcome as "yes."
+(Surfaced building the PMF agent brief, 2026-08-22.)
+
 ## How to use this
 
 Paste the "Three tests" and "Three buckets" sections at the top of any

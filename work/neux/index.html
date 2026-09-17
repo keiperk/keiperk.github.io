@@ -36,7 +36,7 @@
 
       <div class="detail-hero-row">
         <div class="detail-hero-text">
-          <span class="section-label detail-hero__eyebrow">Case study · 02 / 05</span>
+          <span class="section-label detail-hero__eyebrow">Case study · 02 / 06</span>
           <h1 class="detail-hero__title">NeU/X</h1>
           <p class="detail-hero__desc">An AI co-pilot that turns creator goals into actionable plans.<br><br>Self-directed capstone project. AI research, Figma prototype, React final build in Visual Studio with Claude Code.</p>
 
@@ -108,9 +108,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>NeU/X started years ago as a side idea: automate some of the repetitive UX work behind product conversion funnels. It sat mostly dormant until a UX-of-AI-products certificate class gave it a real second life &mdash; feedback from my instructor rekindled it into what NeU/X is now.</p>
-          <p>The core insight: there's a non-agentic, non-LLM way to programmatically derive a UX affordance recipe by working backward from a goal state. Ask what the goal looks like. Ask how many milestones it takes to get there. Inside a small, constrained product space, that's a straightforward calculation, not a judgment call.</p>
-          <p>The premise, half-joking but genuinely the point: build something that makes myself obsolete. If a creator could specify a goal &mdash; launching a record, say &mdash; and NeU/X could programmatically calculate and manage the milestones to get there (email campaigns, social outreach, press contacts, whatever the goal actually requires), that's success.</p>
+          <p>NeU/X started years ago as a side idea to automate repetitive UX work &mdash; it sat dormant until a UX-of-AI-products class rekindled it.</p>
+          <p>The core insight: a non-agentic way to derive milestones by working backward from a goal state, a straightforward calculation inside a small product space, not a judgment call.</p>
+          <p>The premise, half-joking but genuinely the point: build something that makes myself obsolete &mdash; specify a goal, and NeU/X calculates and manages the milestones to get there.</p>
         </div>
       </div>
     </section>
@@ -122,9 +122,8 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Research ran through Listen Labs: a screener survey scoped participants by creator type, then AI-moderated interview sessions ran on their own. I was taking an AI-for-product-research class at the same time, so I had access to real tools for this &mdash; CoLoop and Hey Marvin processed and extracted themes, trends, and product opportunities from the sessions.</p>
-          <p>Honestly: 3 of the participants were real classmates who responded to a survey. To round out the data pool, I invented 17 more. The point wasn't a defensible sample size &mdash; it was learning to run the tools and the synthesis process end to end.</p>
-          <p>That research pointed toward a journey map for Priya, a creator planning to launch and sell a book, and specifically toward email campaign management as her sharpest immediate need. I can't currently trace that conclusion back to a specific line in the interview data &mdash; it's a judgment call I made off the synthesized research, not a directly cited finding.</p>
+          <p>Research ran through Listen Labs, CoLoop, and Hey Marvin &mdash; 3 real classmates plus 17 invented profiles rounded out the data pool, not for sample size, but to learn the tools end to end.</p>
+          <p>That pointed toward a journey map for Priya and email campaign management as her sharpest need &mdash; a judgment call off synthesized research, not a directly cited finding.</p>
         </div>
         <div class="detail-gallery detail-gallery--masonry">
           <figure class="detail-gallery__item reveal">
@@ -145,7 +144,7 @@
           </figure>
         </div>
         <div class="detail-section__body" style="margin-top: var(--sp-6);">
-          <p>That research came together as two artifacts: a full journey map for Priya, the primary persona, and a record launch process map showing how her release workflow actually breaks down step by step.</p>
+          <p>That research became two artifacts: a full journey map for Priya, and a record-launch process map.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
@@ -167,9 +166,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Early screens were roughed out in Uizard as low-fidelity black-and-white wireframes, working out the goal-to-milestone flow before any real design. From there it moved into Figma, about 10 screens, linked into a clickable prototype, scoped narrowly to Priya's book launch and her email campaign in particular.</p>
-          <p>The AI co-pilot panel went through several passes on what it should actually say at each milestone, from a blank prompt to specific, contextual insight tied to what the creator had just done.</p>
-          <p>That's where it stayed &mdash; a class capstone, proof of concept, parked for about a month once the class ended.</p>
+          <p>Early screens were roughed out in Uizard, then moved into Figma &mdash; about 10 screens, clickable, scoped narrowly to Priya's book launch and email campaign.</p>
+          <p>The AI co-pilot panel went through several passes, from a blank prompt to contextual insight tied to what the creator had just done.</p>
+          <p>That's where it stayed &mdash; a class capstone, parked for about a month once the class ended.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
@@ -207,8 +206,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Picked back up about a month later and rebuilt in React, to better mimic a real application than Figma ever could. The rebuild also expanded the scope: about 10 milestones now, not one flat email-campaign step &mdash; email campaign management is still in there, but as one milestone among several, not the whole product.</p>
-          <p>The journey map validated the mechanic against one goal: a book launch. The React rebuild demonstrates it against a different one: a record deal. The milestones change; the underlying goal-to-plan logic doesn't &mdash; which is closer to the actual point of the project than either example on its own.</p>
+          <p>Picked back up a month later and rebuilt in React, expanding to about 10 milestones &mdash; email campaign management now one among several, not the whole product.</p>
+          <p>The journey map validated the mechanic against a book launch; the React rebuild demonstrates it against a record deal.</p>
+          <p>The milestones change; the underlying goal-to-plan logic doesn't &mdash; closer to the actual point than either example alone.</p>
         </div>
       </div>
     </section>
@@ -220,7 +220,8 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>A React-based milestone dashboard walks creators from goal to release, breaking the plan into concrete steps and surfacing an AI co-pilot that responds to whatever step they're on — not a generic assistant, but one reading the actual state of their plan.<br><br>On the email side, a campaign flight check reviews subject lines, metadata, and send timing before anything goes out, catching the mistakes that are easy to miss when you're moving fast on launch day.</p>
+          <p>A React-based milestone dashboard walks creators from goal to release, surfacing an AI co-pilot that reads the actual state of their plan, not a generic assistant.</p>
+          <p>On the email side, a campaign flight check reviews subject lines, metadata, and send timing before anything goes out.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
@@ -257,8 +258,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>The real outcome was what this taught me about finding product-market fit: how to gather real evidence a problem exists and where the actual opportunity sits, before designing a single screen &mdash; including learning to be honest with myself about where that evidence was thin.</p>
-          <p>NeU/X today is a working React prototype, as complete as it needs to be for what it's actually demonstrating: a goal-state-to-milestone mechanism that generalizes across different creator goals, not one hardcoded to a single scenario. That's the actual business value underneath a capstone project &mdash; a repeatable way to turn any stated goal into a concrete, manageable plan, not just a tool for one creator's one launch.</p>
+          <p>The real outcome was what this taught me about finding product-market fit &mdash; including learning to be honest with myself about where the evidence was thin.</p>
+          <p>NeU/X today is a working React prototype, demonstrating a goal-state-to-milestone mechanism that generalizes across creator goals, not one hardcoded to a single scenario.</p>
+          <p>That's the actual business value underneath a capstone project &mdash; a repeatable way to turn any stated goal into a concrete plan.</p>
         </div>
         <ul class="tool-row" style="margin-top: var(--sp-5);">
           <li class="tool-badge">
