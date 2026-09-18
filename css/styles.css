@@ -307,8 +307,10 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   font-size: 1.125rem;
   line-height: 1.6;
   max-width: 48ch;
-  margin-bottom: var(--sp-5);
+  margin-bottom: 0;
 }
+.case-row__desc + .case-row__desc { margin-top: var(--sp-4); }
+.case-row__desc:last-of-type { margin-bottom: var(--sp-5); }
 
 /* Doc quote — a real excerpt from one of the project's own .md files */
 .doc-quote {
