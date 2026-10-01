@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dublab mobile, Kevin Keiper</title>
+<meta name="description" content="A native-feeling PWA for LA's independent radio station, built from one friend's frustration that no one had built it yet — and a real iOS bug that only real-device testing could actually catch.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="../../index.html" class="site-header__name">Kevin Keiper</a>
+    <div class="site-header__nav">
+      <a href="../about/index.html" class="site-header__link">About</a>
+      <a href="../../assets/resume/Kevin-Keiper-Resume.pdf" class="site-header__link" target="_blank" rel="noopener">Resume</a>
+      <a href="../../index.html#contact" class="site-header__cta">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <nav class="detail-nav wrap detail-nav--top">
+    <a href="../neux/index.html">&larr; NeU/X</a>
+    <a href="../the-agentic-4/index.html">The Agentic 4 &rarr;</a>
+  </nav>
+
+  <section class="detail-hero">
+    <div class="wrap">
+
+      <div class="detail-hero-row">
+        <div class="detail-hero-text">
+          <span class="section-label detail-hero__eyebrow">Case study · 03 / 06</span>
+          <h1 class="detail-hero__title">dublab mobile</h1>
+          <p class="detail-hero__desc">A native-feeling PWA for dublab, LA's independent, community-supported radio station — built from one friend's recurring complaint that after years of people saying someone should build this, nobody had.</p>
+
+          <div class="detail-hero__meta">
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Role</span>
+              <p>Designer, builder</p>
+            </div>
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Timeline</span>
+              <p>Sept 2026, across several sessions</p>
+            </div>
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Platform</span>
+              <ul class="tool-row" style="margin-top: 2px;">
+                <li class="tool-badge">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><path d="M5.5 4 2 8l3.5 4M10.5 4 14 8l-3.5 4"/></svg>
+                  Next.js
+                </li>
+                <li class="tool-badge">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 5.5h6M5 8h6M5 10.5h4"/></svg>
+                  PWA
+                </li>
+                <li class="tool-badge">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><circle cx="8" cy="8" r="5.5"/><path d="M5.5 10.5c.5-2 1-3 2.5-3s2 1 2.5 3"/></svg>
+                  Vercel
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="phone-frame reveal" style="--phone-width: 230px;">
+            <div class="phone-frame__island"></div>
+            <div class="phone-frame__screen">
+              <img src="images/dublab-schedule-onair-phone.jpg" alt="dublab app on a real iPhone: today's schedule with the on-air '66 Sunset Strip show card and Listen button">
+            </div>
+          </div>
+          <p class="phone-frame-caption detail-gallery__caption">On a real phone — the actual point of this whole build.</p>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-tile">
+          <div class="stat-tile__number">5</div>
+          <div class="stat-tile__label">Real features shipped: Tune In, Schedule, DJs, Shows, About</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile__number">366</div>
+          <div class="stat-tile__label">Real DJs pulled from dublab's own site</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile__number">1</div>
+          <div class="stat-tile__label">Hard cross-device bug, root-caused and closed</div>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-tile__number">0</div>
+          <div class="stat-tile__label">Service workers — kept deliberately simple</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="rail-wrap wrap">
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">01</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>The idea</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>A friend who's followed dublab for years brought up, again, that nobody had ever built it a proper app — a conversation that had apparently happened many times before, always ending the same way.</p>
+
+          <p>Scoped deliberately small to start: <strong>Tune In</strong> (live audio) and <strong>Schedule</strong> only, real enough to send to a contact at dublab for honest feedback on whether the organization would ever actually adopt something like it.</p>
+
+          <p>DJ profiles and individual show pages came later, once the core two felt solid enough to be worth expanding.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">02</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>The approach</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>dublab actually runs two separate feeds — a Livepeer video stream that goes offline independently, and an Airtime Pro audio stream that's the real 24/7 signal. The wrong one was wired up first; a closer look at dublab.com's own source found the real one.</p>
+
+          <p>dublab's schedule and DJ data have no CORS headers, so a Next.js API route proxies both — the app never talks to their endpoints directly from the browser.</p>
+
+          <p>The schedule started as two separate experiences (a home-screen preview plus a dedicated page) before a straightforward call: <strong>one schedule, not two</strong> — opened straight to today, with the current time's slot already highlighted.</p>
+        </div>
+        <div class="detail-gallery">
+          <figure class="detail-gallery__item detail-gallery__item--plain reveal">
+            <div class="phone-frame">
+              <div class="phone-frame__island"></div>
+              <div class="phone-frame__screen">
+                <img src="images/dublab-djs-roster-phone.jpg" alt="dublab DJs roster page on a real iPhone, listing 366 real resident and guest DJ names in a two-column list">
+              </div>
+            </div>
+            <figcaption class="phone-frame-caption detail-gallery__caption">366 real names, pulled from dublab's own page slugs — not placeholder content.</figcaption>
+          </figure>
+          <figure class="detail-gallery__item detail-gallery__item--plain reveal">
+            <div class="phone-frame">
+              <div class="phone-frame__island"></div>
+              <div class="phone-frame__screen">
+                <img src="images/dublab-dj-profile-phone.jpg" alt="45 Live DJ profile page on a real iPhone, showing their real bio and cover art">
+              </div>
+            </div>
+            <figcaption class="phone-frame-caption detail-gallery__caption">Each DJ links through to their real bio — added once Tune In and Schedule felt solid.</figcaption>
+          </figure>
+          <figure class="detail-gallery__item detail-gallery__item--plain reveal">
+            <div class="phone-frame">
+              <div class="phone-frame__island"></div>
+              <div class="phone-frame__screen">
+                <img src="images/dublab-show-detail-phone.jpg" alt="Viva! Talks show detail page on a real iPhone, with real cover art, host, schedule, and genre tags">
+              </div>
+            </div>
+            <figcaption class="phone-frame-caption detail-gallery__caption">Same real depth one level down — a show's own page, not a dead end.</figcaption>
+          </figure>
+          <figure class="detail-gallery__item detail-gallery__item--plain reveal">
+            <div class="phone-frame">
+              <div class="phone-frame__island"></div>
+              <div class="phone-frame__screen">
+                <img src="images/dublab-about-phone.jpg" alt="About page on a real iPhone: real mission statement and 12 real linked sections grouped into About, Our Team, and Support dublab">
+              </div>
+            </div>
+            <figcaption class="phone-frame-caption detail-gallery__caption">A real mission statement and 12 real linked sections, grouped and ready to wire up.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">03</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>The bug that took real testing to catch</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>A visual flicker on real iPhones when tapping between distant days in the schedule, invisible in every desktop and automated test.</p>
+
+          <p>Four theories were tried and ruled out in turn — a React re-render timing collision, a stepped-scroll approach that made it worse, a <code>theme-color</code> mismatch (a real, partial fix), and an expensive live grain filter.</p>
+
+          <p>The real breakthrough came from a user, not a hypothesis: real copy from a Friday show flashed on screen mid-scroll during a Today→Saturday jump, proof this was a WebKit stale-tile-cache artifact, not a paint or timing bug.</p>
+
+          <p>The fix was architectural: stop rendering all seven days on one scrollable page. Tapping a day now swaps which single day is shown instantly, with no long scroll left for iOS to mishandle.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">04</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>What got shipped / cut</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p><strong>Shipped:</strong> live audio with auto-reconnect, a single consolidated schedule, a real 366-name DJ roster, individual DJ and show pages, and a genuine "Add to Home Screen" PWA experience.</p>
+
+          <p><strong>Fixed live, from real usage:</strong> the schedule flicker above, a status-bar bleed-through, a header that disappeared on fast upward scroll, and an on-air "live" dot that squashed into an oval under layout pressure.</p>
+
+          <p><strong>Cut, on purpose:</strong> no service worker, so there's no false offline promise the app can't keep. No push notifications, no account system, no user-submitted content.</p>
+        </div>
+
+        <div>
+          <figure class="detail-lead-image reveal" style="margin: var(--sp-5) 0 0;">
+            <img src="images/dublab-shipped-overview.jpg" alt="Full dublab schedule view: day-pill rail, on-air card with the resized Listen/pause button, and the rest of today's lineup">
+          </figure>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3); margin-bottom: var(--sp-5);">Everything shipped, in one view — schedule, on-air card, and the Listen/pause toggle at its final sized-to-content width.</p>
+        </div>
+
+        <div class="tradeoff-group">
+          <span class="section-label">Trade-offs</span>
+          <div class="tradeoff-group__item">The grain-texture overlay is a live SVG filter, not a pre-rendered static image — cheaper to build, with a small, accepted repaint cost now that it's confirmed not to be the source of the flicker bug.</div>
+          <div class="tradeoff-group__item">Auto-reconnect retries with a capped backoff rather than indefinitely — a real dead zone should recover, but nothing hammers the stream forever if it's genuinely down.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">05</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>Testing it for real</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>The flicker bug resisted normal debugging — screen recordings needed automated, frame-by-frame pixel-diffing after an early visual scan missed a real black-flash frame sitting right there in the footage.</p>
+
+          <p>The most useful test wasn't a bug hunt at all: listening to the live stream all day, in the car, on a real phone.</p>
+
+          <p>Network drop-outs surfaced immediately. The player just went quiet and stayed quiet, with no way back in without manually hitting play again — that became the auto-reconnect feature above.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">06</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>Live, installable, and used for real: added to a real home screen, listened to for a full real day, and genuinely closed out on the bug that mattered most — not just presumed fixed from a clean-looking build.</p>
+
+          <p>Sent to a contact at dublab for honest feedback on whether the organization would consider something like this — the real test this whole build was scoped around from day one.</p>
+
+          <p><a href="https://dublab-app.vercel.app" target="_blank" rel="noopener" class="link-muted-blue"><strong>Try it live</strong></a> — best experienced on a phone, added to your home screen.</p>
+        </div>
+        <ul class="tag-row" style="margin-top: var(--sp-5);">
+          <li class="tag">Next.js</li>
+          <li class="tag">PWA</li>
+          <li class="tag">Live Product</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="detail-nav wrap">
+    <a href="../neux/index.html">&larr; NeU/X</a>
+    <a href="../the-agentic-4/index.html">The Agentic 4 &rarr;</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 Kevin Keiper</p>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>

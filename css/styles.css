@@ -286,6 +286,21 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .case-row__media:hover {
   box-shadow: var(--shadow-hover);
 }
+/* For a card whose media is a phone-frame mock, not a flat screenshot --
+   the bezel is already its own frame, so the card border/background
+   would just be a redundant box behind it (same reasoning as
+   .detail-gallery__item--plain). */
+.case-row__media--plain {
+  border: none;
+  background: none;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  padding: var(--sp-5) 0;
+}
+.case-row__media--plain:hover {
+  box-shadow: none;
+}
 .case-row__media img {
   width: 100%;
   height: auto;
@@ -619,7 +634,6 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  background: #F6F6F6;
 }
 .detail-lead-image img {
   width: 100%;
@@ -896,17 +910,16 @@ html.js .detail-section.is-visible { opacity: 1; transform: translateY(0); }
   .lightbox-next { right: var(--sp-2); }
 }
 
-.detail-gallery__item {
+.detail-gallery__item img {
+  width: 100%;
+  height: auto;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  overflow: hidden;
-  background: #F6F6F6;
+  display: block;
 }
-.detail-gallery__item img { width: 100%; height: auto; }
-.detail-gallery__item--plain {
+.detail-gallery__item--plain img {
   border: none;
   border-radius: 0;
-  background: none;
 }
 .detail-gallery__caption {
   font-family: var(--font-mono);
@@ -1031,6 +1044,76 @@ html.js .detail-section.is-visible { opacity: 1; transform: translateY(0); }
   border-color: var(--ink);
   background: var(--ink);
   color: var(--paper);
+}
+
+/* ==========================================================================
+   Phone frame -- a coded iPhone bezel for real device screenshots, not a
+   downloaded mockup PNG. Matches this site's own stance (see kevinkeiper.com
+   case study): craft signal comes from real coded decisions, not a stock
+   asset dropped in. Screenshot itself already carries its own real status
+   bar (time/signal/battery), so the frame only needs the bezel, side
+   buttons, and Dynamic Island -- not a second fake status bar.
+   ========================================================================== */
+.phone-frame {
+  --phone-width: 300px;
+  --phone-radius: 40px;
+  --bezel: 9px;
+  position: relative;
+  width: var(--phone-width);
+  margin-inline: auto;
+  padding: var(--bezel);
+  background: #0a0a0a;
+  border-radius: var(--phone-radius);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 20px 40px -20px rgba(0,0,0,0.35);
+}
+.phone-frame__screen {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--phone-radius) - var(--bezel));
+  background: #fff;
+}
+.phone-frame__screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.phone-frame__island {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 22px;
+  background: #0a0a0a;
+  border-radius: 999px;
+  z-index: 2;
+}
+/* Side buttons -- subtle, real detail rather than a plain rounded rect. */
+.phone-frame::before,
+.phone-frame::after {
+  content: "";
+  position: absolute;
+  background: #0a0a0a;
+}
+.phone-frame::before {
+  /* Power button, right edge */
+  right: -2px;
+  top: 130px;
+  width: 3px;
+  height: 64px;
+  border-radius: 0 2px 2px 0;
+}
+.phone-frame::after {
+  /* Volume rocker, left edge */
+  left: -2px;
+  top: 100px;
+  width: 3px;
+  height: 90px;
+  border-radius: 2px 0 0 2px;
+}
+.phone-frame-caption {
+  text-align: center;
+  margin-top: var(--sp-3);
 }
 
 /* ==========================================================================
