@@ -45,7 +45,7 @@ May 2018 – Nov. 2018
 
 **Principal Product Designer — BrightPlan**
 Mar. 2016 – Mar. 2018
-*Fintech startup — delivered both the MVP of a financial wellness and investment application and its component library*
+*Fintech startup — designed the MVP of a financial wellness and investment application and its component library, which launched after my departure*
 
 **Principal Product Designer — Amplifier Strategies**
 Jul. 2015 – Jan. 2016
