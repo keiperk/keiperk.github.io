@@ -48,7 +48,7 @@ try {
     document.querySelectorAll('.case-row, .rail-content, .reveal, .detail-section')
       .forEach(row => row.classList.add('is-visible'));
   }, 4000);
-} catch (err) {
+} catch {
   document.querySelectorAll('.case-row, .rail-content, .reveal, .detail-section')
     .forEach(row => row.classList.add('is-visible'));
 }
