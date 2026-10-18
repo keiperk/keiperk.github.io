@@ -569,6 +569,16 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .detail-hero {
   padding-block: var(--sp-8) var(--sp-6);
 }
+/* Once the stat tiles move into section 01's Result, the hero ends at
+   the meta row: 16px here + .rail-wrap's 48px top = 64px, matching a
+   .rail-row's top padding, so the gap above the first divider reads the
+   same as the gap below it. */
+.detail-hero:not(:has(.stat-grid)) {
+  padding-bottom: var(--sp-3);
+}
+.detail-hero:not(:has(.stat-grid)) .detail-hero-row {
+  margin-bottom: 0;
+}
 .detail-hero__eyebrow {
   margin-bottom: var(--sp-3);
 }
@@ -601,11 +611,15 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   text-transform: uppercase;
 }
 .detail-hero__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-7);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-5) var(--sp-6);
   border-top: 1px solid var(--line);
   padding-top: var(--sp-5);
+}
+/* Tool badges need the full row, or they stack one per line */
+.detail-hero__meta-item:has(.tool-row) {
+  grid-column: 1 / -1;
 }
 .detail-hero__meta-item .section-label {
   display: block;
@@ -617,6 +631,61 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .detail-hero__meta-item p.is-placeholder {
   color: var(--line-strong);
   font-style: italic;
+}
+
+/* Brief — the fixed opening section on every case study: Problem,
+   Opportunity, Result, so a skimming reader is grounded before the
+   free-form narrative sections start. */
+.detail-brief {
+  display: grid;
+  gap: var(--sp-5);
+  max-width: var(--content-measure);
+}
+.detail-brief__item .section-label {
+  display: block;
+  margin-bottom: var(--sp-2);
+}
+.detail-brief__item dd {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.detail-brief__item strong {
+  color: var(--ink);
+  font-weight: var(--weight-semibold);
+}
+/* Stat tiles as the payoff in Outcomes, with their caveat underneath */
+.rail-content > .stat-grid {
+  margin-top: 0;
+  /* Fixed quarter columns, so pages with 2 or 3 stats stay left-aligned
+     at the same tile width instead of stretching across the row */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* Same measure as the prose, so the row doesn't run past the text column */
+  max-width: var(--content-measure);
+}
+@media (max-width: 767px) {
+  .rail-content > .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* The section's own divider already frames the tiles; per-tile
+   hairlines here would just stack more lines */
+.rail-content > .stat-grid .stat-tile {
+  border-top: none;
+  padding-top: 0;
+}
+/* Breathing room between the tiles and whatever follows them
+   (the caveat note on EMC, the Outcomes prose elsewhere) */
+.rail-content > .stat-grid + * {
+  margin-top: var(--sp-6);
+}
+.stat-note {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: var(--content-measure);
+}
+@media (max-width: 560px) {
+  .detail-hero__meta { grid-template-columns: 1fr; gap: var(--sp-4); }
 }
 
 .detail-hero-row {
@@ -1077,11 +1146,14 @@ html.js .detail-section.is-visible { opacity: 1; transform: translateY(0); }
 }
 .phone-frame__island {
   position: absolute;
-  top: 14px;
+  /* Real iPhone proportions (126x37pt island, 11pt from the top of a
+     402pt-wide screen), scaled to the frame so it lines up with the
+     status bar's time and battery at any --phone-width */
+  top: calc(var(--bezel) + var(--phone-width) * 0.03);
   left: 50%;
   transform: translateX(-50%);
-  width: 34%;
-  height: 22px;
+  width: 29%;
+  height: calc(var(--phone-width) * 0.083);
   background: #0a0a0a;
   border-radius: 999px;
   z-index: 2;

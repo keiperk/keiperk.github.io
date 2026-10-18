@@ -46,6 +46,10 @@
               <p>Designer, builder, with Claude Code as collaborator</p>
             </div>
             <div class="detail-hero__meta-item">
+              <span class="section-label">Team</span>
+              <p>Solo, with Claude Code</p>
+            </div>
+            <div class="detail-hero__meta-item">
               <span class="section-label">Timeline</span>
               <p>Ongoing, started August 2, 2026</p>
             </div>
@@ -77,24 +81,6 @@
         </div>
       </div>
 
-      <div class="stat-grid">
-        <div class="stat-tile">
-          <div class="stat-tile__number">6</div>
-          <div class="stat-tile__label">Case studies documented</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">3</div>
-          <div class="stat-tile__label">Layout systems tried before this one</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">1</div>
-          <div class="stat-tile__label">Conversation, start to (still) not finished</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">~10 hrs</div>
-          <div class="stat-tile__label">Saved with new workflow and tools</div>
-        </div>
-      </div>
 
     </div>
   </section>
@@ -104,16 +90,23 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">01</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>The idea</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>The short version</h2>
       </aside>
       <div class="rail-content">
-        <div class="detail-section__body">
-          <p>The previous site (v3.0) was a static Webflow build: a grid of case study cards, a stats bar, a tools list, all fixed in place.</p>
-
-          <p>It didn't grow, and it didn't show how the work actually got made.</p>
-
-          <p>v4.0 is meant to be a living document, honest about being built with AI as a real collaborator rather than a tool used quietly offscreen.</p>
-        </div>
+        <dl class="detail-brief">
+          <div class="detail-brief__item">
+            <dt class="section-label">Problem</dt>
+            <dd>The previous site was a static Webflow build: it didn't grow, and it didn't show how the work actually got made.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Opportunity</dt>
+            <dd>A hand-built living document on a token-based foundation, designed and coded in conversation with Claude Code, and honest about that collaboration.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Result</dt>
+            <dd>A repeatable method (propose, react, revise, document) that has held up across every case study since, saving about <strong>10 hours</strong> with the new workflow and tools.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -124,11 +117,11 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Two written briefs came first (a design brief and a case-study-page brief) but no wireframes.</p>
+          <p>Two briefs came first, one for the design and one for case study pages.</p>
 
-          <p>Everything past that was a live conversation with Claude Code, one decision at a time, with both briefs kept updated as real decisions got made rather than fixed upfront.</p>
+          <p>No wireframes; everything after was a live conversation with Claude Code.</p>
 
-          <p>Direction changed constantly and visibly within that structure: a simple card grid became a bold alternating-row layout, then the sticky-rail layout this page itself now uses.</p>
+          <p>The layout went from a card grid to alternating rows to this sticky rail.</p>
         </div>
 
         <div class="exchange-grid">
@@ -151,7 +144,11 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>The main research artifact was the old site itself, auditing what it got right (a working stats bar, a real tools list, personality in a "working with me" section) and what it didn't (static, no story about how any of it was made).</p>
+          <p>The main research artifact was the old site itself.</p>
+
+          <p>It got some things right: a stats bar, a real tools list, some personality.</p>
+
+          <p>But it was static, with no story about how any of it was made.</p>
         </div>
         <div style="margin-top: var(--sp-6);">
           <div class="detail-lead-image reveal">
@@ -169,11 +166,9 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Execution was the conversation: propose a layout, react to it live, keep what worked, throw out what didn't.</p>
+          <p>Execution was the conversation: propose a layout, react live, keep what works.</p>
 
-          <p>Rules got written down as they got discovered — image widths matching paragraph measure, when a gallery earns a masonry layout instead of a grid, when a diagram needs a link-out to a full-size version instead of shrinking.</p>
-
-          <p>Small things got tuned by eye and direct feedback in real time — page background tint, image saturation, sticky-header offsets — not decided in the abstract.</p>
+          <p>Rules got written down as they surfaced, like matching image widths to paragraph measure.</p>
         </div>
 
         <div class="doc-quote">
@@ -182,7 +177,7 @@
         </div>
 
         <div class="detail-section__body" style="margin-top: var(--sp-6);">
-          <p>Tokens, component libraries, and Figma variables all came up while working this way, worth stating a real position on rather than staying quiet about.</p>
+          <p>Tokens, component libraries, and Figma variables came up too, so I took real positions.</p>
         </div>
 
         <div class="exchange-grid" style="grid-template-columns: 1fr;">
@@ -212,16 +207,18 @@
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>A home page and four in-depth case study pages, all sharing one visual system, hosted free on GitHub Pages, version-controlled from the first commit.</p>
+          <p>A home page and eight in-depth case study pages, all on one visual system.</p>
+
+          <p>Hosted free on GitHub Pages, version-controlled from the first commit.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
-            <img src="images/v4-home-v3.jpg" alt="kevinkeiper.com v4.0 home page">
+            <img src="images/v4-home-v4.jpg" alt="kevinkeiper.com v4.0 home page">
             <figcaption class="detail-gallery__caption">The home page, live.</figcaption>
           </figure>
           <figure class="detail-gallery__item reveal">
-            <img src="images/v4-detail.jpg" alt="An Opportunity Radar case study detail page, showing the sticky-rail layout">
-            <figcaption class="detail-gallery__caption">One of four case study pages: the sticky-rail layout this whole site runs on.</figcaption>
+            <img src="images/v4-detail-v2.jpg" alt="The EMC Insurance case study page, showing the hero and team details">
+            <figcaption class="detail-gallery__caption">One of eight case study pages, all built on the same sticky-rail layout.</figcaption>
           </figure>
         </div>
       </div>
@@ -233,9 +230,22 @@
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
       </aside>
       <div class="rail-content">
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <div class="stat-tile__number">9</div>
+            <div class="stat-tile__label">Case studies documented</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">~10 hrs</div>
+            <div class="stat-tile__label">Saved with new workflow and tools</div>
+          </div>
+        </div>
         <div class="detail-section__body">
-          <p>Still in progress, this page describes a conversation that hadn't ended when it was written.</p>
-          <p>The real outcome so far: a working method for building a site this way (propose, react, revise, document) that held up across four very different case studies without losing a consistent system.</p>
+          <p>Still in progress; this page describes a conversation that hasn't ended.</p>
+
+          <p>The real outcome is a method: propose, react, revise, document.</p>
+
+          <p>It held across eight very different case studies without breaking the system.</p>
         </div>
         <ul class="tag-row" style="margin-top: var(--sp-5);">
           <li class="tag">Meta</li>

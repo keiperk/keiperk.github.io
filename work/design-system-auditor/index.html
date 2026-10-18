@@ -36,7 +36,7 @@
 
       <div class="detail-hero-row">
         <div class="detail-hero-text">
-          <span class="section-label detail-hero__eyebrow">Case study · 05 / 07</span>
+          <span class="section-label detail-hero__eyebrow">Case study</span>
           <h1 class="detail-hero__title">Design System Drift Auditor</h1>
           <p class="detail-hero__desc">Points at a Figma component library and its real coded implementation, and classifies every difference as real drift, an orphaned concept, or noise — not a plain text diff.</p>
 
@@ -44,6 +44,10 @@
             <div class="detail-hero__meta-item">
               <span class="section-label">Role</span>
               <p>Designer, builder</p>
+            </div>
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Team</span>
+              <p>Solo, with Claude Code</p>
             </div>
             <div class="detail-hero__meta-item">
               <span class="section-label">Timeline</span>
@@ -77,24 +81,6 @@
         </div>
       </div>
 
-      <div class="stat-grid">
-        <div class="stat-tile">
-          <div class="stat-tile__number">2</div>
-          <div class="stat-tile__label">Components audited (Button, Input)</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">15</div>
-          <div class="stat-tile__label">Findings, live-classified via API</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">1</div>
-          <div class="stat-tile__label">Click to run the full pipeline</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">1</div>
-          <div class="stat-tile__label">Real bug caught and fixed on first live run</div>
-        </div>
-      </div>
 
     </div>
   </section>
@@ -104,29 +90,38 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">01</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Origin</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>The short version</h2>
       </aside>
       <div class="rail-content">
-        <div class="detail-section__body">
-          <p>Surfaced while scoping what project comes next, in the context of an upcoming screening call for a role where design-system management is directly relevant work — but built for the portfolio, not for that call, and scoped honestly rather than rushed to a deadline.</p>
-
-          <p>Docs-first again: a project brief, a drift-classification-rules doc, and an architecture doc were written before any code, same discipline as The Agentic 4.</p>
-        </div>
+        <dl class="detail-brief">
+          <div class="detail-brief__item">
+            <dt class="section-label">Problem</dt>
+            <dd>Figma libraries and the coded components built from them drift apart, and a plain diff can't tell real drift from naming differences and noise.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Opportunity</dt>
+            <dd>A click-to-run tool that reads the Figma library and the parsed code, then uses the Anthropic API to classify every mismatch with a severity and a reason.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Result</dt>
+            <dd>A live tool that turned two components into <strong>15</strong> classified findings, each with its own severity and reasoning, and caught a real bug on its first live run.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">02</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>The claim it actually earns</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Origin</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>The demo subject is a real Figma file: a third-party community recreation of shadcn/ui, paired against the real, published shadcn/ui React + Tailwind source it models.</p>
+          <p>It came up while scoping my next project, near a design-systems screening call.</p>
 
-          <p>That's a different, more honest claim than "an official design system decayed over time." Inspection alone can't tell whether a mismatch is drift from a match that once existed, or a place the recreation was never fully exact to begin with — so the tool doesn't claim to distinguish the two, only to classify what's actually mismatched right now.</p>
+          <p>I built it for the portfolio, not the call, and didn't rush it.</p>
 
-          <p>Real Code Connect needs a paid seat tier Kevin's account doesn't have, so a small hand-authored mapping file substitutes for it — the same epistemic move Code Connect itself makes (a human declares the pairing once), just living in a local file instead of Figma's own system.</p>
+          <p>Docs came first: a brief, classification rules, and an architecture doc.</p>
         </div>
       </div>
     </section>
@@ -134,15 +129,31 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">03</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>The claim it actually earns</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>The demo pairs a community Figma recreation of shadcn/ui with the real source code.</p>
+
+          <p>The recreation may never have matched exactly, so the tool only classifies what's mismatched now.</p>
+
+          <p>A hand-written mapping file stands in for Code Connect, which needs a paid seat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">04</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>How it works</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Figma's real variant data comes in via the Figma MCP, transcribed into fixture snapshots; the real shadcn/ui source is pulled live from GitHub's <code>new-york-v4</code> registry.</p>
+          <p>The Figma MCP pulls variant data, and a Babel parser reads the real code.</p>
 
-          <p>A real AST parser (Babel) reads each component's actual <code>cva()</code> variant structure out of the code — no regex guessing, real parsed structure.</p>
+          <p>A mechanical diff lists every mismatch, with no judgment.</p>
 
-          <p>A mechanical diff step deliberately does no judgment, just lists every raw set difference between Figma's variant list and code's parsed variants. Judgment happens downstream, in a classification step that sorts each raw difference into a category — real drift, an orphaned concept, a naming difference, or not drift at all — with a plain-language explanation and a likely cause.</p>
+          <p>A classifier sorts each one: real drift, orphaned concept, naming difference, or not drift.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item reveal">
@@ -159,32 +170,16 @@
 
     <section class="rail-row">
       <aside class="rail-item">
-        <span class="section-label rail-item__index">04</span>
+        <span class="section-label rail-item__index">05</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>Making it click-and-run</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>Classification originally ran by Claude reasoning directly against the prompt and the raw diff — a real result, but a one-time manual pass, not a repeatable tool. <code>scripts/classify.mjs</code> now makes the same judgment call through a real Anthropic API request, using the exact same prompt, so a rerun produces a fresh, independent classification rather than replaying a cached answer.</p>
+          <p>Classification runs through the Anthropic API, so every run is a fresh judgment.</p>
 
-          <p>The diff step moved from two hardcoded functions to a config file (<code>audit.config.mjs</code>) that both scripts loop over — adding a component to the list, not the code, is what it takes to bring one more into the pipeline.</p>
+          <p>One Run Audit button replaced three terminal commands.</p>
 
-          <p>A small local server put an actual "Run Audit" button in front of what used to be three typed terminal commands: click it, the full diff → classify → report pipeline runs, and the finished report opens — no command line required to see a result.</p>
-
-          <p>A real bug surfaced immediately on the first live run and got fixed the same session: the classifier's own explanations sometimes contain literal HTML (like <code>&lt;input type="file"&gt;</code>, describing real code), and the report was rendering that as an actual form control instead of text — an unescaped-output bug, caught by actually looking at the output rather than trusting it.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="rail-row">
-      <aside class="rail-item">
-        <span class="section-label rail-item__index">05</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>What's still a gap</h2>
-      </aside>
-      <div class="rail-content">
-        <div class="detail-section__body">
-          <p><strong>Real gap, named and open:</strong> the pipeline is config-driven for components, but still hardcoded to one Figma file and one codebase (this shadcn/ui pairing). Pointing it at an arbitrary team's arbitrary Figma file — a live Figma fetch instead of a hand-transcribed snapshot — is real, scoped future work, not implied to already work.</p>
-
-          <p><strong>Real gap, named and open:</strong> the code-side parser only understands the <code>cva()</code> variant pattern shadcn/ui itself uses. A component styled a different way (styled-components, plain conditional classNames) wouldn't parse without a new adapter.</p>
+          <p>The first live run caught a real rendering bug, fixed the same session.</p>
         </div>
       </div>
     </section>
@@ -192,13 +187,45 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">06</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>What's still a gap</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>A live, click-to-run tool, not a script you have to know how to invoke: reads real Figma data and real parsed code, runs the classification through the actual Anthropic API, and produces a report distinguishing real fidelity gaps from noise — 15 findings across two components, each with its own severity and reasoning, not a raw diff dump.</p>
+          <p>It's still tied to one Figma file and one codebase, from a snapshot, not a live fetch.</p>
 
-          <p>Scoped and captioned honestly: this demonstrates fidelity-gap detection between an independent third-party Figma recreation and its source, not an official design system's decay — a distinction the project brief insists on rather than letting the stronger claim go unchallenged.</p>
+          <p>The parser only reads shadcn/ui's cva() pattern; other styling needs a new adapter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">07</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <div class="stat-tile__number">2</div>
+            <div class="stat-tile__label">Components audited (Button, Input)</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">15</div>
+            <div class="stat-tile__label">Findings, live-classified via API</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">1</div>
+            <div class="stat-tile__label">Click to run the full pipeline</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">1</div>
+            <div class="stat-tile__label">Real bug caught and fixed on first live run</div>
+          </div>
+        </div>
+        <div class="detail-section__body">
+          <p>A live, one-click tool that separates real fidelity gaps from noise.</p>
+
+          <p>It tests a third-party recreation against its source, not a real team's decay, and says so.</p>
         </div>
         <ul class="tag-row" style="margin-top: var(--sp-5);">
           <li class="tag">Figma MCP</li>

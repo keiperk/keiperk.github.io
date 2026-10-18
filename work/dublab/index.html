@@ -36,7 +36,7 @@
 
       <div class="detail-hero-row">
         <div class="detail-hero-text">
-          <span class="section-label detail-hero__eyebrow">Case study · 03 / 06</span>
+          <span class="section-label detail-hero__eyebrow">Case study</span>
           <h1 class="detail-hero__title">dublab mobile</h1>
           <p class="detail-hero__desc">A native-feeling PWA for dublab, LA's independent, community-supported radio station — built from an acquaintance's recurring complaint that after years of people saying someone should build this, as far as he knew, no one currently had.</p>
 
@@ -44,6 +44,10 @@
             <div class="detail-hero__meta-item">
               <span class="section-label">Role</span>
               <p>Designer, builder</p>
+            </div>
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Team</span>
+              <p>Solo, with Claude Code</p>
             </div>
             <div class="detail-hero__meta-item">
               <span class="section-label">Status</span>
@@ -77,31 +81,13 @@
           <div class="phone-frame reveal" style="--phone-width: 230px;">
             <div class="phone-frame__island"></div>
             <div class="phone-frame__screen">
-              <img src="images/dublab-schedule-onair-phone.jpg" alt="dublab app on a real iPhone: today's schedule with the on-air '66 Sunset Strip show card and Listen button">
+              <img src="images/dublab-schedule-onair-phone.jpg" alt="dublab app on a real iPhone: today's schedule with the on-air DOSTI show card and Listen button">
             </div>
           </div>
           <p class="phone-frame-caption detail-gallery__caption">On a real phone — the actual point of this whole build.</p>
         </div>
       </div>
 
-      <div class="stat-grid">
-        <div class="stat-tile">
-          <div class="stat-tile__number">5</div>
-          <div class="stat-tile__label">Real features shipped: Tune In, Schedule, DJs, Shows, About</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">366</div>
-          <div class="stat-tile__label">Real DJs pulled from dublab's own site</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">1</div>
-          <div class="stat-tile__label">Hard cross-device bug, root-caused and closed</div>
-        </div>
-        <div class="stat-tile">
-          <div class="stat-tile__number">0</div>
-          <div class="stat-tile__label">Service workers — kept deliberately simple</div>
-        </div>
-      </div>
 
     </div>
   </section>
@@ -111,31 +97,54 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">01</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>The idea</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>The short version</h2>
       </aside>
       <div class="rail-content">
-        <div class="detail-section__body">
-          <p>An acquaintance who's followed dublab for years brought up, again, that as far as he knew, no one had built it a proper app — a conversation that had apparently happened many times before, always ending the same way. (A real one existed once, years earlier, before his time with the station — this was built without knowing that.)</p>
-
-          <p>Scoped deliberately small to start: <strong>Tune In</strong> (live audio) and <strong>Schedule</strong> only, real enough to send to a contact at dublab for honest feedback on whether the organization would ever actually adopt something like it.</p>
-
-          <p>DJ profiles and individual show pages came later, once the core two felt solid enough to be worth expanding.</p>
-        </div>
+        <dl class="detail-brief">
+          <div class="detail-brief__item">
+            <dt class="section-label">Problem</dt>
+            <dd>Longtime listeners had been saying dublab needed a proper app, and as far as anyone in that conversation knew, nobody had built one.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Opportunity</dt>
+            <dd>Start small with an installable web app, live audio and the schedule only, real enough to send to dublab for honest feedback, then grow it once the core felt solid.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Result</dt>
+            <dd>Live and installable, with <strong>5</strong> real features and <strong>366</strong> real DJ profiles, used for a full day on a real home screen and sent to a contact at dublab for feedback.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">02</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>The idea</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>An acquaintance who's followed dublab for years said, again, that nobody had built it an app.</p>
+
+          <p>One had existed years earlier, before his time; I built this without knowing that.</p>
+
+          <p>I started with just <strong>Tune In</strong> and <strong>Schedule</strong>; DJ and show pages came later.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">03</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>The approach</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>dublab actually runs two separate feeds — a Livepeer video stream that goes offline independently, and an Airtime Pro audio stream that's the real 24/7 signal. The wrong one was wired up first; a closer look at dublab.com's own source found the real one.</p>
+          <p>dublab runs two feeds; its own site's source revealed the real one, Airtime Pro audio.</p>
 
-          <p>dublab's schedule and DJ data have no CORS headers, so a Next.js API route proxies both — the app never talks to their endpoints directly from the browser.</p>
+          <p>A Next.js route proxies the schedule and DJ data, which lack CORS headers.</p>
 
-          <p>The schedule started as two separate experiences (a home-screen preview plus a dedicated page) before a straightforward call: <strong>one schedule, not two</strong> — opened straight to today, with the current time's slot already highlighted.</p>
+          <p>Two schedule views became <strong>one schedule, not two</strong>, opening on today's current slot.</p>
         </div>
         <div class="detail-gallery">
           <figure class="detail-gallery__item detail-gallery__item--plain reveal">
@@ -180,34 +189,32 @@
 
     <section class="rail-row">
       <aside class="rail-item">
-        <span class="section-label rail-item__index">03</span>
+        <span class="section-label rail-item__index">04</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>The bug that took real testing to catch</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>A visual flicker on real iPhones when tapping between distant days in the schedule, invisible in every desktop and automated test.</p>
+          <p>On real iPhones, jumping between distant days made the schedule flicker.</p>
 
-          <p>Four theories were tried and ruled out in turn — a React re-render timing collision, a stepped-scroll approach that made it worse, a <code>theme-color</code> mismatch (a real, partial fix), and an expensive live grain filter.</p>
+          <p>Four theories failed; then real Friday copy flashed mid-scroll, exposing a WebKit tile-cache bug.</p>
 
-          <p>The real breakthrough came from a user, not a hypothesis: real copy from a Friday show flashed on screen mid-scroll during a Today→Saturday jump, proof this was a WebKit stale-tile-cache artifact, not a paint or timing bug.</p>
-
-          <p>The fix was architectural: stop rendering all seven days on one scrollable page. Tapping a day now swaps which single day is shown instantly, with no long scroll left for iOS to mishandle.</p>
+          <p>The fix was architectural: show one day at a time, so there's no long scroll.</p>
         </div>
       </div>
     </section>
 
     <section class="rail-row">
       <aside class="rail-item">
-        <span class="section-label rail-item__index">04</span>
+        <span class="section-label rail-item__index">05</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>What got shipped / cut</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p><strong>Shipped:</strong> live audio with auto-reconnect, a single consolidated schedule, a real 366-name DJ roster, individual DJ and show pages, and a genuine "Add to Home Screen" PWA experience.</p>
+          <p><strong>Shipped:</strong> live audio with auto-reconnect, one schedule, 366 real DJs, DJ and show pages, home-screen install.</p>
 
-          <p><strong>Fixed live, from real usage:</strong> the schedule flicker above, a status-bar bleed-through, a header that disappeared on fast upward scroll, and an on-air "live" dot that squashed into an oval under layout pressure.</p>
+          <p><strong>Fixed live:</strong> the flicker, a status-bar bleed, a vanishing header, and a squashed live dot.</p>
 
-          <p><strong>Cut, on purpose:</strong> no service worker, so there's no false offline promise the app can't keep. No push notifications, no account system, no user-submitted content.</p>
+          <p><strong>Cut on purpose:</strong> an offline mode it couldn't honestly keep, push notifications, accounts, and user content.</p>
         </div>
 
         <div>
@@ -227,30 +234,44 @@
 
     <section class="rail-row">
       <aside class="rail-item">
-        <span class="section-label rail-item__index">05</span>
+        <span class="section-label rail-item__index">06</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>Testing it for real</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
-          <p>The flicker bug resisted normal debugging — screen recordings needed automated, frame-by-frame pixel-diffing after an early visual scan missed a real black-flash frame sitting right there in the footage.</p>
+          <p>Frame-by-frame pixel diffs caught a black flash an early visual scan had missed.</p>
 
-          <p>The most useful test wasn't a bug hunt at all: listening to the live stream all day, in the car, on a real phone.</p>
+          <p>The most useful test was listening all day, in the car, on a real phone.</p>
 
-          <p>Network drop-outs surfaced immediately. The player just went quiet and stayed quiet, with no way back in without manually hitting play again — that became the auto-reconnect feature above.</p>
+          <p>Drop-outs left the player silent until you hit play, so I built auto-reconnect.</p>
         </div>
       </div>
     </section>
 
     <section class="rail-row">
       <aside class="rail-item">
-        <span class="section-label rail-item__index">06</span>
+        <span class="section-label rail-item__index">07</span>
         <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
       </aside>
       <div class="rail-content">
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <div class="stat-tile__number">5</div>
+            <div class="stat-tile__label">Real features shipped: Tune In, Schedule, DJs, Shows, About</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">366</div>
+            <div class="stat-tile__label">Real DJs pulled from dublab's own site</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">1</div>
+            <div class="stat-tile__label">Hard cross-device bug, root-caused and closed</div>
+          </div>
+        </div>
         <div class="detail-section__body">
-          <p>Live, installable, and used for real: added to a real home screen, listened to for a full real day, and genuinely closed out on the bug that mattered most — not just presumed fixed from a clean-looking build.</p>
+          <p>Live, installable, and used for a full day on a real home screen.</p>
 
-          <p>Sent to a contact at dublab for honest feedback on whether the organization would consider something like this — the real test this whole build was scoped around from day one.</p>
+          <p>Sent to a contact at dublab for honest feedback, the test it was built for.</p>
 
           <p><a href="https://dublab-app.vercel.app" target="_blank" rel="noopener" class="link-muted-blue"><strong>Try it live</strong></a> — best experienced on a phone, added to your home screen.</p>
         </div>
