@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transitcast, Kevin Keiper</title>
+<meta name="description" content="A chart wheel where dragging any planet scrubs time. Every other planet moves with it, and aspects to your birth chart light up as they form.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a href="../../index.html" class="site-header__name">Kevin Keiper</a>
+    <div class="site-header__nav">
+      <a href="../about/index.html" class="site-header__link">About</a>
+      <a href="../../assets/resume/Kevin-Keiper-Resume.pdf" class="site-header__link" target="_blank" rel="noopener">Resume</a>
+      <a href="../../index.html#contact" class="site-header__cta">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <nav class="detail-nav wrap detail-nav--top">
+    <a href="../dublab/index.html">&larr; dublab mobile</a>
+    <a href="../design-system-auditor/index.html">Design System Drift Auditor &rarr;</a>
+  </nav>
+
+  <section class="detail-hero">
+    <div class="wrap">
+
+      <div class="detail-hero-row">
+        <div class="detail-hero-text">
+          <span class="section-label detail-hero__eyebrow">Case study</span>
+          <h1 class="detail-hero__title">Transitcast</h1>
+          <p class="detail-hero__desc">A chart wheel where dragging any planet scrubs time. Every other planet moves with it, and aspects to your birth chart light up as they form.</p>
+
+          <div class="detail-hero__meta">
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Role</span>
+              <p>Designer, builder</p>
+            </div>
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Team</span>
+              <p>Solo, with Claude Code</p>
+            </div>
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Timeline</span>
+              <p>October 2026, idea to live site in two days</p>
+            </div>
+            <div class="detail-hero__meta-item">
+              <span class="section-label">Platform</span>
+              <ul class="tool-row" style="margin-top: 2px;">
+                <li class="tool-badge">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><ellipse cx="8" cy="8" rx="6.5" ry="2.6"/><ellipse cx="8" cy="8" rx="6.5" ry="2.6" transform="rotate(60 8 8)"/><ellipse cx="8" cy="8" rx="6.5" ry="2.6" transform="rotate(120 8 8)"/></svg>
+                  React
+                </li>
+                <li class="tool-badge">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><circle cx="8" cy="8" r="2"/><circle cx="8" cy="8" r="5.5"/></svg>
+                  astronomy-engine
+                </li>
+                <li class="tool-badge">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><rect x="2.5" y="2.5" width="11" height="11" rx="1"/><path d="M2.5 6.5h11M2.5 10.5h11M6.5 2.5v11M10.5 2.5v11"/></svg>
+                  NASA JPL Horizons
+                </li>
+                <li class="tool-badge">
+                  <svg viewBox="0 0 16 16" fill="none" stroke-width="1.3"><path d="M5.5 4 2 8l3.5 4M10.5 4 14 8l-3.5 4"/></svg>
+                  Claude Code
+                </li>
+              </ul>
+            </div>
+          </div>
+          <ul class="tool-row" style="margin-top: var(--sp-5);">
+            <li class="tool-badge">
+              <a href="https://transitcast.vercel.app" target="_blank" rel="noopener">Try it live: transitcast.vercel.app &rarr;</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="detail-lead-image reveal">
+            <img src="images/transitcast-wheel.jpg" alt="Transitcast chart wheel: transiting planets in violet around a sample birth chart in gold, with dashed aspect lines between them">
+          </div>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">Transits in violet over a sample birth chart in gold. Dashed lines are aspects within orb.</p>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <div class="rail-wrap wrap">
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">01</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h10"/></svg>The short version</h2>
+      </aside>
+      <div class="rail-content">
+        <dl class="detail-brief">
+          <div class="detail-brief__item">
+            <dt class="section-label">Problem</dt>
+            <dd>Transit tools are tables and date fields. To see when Saturn reaches your Moon, you search, scroll and cross-reference.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Opportunity</dt>
+            <dd>Make time the thing you drag. Each planet is a dial at its own speed: the Moon scrubs hours, Saturn scrubs decades.</dd>
+          </div>
+          <div class="detail-brief__item">
+            <dt class="section-label">Result</dt>
+            <dd>A live tool with <strong>16</strong> bodies, aspects to your birth chart, and the full timing of any transit, on desktop and phone, built in two days.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">02</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Origin</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>I've wanted this tool for years, and I know my own chart well.</p>
+
+          <p>I started with a prototype instead of research, because the open question was whether dragging time feels right.</p>
+
+          <p>I was the first user, and every change came from friction I hit while using it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">03</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>The drag model</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>The first version drove time at each planet's average speed, with a ghost marker and a snap on release.</p>
+
+          <p>Real planets speed up, stall and turn retrograde, so the planet drifted away from the cursor, and the snap confused me.</p>
+
+          <p>I switched to follow drag: the planet stays under your hand, and time jumps to wherever that is, even across a retrograde loop.</p>
+        </div>
+        <div style="margin-top: var(--sp-6);">
+          <div class="detail-lead-image reveal">
+            <video src="images/follow-drag.mp4" poster="images/follow-drag-poster.jpg" autoplay muted loop playsinline aria-label="Dragging a transiting planet around the wheel: the date advances and aspect lines form and fade"></video>
+          </div>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">Follow drag: the planet stays under the cursor while the date jumps to match.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">04</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Accuracy</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>Planets come from an astronomy library, and the asteroids from NASA JPL tables.</p>
+
+          <p>I checked the asteroids against JPL at 2,248 dates between 1960 and 2040, with a worst error of 20 arcseconds, and the lunar node to within 0.01°.</p>
+
+          <p>Astrologers check the numbers first, so I verified them before anyone else had to.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">05</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>Choosing what to see</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>With 16 bodies, the wheel got loud.</p>
+
+          <p>Fixed rings, group toggles, aspect filters, adjustable orbs and a focus mode let you decide what's on screen.</p>
+
+          <p>Hovering an aspect lights its two planets, so you can find the right one inside a stellium.</p>
+        </div>
+        <div style="margin-top: var(--sp-6);">
+          <div class="detail-lead-image reveal">
+            <img src="images/tables.jpg" alt="Transitcast tables: natal placements and current planets with group checkboxes for planets, points, asteroids and angles, beside a list of transits to the natal chart sorted by orb">
+          </div>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">Group checkboxes decide what's on the wheel; transits to the natal chart are sorted by how close they are to exact.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">06</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Timing</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>Click any aspect to see when it enters orb, each exact hit including retrograde passes, and when it leaves.</p>
+
+          <p>Every date in the panel jumps the chart to that moment.</p>
+        </div>
+        <div style="margin-top: var(--sp-6);">
+          <div class="detail-lead-image reveal">
+            <img src="images/timing-panel.jpg" alt="Timing panel for transiting Venus trine natal Mars: in orb September 3, exact September 7, exact again retrograde October 28 and direct December 1, leaving orb December 5">
+          </div>
+          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">One transit, three exact hits: Venus trine natal Mars, including the retrograde pass.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">07</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>What it leaves to the astrologer</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="detail-section__body">
+          <p>It shows when a transit happens, not what it means, and that's deliberate.</p>
+
+          <p>Interpretation is the astrologer's craft, so the tool gives exact timing and leaves the reading to them.</p>
+
+          <p>The first tester's note was to make the tables easier to scan, so that's the next fix, and later sessions will decide what follows.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rail-row">
+      <aside class="rail-item">
+        <span class="section-label rail-item__index">08</span>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
+      </aside>
+      <div class="rail-content">
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <div class="stat-tile__number">16</div>
+            <div class="stat-tile__label">Bodies on the wheel: planets, North Node, Chiron and four asteroids</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">20&Prime;</div>
+            <div class="stat-tile__label">Worst asteroid error against NASA JPL</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">2 days</div>
+            <div class="stat-tile__label">From idea to live site</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">4</div>
+            <div class="stat-tile__label">House systems</div>
+          </div>
+        </div>
+        <div class="detail-section__body">
+          <p>A live tool that turns transit lookups into a gesture.</p>
+        </div>
+        <ul class="tag-row" style="margin-top: var(--sp-5);">
+          <li class="tag">React</li>
+          <li class="tag">Interaction Design</li>
+          <li class="tag">Ephemeris Data</li>
+          <li class="tag">Live Prototype</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="detail-nav wrap">
+    <a href="../dublab/index.html">&larr; dublab mobile</a>
+    <a href="../design-system-auditor/index.html">Design System Drift Auditor &rarr;</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 Kevin Keiper</p>
+  </div>
+</footer>
+
+<script src="../../js/main.js"></script>
+</body>
+</html>

@@ -231,6 +231,16 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   display: block;
   margin-bottom: var(--sp-6);
 }
+/* Retired case studies stay live, linked in one quiet line under the list */
+.case-studies__also {
+  margin-top: var(--sp-6);
+  color: var(--muted);
+}
+.case-studies__also a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .case-row {
   display: grid;
@@ -702,7 +712,9 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   border-radius: var(--radius);
   overflow: hidden;
 }
-.detail-lead-image img {
+.detail-lead-image img,
+.detail-lead-image video {
+  display: block;
   width: 100%;
   height: auto;
 }
