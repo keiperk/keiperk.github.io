@@ -317,6 +317,13 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
   width: 100%;
   height: auto;
 }
+/* Crops a taller-than-usual screenshot to the 16:9 shape most cards
+   use, keeping the top (where the content starts) in view. */
+.case-row__media--crop img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top;
+}
 
 .case-row__title {
   font-size: clamp(1.75rem, 3.5vw, 3rem);
