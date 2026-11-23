@@ -4,7 +4,7 @@
 :root {
   --ink: #111111;
   --paper: #f0f0f0;
-  --muted: #474747;
+  --muted: #525252; /* testing 11/18, was #474747 */
   --line: #E0E0E0;
   --line-strong: #CCCCCC;
 
@@ -236,11 +236,7 @@ button, input, textarea { font-family: inherit; font-size: inherit; }
   margin-top: var(--sp-6);
   color: var(--muted);
 }
-.case-studies__also a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
+
 
 .case-row {
   display: grid;
@@ -927,6 +923,7 @@ html.js .detail-section.is-visible { opacity: 1; transform: translateY(0); }
   pointer-events: auto;
 }
 .lightbox-frame {
+  transition: opacity 0.14s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1234,3 +1231,56 @@ html.js .detail-section.is-visible { opacity: 1; transform: translateY(0); }
   .hero__headline { overflow-wrap: break-word; }
   .detail-hero__title { overflow-wrap: break-word; }
 }
+
+/* Decision bricks: one per design decision, always Tried / Rejected / Why */
+.decision {
+  max-width: var(--content-measure);
+}
+.decision + .decision {
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-6);
+  border-top: 1px solid var(--line);
+}
+.decision .section-label {
+  display: block;
+  margin-bottom: var(--sp-2);
+}
+.decision__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 var(--sp-4);
+}
+.decision__rows {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: var(--sp-3) var(--sp-4);
+  margin: 0 0 var(--sp-6);
+}
+.decision__rows dt {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.2em;
+}
+.decision__rows dd {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+@media (max-width: 600px) {
+  .decision__rows { grid-template-columns: 1fr; gap: var(--sp-1); }
+  .decision__rows dd { margin-bottom: var(--sp-3); }
+}
+.detail-gallery--single { grid-template-columns: 1fr; }
+
+/* One-sentence talking point under each decision title; read top to bottom, they form the narrative */
+.decision__summary {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  margin: calc(-1 * var(--sp-2)) 0 var(--sp-4);
+  max-width: 60ch;
+}
+
+.lightbox-frame.is-fading { opacity: 0; }

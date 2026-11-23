@@ -116,18 +116,33 @@ if (lightboxImages.length) {
   // inside a gallery (e.g. a lone lead image) get a group of one.
   const groups = [];
   const groupOf = new Map();
+  // A figure can narrow its group with data-lightbox-group, so a gallery
+  // holding two pairs (e.g. two Figma screens, two coded screens) steps
+  // through each pair on its own instead of all four together.
+  const groupKey = (img) => {
+    const gallery = img.closest('.detail-gallery, .detail-gallery--masonry, .detail-lead-image');
+    if (!gallery) return null;
+    const fig = img.closest('[data-lightbox-group]');
+    return fig ? gallery.dataset.lbId + ':' + fig.dataset.lightboxGroup : gallery;
+  };
+  let lbCounter = 0;
+  document.querySelectorAll('.detail-gallery, .detail-gallery--masonry, .detail-lead-image')
+    .forEach((g) => { g.dataset.lbId = String(lbCounter++); });
   lightboxImages.forEach((img) => {
     if (img.closest('a')) return;
-    const gallery = img.closest('.detail-gallery, .detail-gallery--masonry, .detail-lead-image');
-    let group = gallery ? groupOf.get(gallery) : null;
+    const key = groupKey(img);
+    let group = key ? groupOf.get(key) : null;
     if (!group) {
       group = [];
       groups.push(group);
-      if (gallery) groupOf.set(gallery, group);
+      if (key) groupOf.set(key, group);
     }
     group.push(img);
   });
 
+  const frame = overlay.querySelector('.lightbox-frame');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let stepToken = 0;
   let currentGroup = [];
   let currentIndex = 0;
 
@@ -136,6 +151,10 @@ if (lightboxImages.length) {
     const img = currentGroup[currentIndex];
     overlayImg.src = img.dataset.full || img.src;
     overlayImg.alt = img.alt || '';
+    // Never enlarge past 100%: one image pixel per screen pixel, so 2x screenshots stay sharp.
+    // Low-res images still open at least as large as they appear on the page.
+    const cap = Math.max(img.naturalWidth / (window.devicePixelRatio || 1), img.getBoundingClientRect().width);
+    overlayImg.style.maxWidth = `min(90vw, ${Math.round(cap)}px)`;
     const caption = getCaption(img);
     overlayCaption.textContent = caption;
     overlayCaption.style.display = caption ? '' : 'none';
@@ -145,8 +164,10 @@ if (lightboxImages.length) {
   }
 
   function openLightbox(img) {
-    const gallery = img.closest('.detail-gallery, .detail-gallery--masonry, .detail-lead-image');
-    currentGroup = (gallery && groupOf.get(gallery)) || [img];
+    const key = groupKey(img);
+    currentGroup = (key && groupOf.get(key)) || [img];
+    stepToken++;
+    frame.classList.remove('is-fading');
     show(currentGroup.indexOf(img));
     overlay.classList.add('is-open');
   }
@@ -159,15 +180,29 @@ if (lightboxImages.length) {
     img.addEventListener('click', () => openLightbox(img));
   });
 
-  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); show(currentIndex - 1); });
-  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); show(currentIndex + 1); });
+  // Prev/next: a short crossfade. Fade the frame out, swap the image, fade back in once it has loaded.
+  function step(delta) {
+    if (currentGroup.length < 2) return;
+    if (reduceMotion) { show(currentIndex + delta); return; }
+    const token = ++stepToken;
+    frame.classList.add('is-fading');
+    setTimeout(() => {
+      if (token !== stepToken) return;
+      show(currentIndex + delta);
+      const reveal = () => { if (token === stepToken) frame.classList.remove('is-fading'); };
+      if (overlayImg.complete) requestAnimationFrame(reveal);
+      else { overlayImg.addEventListener('load', reveal, { once: true }); overlayImg.addEventListener('error', reveal, { once: true }); }
+    }, 140);
+  }
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); step(-1); });
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); step(1); });
   overlay.querySelector('.lightbox-frame').addEventListener('click', (e) => e.stopPropagation());
   overlay.addEventListener('click', closeLightbox);
   document.addEventListener('keydown', (e) => {
     if (!overlay.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') show(currentIndex - 1);
-    if (e.key === 'ArrowRight') show(currentIndex + 1);
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
   });
 }
 

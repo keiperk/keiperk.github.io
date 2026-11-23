@@ -54,6 +54,10 @@
               <p>3 days, July 22 to 24, 2026</p>
             </div>
             <div class="detail-hero__meta-item">
+              <span class="section-label">Deck</span>
+              <p><a href="Kevin-Keiper-Opportunity-Radar.pdf" download class="link-muted-blue">Download PDF (8 slides)</a></p>
+            </div>
+            <div class="detail-hero__meta-item">
               <span class="section-label">Platform</span>
               <ul class="tool-row" style="margin-top: 2px;">
                 <li class="tool-badge">
@@ -112,7 +116,7 @@
           </div>
           <div class="detail-brief__item">
             <dt class="section-label">Result</dt>
-            <dd>Across <strong>39</strong> tracked companies and <strong>48+</strong> scans, it surfaced real companies with rising hiring momentum, and the people worth reaching out to.</dd>
+            <dd>Across <strong>280+</strong> tracked companies and <strong>290+</strong> scans, it surfaced real companies with rising hiring momentum, and the people worth reaching out to.</dd>
           </div>
         </dl>
       </div>
@@ -121,15 +125,15 @@
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">02</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Origin &mdash; and v1.0</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>Origin</h2>
       </aside>
       <div class="rail-content">
         <div class="detail-section__body">
           <p>It started in a coffee shop, mid job search: hiring leaves a trail before the posting.</p>
 
-          <p>v1.0 was two days of vibe-coding n8n with ChatGPT; it only filled a spreadsheet.</p>
+          <p>I built an n8n pipeline that scored companies on hiring signals and filled a spreadsheet.</p>
 
-          <p>A favorable reply on LinkedIn was the real validation.</p>
+          <p>It worked, but a spreadsheet isn&rsquo;t a product, and I knew it needed a front end.</p>
         </div>
         <div style="margin-top: var(--sp-6);">
           <div class="detail-lead-image reveal">
@@ -146,107 +150,385 @@
       </div>
     </section>
 
-    <section class="rail-row">
+    
+
+    <section class="rail-row" id="decisions">
       <aside class="rail-item">
         <span class="section-label rail-item__index">03</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>v2.0 &mdash; the pivot to Claude</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/><path d="M6 9v6"/><path d="M9 6h3a3 3 0 0 1 3 3v0"/></svg>Decisions</h2>
       </aside>
       <div class="rail-content">
-        <div class="detail-section__body">
-          <p>That reply made it worth revisiting: more signal sources, a simpler pipeline.</p>
+        <article class="decision" id="decision-01">
+          <span class="section-label">Decision 01</span>
+          <h3 class="decision__title">Spreadsheet &rarr; a front end</h3>
+          <p class="decision__summary">The breakthrough: n8n could export the whole workflow as JSON, and Claude could parse it into a data model, a feature list, and a first working front end.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>Reading the pipeline's output straight from the spreadsheet it filled.</dd>
+            <dt>Rejected</dt>
+            <dd>It showed the companies and the people, but only as a report that nobody else could pick up and use.</dd>
+            <dt>Kept</dt>
+            <dd>A front end: a dashboard that ranks companies and shows who to contact.</dd>
+            <dt>Why</dt>
+            <dd>A UI turns a report into software someone can use.</dd>
+            <dt>Then</dt>
+            <dd>Claude&rsquo;s first screens came out in Figma. <a href="#decision-02" class="link-muted-blue">See Decision 02</a></dd>
+          </dl>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/opprad-03-v2.jpg" alt="Google Sheets raw contact and company data pulled by the pipeline">
+              <figcaption class="detail-gallery__caption">Tried: raw pipeline output, companies and contacts.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/opprad-04-v2.jpg" alt="Google Sheets showing computed radar results per company per scan">
+              <figcaption class="detail-gallery__caption">Tried: computed scores per company, per scan.</figcaption>
+            </figure>
+          </div>
+          <div class="detail-gallery detail-gallery--single">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-01-n8n-json.png" alt="The n8n workflow exported as JSON: the start of Opportunity Radar v2, 34 nodes, with the sheet ID redacted">
+              <figcaption class="detail-gallery__caption">Then: the workflow, exported as JSON and handed to Claude to draw the first screens.</figcaption>
+            </figure>
+          </div>
+        </article>
 
-          <p>I'd switched to Claude, and fed it the n8n workflow JSON to derive the project's goals.</p>
+        <article class="decision" id="decision-02">
+          <span class="section-label">Decision 02</span>
+          <h3 class="decision__title">Figma &rarr; straight into the DOM</h3>
+          <p class="decision__summary">I started in Figma, but the browser quickly proved the faster canvas.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>Claude&rsquo;s first Figma screens, generated from that JSON: a radar chart and a company detail page.</dd>
+            <dt>Rejected</dt>
+            <dd>Every change meant redrawing in Figma, then rebuilding in code, against data Figma couldn't show.</dd>
+            <dt>Kept</dt>
+            <dd>Building directly in the browser against the live data, with Claude as co-pilot.</dd>
+            <dt>Why</dt>
+            <dd>Real data exposed problems no mockup would, and each change took minutes instead of a round trip.</dd>
+            <dt>Then</dt>
+            <dd>The first build put a colored bar under every row, and the list strained under it. <a href="#decision-03" class="link-muted-blue">See Decision 03</a></dd>
+          </dl>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal" data-lightbox-group="figma">
+              <img src="images/decision-02-figma.png" alt="Early Figma pass: a radar-style polar chart plotting ranked companies by signal strength">
+              <figcaption class="detail-gallery__caption">Tried: the Figma radar.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal" data-lightbox-group="figma">
+              <img src="images/decision-02-figma-detail.png" alt="Early Figma company detail page: signal breakdown, momentum trend, and suggested contact">
+              <figcaption class="detail-gallery__caption">Tried: its Figma detail page.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal" data-lightbox-group="coded">
+              <img src="images/decision-02-first-coded.png" alt="First coded dashboard, Jul 14, on live data: a bubble radar, a ranked list with a colored source bar under every row, and a company inspector">
+              <figcaption class="detail-gallery__caption">Tried: the first coded build, on live data.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal" data-lightbox-group="coded">
+              <img src="images/decision-02-first-coded-detail.png" alt="First coded company detail page, Jul 14: momentum trend, peer comparison, signal rank by source, and how the score is calculated">
+              <figcaption class="detail-gallery__caption">Tried: its coded detail page.</figcaption>
+            </figure>
+          </div>
+        </article>
 
-          <p>It then sketched a first UI in Figma, through an MCP connection I'd set up.</p>
-        </div>
+        <article class="decision" id="decision-03">
+          <span class="section-label">Decision 03</span>
+          <h3 class="decision__title">Bars in every row &rarr; a drawer</h3>
+          <p class="decision__summary">I tried several ways to fit each company&rsquo;s signal breakdown into the list, and landed on a drawer you open only when you want it.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>A segmented bar under every row, one color per signal source, then numbers above each segment, then a single combined bar, then a drawer that opened on click.</dd>
+            <dt>Rejected</dt>
+            <dd>The bars crowded the list and competed with the ranking; the first drawer opened on any row click, mixing up selecting a company with expanding it.</dd>
+            <dt>Kept</dt>
+            <dd>Clean rows, each with its own toggle to open the breakdown, and the selected company&rsquo;s score math beside the list.</dd>
+            <dt>Why</dt>
+            <dd>The list is for comparing companies; the breakdown is for understanding one. They belong to different moments.</dd>
+            <dt>Then</dt>
+            <dd>In August, I gave the drawer its own toggle, so a click on a row just selects it, and the rail took the score math. <a href="#decision-10" class="link-muted-blue">See Decision 10</a></dd>
+          </dl>
+          <div class="detail-gallery detail-gallery--masonry">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-03-rows-segmented.png" alt="Ranked list with a segmented, multi-color bar under each company row and per-source labels">
+              <figcaption class="detail-gallery__caption">Tried: a segmented bar per row, labeled by source.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-03-rows-numbers.png" alt="Ranked list with a shared source legend, numbers above each bar segment, and muted colors">
+              <figcaption class="detail-gallery__caption">Tried: numbers above each segment, colors muted.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-03-rows-single-bar.png" alt="Ranked list with a single dark combined-strength bar under each row">
+              <figcaption class="detail-gallery__caption">Tried: a single combined bar.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-03-rows-drawer.png" alt="Ranked list with clean rows; the top row's drawer is open, showing each signal source's score, cap, contribution, and bar">
+              <figcaption class="detail-gallery__caption">Tried: the breakdown in a drawer, opened on click.</figcaption>
+            </figure>
+          </div>
+          <div class="detail-gallery detail-gallery--single">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-03-rows-kept.png" alt="Shipped dashboard: the top row's drawer is open via its own toggle, showing each signal source's bar and contribution; the right rail shows how the selected company's score is calculated">
+              <figcaption class="detail-gallery__caption">Kept: a drawer on its own toggle, with the score math beside the list.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="decision" id="decision-04">
+          <span class="section-label">Decision 04</span>
+          <h3 class="decision__title">Bubble radar &rarr; a leaderboard</h3>
+          <p class="decision__summary">The overview chart kept getting asked to do more, so I replaced the radar with a quadrant, then led with a leaderboard that says who&rsquo;s rising now.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>A bubble radar that placed every company by its score, enlarged and relabeled as it strained, then a Job Value Quadrant on its own.</dd>
+            <dt>Rejected</dt>
+            <dd>The radar was asked to do too much and buckled: labels collided at real company counts, it mostly repeated the ranked list, and it never said what to do next.</dd>
+            <dt>Kept</dt>
+            <dd>A Leaderboard of the top 12, colored by momentum, as the default view, with the Job Value Quadrant one tab over.</dd>
+            <dt>Why</dt>
+            <dd>Each view answers an action: the leaderboard says who&rsquo;s rising now; the quadrant says who to reach out to before they post a role.</dd>
+          </dl>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal" data-lightbox-group="tried">
+              <img src="images/decision-04-radar-first.png" alt="Bubble radar on day one, Jul 14: companies placed by distance from center, crowded with labels">
+              <figcaption class="detail-gallery__caption">Tried: the bubble radar, on day one.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal" data-lightbox-group="tried">
+              <img src="images/decision-04-radar-strained.png" alt="Bubble radar a day later, Jul 15: enlarged blips and relabeled, still colliding at real company counts">
+              <figcaption class="detail-gallery__caption">Tried: the radar, enlarged and relabeled as it strained.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal" data-lightbox-group="tried">
+              <img src="images/decision-04-radar-recolored.png" alt="Bubble radar on Jul 16 after a new color system: the same layout with slate-blue dots">
+              <figcaption class="detail-gallery__caption">Tried: the radar, recolored with the new palette.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal" data-lightbox-group="tried">
+              <img src="images/decision-03-job-value-quadrant.png" alt="Job Value Quadrant plotting funding and executive hires against LinkedIn hiring activity">
+              <figcaption class="detail-gallery__caption">Tried: the Job Value Quadrant on its own.</figcaption>
+            </figure>
+          </div>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal" data-lightbox-group="kept">
+              <img src="images/decision-04-leaderboard.png" alt="Leaderboard tab, Jul 17: the top 12 companies with bars colored by momentum">
+              <figcaption class="detail-gallery__caption">Kept: the Leaderboard, as the default view.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal" data-lightbox-group="kept">
+              <img src="images/decision-04-leaderboard-quadrant-tab.png" alt="The same panel with the Job Value Quadrant tab selected">
+              <figcaption class="detail-gallery__caption">Kept: the Job Value Quadrant, one tab over.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="decision" id="decision-05">
+          <span class="section-label">Decision 05</span>
+          <h3 class="decision__title">Stealth Hiring, added then cut</h3>
+          <p class="decision__summary">I tried a Stealth Hiring badge to surface hidden opportunities, but it added clutter and confusion, so I cut it.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>A Stealth Hiring filter and badge for companies that were funded and hiring executives but had posted few roles.</dd>
+            <dt>Rejected</dt>
+            <dd>It added clutter, and it confused even me, the person who built the tool.</dd>
+            <dt>Chose</dt>
+            <dd>Removing it completely instead of hiding it.</dd>
+            <dt>Why</dt>
+            <dd>A thin public footprint can also mean fewer people to reach, which works against the tool's goal.</dd>
+          </dl>
+          <div class="detail-gallery detail-gallery--single">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-04-stealth-hiring.png" alt="Ranked list with the Stealth Hiring filter on: every row carries a Stealth Hire badge">
+              <figcaption class="detail-gallery__caption">Tried: the Stealth Hiring filter, switched on.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="decision" id="decision-06">
+          <span class="section-label">Decision 06</span>
+          <h3 class="decision__title">A finder &rarr; a decision tool</h3>
+          <p class="decision__summary">Finding companies wasn&rsquo;t enough; the next questions were &ldquo;is this right for me?&rdquo; and &ldquo;how do I prepare?&rdquo;, so Fit and Prep grew out of the work.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>OppRad as a finder: it surfaced companies and who to contact, and stopped there.</dd>
+            <dt>Rejected</dt>
+            <dd>Finding a company didn't answer whether it was worth pursuing.</dd>
+            <dt>Chose</dt>
+            <dd>Adding Fit and Prep: Fit first checked for live openings, then judged the company itself, since most had none posted yet; Prep researched the company and interviewer for the interview.</dd>
+            <dt>Why</dt>
+            <dd>After &ldquo;who,&rdquo; the next question is &ldquo;is this right for me?&rdquo; Answering it turned a finder into a decision tool.</dd>
+            <dt>Then</dt>
+            <dd>It started in August as &ldquo;Triage,&rdquo; a separate app, moved in four days later, and outgrew the dashboard. <a href="#decision-10" class="link-muted-blue">See Decision 10</a></dd>
+          </dl>
+          <div class="detail-gallery detail-gallery--masonry">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-05-finder.png" alt="Dashboard before Fit: leaderboard, ranked companies with signal bars, and a company inspector with suggested contacts">
+              <figcaption class="detail-gallery__caption">Tried: it found companies and contacts, and stopped there.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-06-prep-tool.png" alt="Separate interview-prep app, Aug 10: a form for company, role, interviewer, job posting and background, with a Research button">
+              <figcaption class="detail-gallery__caption">Tried: a separate interview-prep app.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-06-triage-standalone.png" alt="Job Triage page in the separate app, Aug 13: up to five companies, an Import from Opportunity Radar button, fit criteria, and a Triage button">
+              <figcaption class="detail-gallery__caption">Tried: Triage as its own page there, with an import from Opportunity Radar.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-06-shortlist-drag.png" alt="Four-column phase, Aug 14: the Build Your Shortlist column with five drag-a-company-here slots and a Triage button">
+              <figcaption class="detail-gallery__caption">Tried: dragging companies into a shortlist, then Triage.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-06-shortlist-autofill.png" alt="Four-column phase, Aug 16: the same column with an Auto-fill Shortlist button, empty slots, and the button renamed Fit">
+              <figcaption class="detail-gallery__caption">Tried: auto-fill instead of dragging, and Triage renamed Fit.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-05-four-columns.png" alt="Four-column dashboard after a run: ranked list, Build Your Shortlist, a Verified Openings column showing mostly no postings found, and the Company Inspector">
+              <figcaption class="detail-gallery__caption">Tried: checking for live openings, which mostly came back empty.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="decision" id="decision-07">
+          <span class="section-label">Decision 07</span>
+          <h3 class="decision__title">Four columns &rarr; two</h3>
+          <p class="decision__summary">Fit needed a new layout; this was the one point where I greyboxed layouts, and I went from four columns to two.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>A four-column pipeline: ranked list, shortlist, verified openings, and company details, side by side.</dd>
+            <dt>Rejected</dt>
+            <dd>It was built around verifying real job postings, which Fit stopped doing.</dd>
+            <dt>Chose</dt>
+            <dd>Two columns: the ranked list, with the shortlist shrunk to a bar above it, beside the selected company's details.</dd>
+            <dt>Why</dt>
+            <dd>I greyboxed five layouts first, and with verification gone, one list and one company was all the page needed.</dd>
+            <dt>Then</dt>
+            <dd>The overview charts came back as a third column. <a href="#decision-09" class="link-muted-blue">See Decision 09</a></dd>
+          </dl>
+          <div class="detail-gallery detail-gallery--single">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-05-greybox.png" alt="Greybox sheet of six layout variants for the home page: two columns, three columns, four columns, a terminal-style detail pane, and a Fit drawer closed and open">
+              <figcaption class="detail-gallery__caption">Explored: the layouts, greyboxed, before choosing.</figcaption>
+            </figure>
+          </div>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-05-four-columns.png" alt="Old four-column dashboard: ranked list, Build Your Shortlist, Verified Openings, Company Inspector">
+              <figcaption class="detail-gallery__caption">Tried: the four-column dashboard.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-05-two-columns.png" alt="Two-column dashboard: the ranked list on the left, the selected company's contacts, score breakdown and momentum trend on the right">
+              <figcaption class="detail-gallery__caption">Chose: two columns, with the shortlist as a bar above the list.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="decision" id="decision-08">
+          <span class="section-label">Decision 08</span>
+          <h3 class="decision__title">Shortlist modal &rarr; Fit runs in place</h3>
+          <p class="decision__summary">I tried Fit in a separate modal, then brought it back inline, and Prep joined it as a peer.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>A modal for building a shortlist and batch-checking up to three companies at once.</dd>
+            <dt>Rejected</dt>
+            <dd>It put a separate step between seeing a company and checking whether it fit.</dd>
+            <dt>Chose</dt>
+            <dd>Fit running right inside the selected company, with Prep beside it as a peer.</dd>
+            <dt>Why</dt>
+            <dd>Checking a company's fit belongs where you're already looking at that company.</dd>
+            <dt>Then</dt>
+            <dd>Fit and Prep moved out to their own app. <a href="#decision-10" class="link-muted-blue">See Decision 10</a></dd>
+          </dl>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-06-shortlist-modal.png" alt="Shortlist modal: a 'Build Your Fit-Check Shortlist' drawer with criteria field, Auto-fill, and up to three empty slots to fill one at a time">
+              <figcaption class="detail-gallery__caption">Tried: the shortlist modal.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-06-fit-in-place.png" alt="Two-column dashboard with a Fit and Prep panel inside the selected company's details">
+              <figcaption class="detail-gallery__caption">Chose: Fit and Prep inside the selected company.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="decision" id="decision-09">
+          <span class="section-label">Decision 09</span>
+          <h3 class="decision__title">Two columns &rarr; three</h3>
+          <p class="decision__summary">Two columns lost the big picture, so I restored three, and Close joined Fit and Prep in the rail.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>Two columns: the ranked list beside the selected company's details.</dd>
+            <dt>Rejected</dt>
+            <dd>It had dropped the leaderboard, the Job Value Quadrant, and the hiring-signal gauge.</dd>
+            <dt>Chose</dt>
+            <dd>The original three-column layout, with the overview back on the left.</dd>
+            <dt>Why</dt>
+            <dd>The left column gives the whole field at a glance, before you dig into any one company.</dd>
+          </dl>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-05-two-columns.png" alt="Two-column dashboard: the ranked list on the left, the selected company on the right">
+              <figcaption class="detail-gallery__caption">Tried: two columns.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-08-three-columns-fit.png" alt="Three-column dashboard: leaderboard and hiring-signal gauge on the left, ranked list in the middle, the selected company with a Fit, Prep and Close panel on the right">
+              <figcaption class="detail-gallery__caption">Chose: three columns, with Fit still in the rail.</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="decision" id="decision-10">
+          <span class="section-label">Decision 10</span>
+          <h3 class="decision__title">Interview prep becomes its own app</h3>
+          <p class="decision__summary">Fit, Prep &amp; Close was turning it into a Swiss Army knife, so I pruned it back to the original idea: finding companies and people worth contacting.</p>
+          <dl class="decision__rows">
+            <dt>Tried</dt>
+            <dd>A Fit, Prep &amp; Close panel in the right rail, to check fit, prep for an interview, and weigh an offer next to each company.</dd>
+            <dt>Rejected</dt>
+            <dd>It pushed each score's breakdown below the fold.</dd>
+            <dt>Kept</dt>
+            <dd>Prep in its own app, and a right rail that shows how each score is calculated.</dd>
+            <dt>Why</dt>
+            <dd>Finding promising companies and preparing for one interview are different jobs.</dd>
+          </dl>
+          <div class="detail-gallery">
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-08-prep-in-rail.png" alt="Right rail with the selected company, suggested contacts, and a large Fit, Prep and Close panel">
+              <figcaption class="detail-gallery__caption">Tried: Fit, Prep &amp; Close in the rail.</figcaption>
+            </figure>
+            <figure class="detail-gallery__item reveal">
+              <img src="images/decision-08-score-in-rail.png" alt="Right rail with the selected company, suggested contacts, and the score breakdown and momentum trend moved up into view">
+              <figcaption class="detail-gallery__caption">Kept: the score's breakdown, up in view.</figcaption>
+            </figure>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="rail-row">
       <aside class="rail-item">
         <span class="section-label rail-item__index">04</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>Figma, then straight into the DOM</h2>
+        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
       </aside>
       <div class="rail-content">
-        <div class="detail-section__body">
-          <p>Claude suggested a radar-style view of the ranked opportunities, which gave it its name.</p>
+        <div class="stat-grid">
+          <div class="stat-tile">
+            <div class="stat-tile__number">8</div>
+            <div class="stat-tile__label">Signal sources tracked</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">280+</div>
+            <div class="stat-tile__label">Companies tracked</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number">290+</div>
+            <div class="stat-tile__label">Scans run to date</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-tile__number" id="opp-radar-stat-number" data-csv-url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTGAgujnKii4qOQYezhAMdwFcsAnLOeg_jnZtE8lOHm2dexXdH0tWtwqKeZbhPxov_Z9YzQGEH2mS2C/pub?gid=456953071&amp;single=true&amp;output=csv">&hellip;</div>
+            <div class="stat-tile__label">Contacts surfaced to date</div>
+          </div>
         </div>
-        <div class="detail-gallery">
-          <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-01.jpg" alt="Early Figma pass: a radar-style polar chart plotting ranked companies by signal strength">
-            <figcaption class="detail-gallery__caption">The early Figma pass &mdash; this radar chart is where the name "Opportunity Radar" came from.</figcaption>
-          </figure>
-          <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-02.jpg" alt="Early Figma company detail page: signal breakdown, momentum trend, and suggested contact">
-            <figcaption class="detail-gallery__caption">Its companion detail page, from the same early Figma pass.</figcaption>
-          </figure>
+        <div class="detail-section__body">
+          <p>Live and in use, surfacing real companies with rising hiring momentum and who to contact.</p>
+
+          <p>The instinct underneath: find the signal, build the smallest system for it, acknowledge its limits.</p>
+
+          <p>It shows real contacts, so I share it by walkthrough; <a href="mailto:kevin@kevinkeiper.com" class="link-muted-blue"><strong>get in touch</strong></a>.</p>
         </div>
         <div class="detail-section__body" style="margin-top: var(--sp-6);">
-          <p>A short stretch in Figma showed the DOM was the faster loop, so I left Figma.</p>
-
-          <p>One exception: once the CSS matured, I derived a style guide from it.</p>
-        </div>
-        <div style="margin-top: var(--sp-6);">
-          <div class="detail-lead-image reveal">
-            <img src="images/opprad-08-v2.jpg" alt="Code editor with an AI coding agent building the dashboard interface">
-          </div>
-          <p class="detail-gallery__caption" style="margin-top: var(--sp-3);">Interface built directly in the DOM, against the live data schema, with an AI agent as co-pilot.</p>
-        </div>
-        <div class="detail-gallery" style="margin-top: var(--sp-6);">
-          <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-03-v2.jpg" alt="Google Sheets raw contact and company data pulled by the pipeline">
-            <figcaption class="detail-gallery__caption">Raw pipeline output: companies, contacts, and signal snippets before scoring.</figcaption>
-          </figure>
-          <figure class="detail-gallery__item reveal">
-            <img src="images/opprad-04-v2.jpg" alt="Google Sheets showing computed radar results per company per scan">
-            <figcaption class="detail-gallery__caption">Computed opportunity index per company, per scan: the data model the UI was built from.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="rail-row">
-      <aside class="rail-item">
-        <span class="section-label rail-item__index">05</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Grounding documents, retrofitted</h2>
-      </aside>
-      <div class="rail-content">
-        <div class="detail-section__body">
-          <p>People further along treated project <code>.md</code> docs as essential, so I took a short class.</p>
-
-          <p>I wrote a handful mid-build, then hit a rabbit hole an earlier doc would have prevented.</p>
-
-          <p>Not a tooling problem; my gap was knowing which guardrails a project needs upfront.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="rail-row" id="agent-question">
-      <aside class="rail-item">
-        <span class="section-label rail-item__index">06</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M18 4v4h4"/></svg>Is this even an agent?</h2>
-      </aside>
-      <div class="rail-content">
-        <div class="detail-section__body">
-          <p>Partway through, I wasn't sure it was an agent, so I derived three tests.</p>
-
-          <p>Could you write the rule down, could a simpler tool do it, would two competent people disagree?</p>
-
-          <p>The answer was no on all three: a useful pipeline, but no real judgment anywhere.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="rail-row">
-      <aside class="rail-item">
-        <span class="section-label rail-item__index">07</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>What got shipped / cut</h2>
-      </aside>
-      <div class="rail-content">
-        <div class="detail-section__body">
-          <p>A ranked leaderboard, plus a company inspector with momentum trends and contacts.</p>
-
-          <p>Each score shows how it was calculated, so the ranking isn't a black box.</p>
+          <p>Shipped: a ranked leaderboard, plus a company inspector with momentum trends and contacts. Each score shows how it was calculated.</p>
         </div>
         <div class="detail-gallery" style="align-items: start;">
           <figure class="detail-gallery__item reveal">
@@ -258,58 +540,16 @@
             <figcaption class="detail-gallery__caption">Shipped: one company's detail page, with momentum, rank against the field, and a signal radar.</figcaption>
           </figure>
         </div>
-
+        <div class="detail-gallery detail-gallery--single">
+          <figure class="detail-gallery__item reveal">
+            <img src="images/opprad-style-guide.png" alt="Figma Foundations page: neutral and brand colors, seven hue ramps tied to signal sources, typography scale, and radius tokens, all derived from the codebase">
+            <figcaption class="detail-gallery__caption">Once the CSS matured, I derived a style guide from it in Figma, so the code stayed the source of truth.</figcaption>
+          </figure>
+        </div>
         <div class="tradeoff-group">
           <span class="section-label">Trade-offs</span>
           <div class="tradeoff-group__item">No Crunchbase API access, so funding-round and headcount data comes from weaker, indirect signals (news mentions, exec-hire activity) instead of the real thing &mdash; the first upgrade I'd make with real budget.</div>
           <div class="tradeoff-group__item">No verified email finder either &mdash; contacts surface as LinkedIn profiles, not confirmed email addresses, leaving a manual step from "here's the person" to actually reaching them.</div>
-          <div class="tradeoff-group__item">Job-posting discovery and verification, removed from Fit's scope entirely once it split off &mdash; it now judges company and contact fit, not whether a specific listing exists.</div>
-        </div>
-
-        <div class="detail-gallery">
-          <figure class="detail-gallery__item reveal">
-            <img src="images/Opportunity-Radar-Dashboard-with-job-search.png" alt="Old four-column dashboard: ranked list, Build Your Shortlist, Verified Openings, Company Inspector">
-            <figcaption class="detail-gallery__caption">Cut: the original four-column dashboard, built around verifying real job postings.</figcaption>
-          </figure>
-          <figure class="detail-gallery__item reveal">
-            <img src="images/Opportunity-Radar-Dashboard-with-company.png" alt="Shortlist modal: a 'Build Your Fit-Check Shortlist' drawer with criteria field, Auto-fill, and up to three empty slots to fill one at a time">
-            <figcaption class="detail-gallery__caption">Cut: a modal for batch-checking up to three companies at once.</figcaption>
-          </figure>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="rail-row">
-      <aside class="rail-item">
-        <span class="section-label rail-item__index">08</span>
-        <h2 class="detail-section__title"><svg class="rail-item__icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>Outcomes</h2>
-      </aside>
-      <div class="rail-content">
-        <div class="stat-grid">
-          <div class="stat-tile">
-            <div class="stat-tile__number">8</div>
-            <div class="stat-tile__label">Signal sources tracked</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-tile__number">39</div>
-            <div class="stat-tile__label">Companies tracked live</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-tile__number">48+</div>
-            <div class="stat-tile__label">Scans run to date</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-tile__number" id="opp-radar-stat-number" data-csv-url="https://docs.google.com/spreadsheets/d/e/2PACX-1vTGAgujnKii4qOQYezhAMdwFcsAnLOeg_jnZtE8lOHm2dexXdH0tWtwqKeZbhPxov_Z9YzQGEH2mS2C/pub?gid=456953071&amp;single=true&amp;output=csv">&hellip;</div>
-            <div class="stat-tile__label">Contacts surfaced to date</div>
-          </div>
-        </div>
-        <div class="detail-section__body">
-          <p>Live and in use, surfacing real companies with rising hiring momentum and who to contact.</p>
-
-          <p>The instinct underneath: find the signal, build the smallest system for it, stay honest about limits.</p>
-
-          <p>It shows real contacts, so I share it by walkthrough; <a href="mailto:kevin@kevinkeiper.com" class="link-muted-blue"><strong>get in touch</strong></a>.</p>
         </div>
         <ul class="tag-row" style="margin-top: var(--sp-5);">
           <li class="tag">Product Design</li>
